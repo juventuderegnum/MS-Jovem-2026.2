@@ -96,6 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const isNearBottom = (scrollPosition + windowHeight) >= (fullHeight - 300);
 
     if (scrollIndicatorBtn) {
+      if (scrollPosition > 80) {
+        scrollIndicatorBtn.classList.add('scrolled');
+      } else {
+        scrollIndicatorBtn.classList.remove('scrolled');
+      }
+
       if (isNearBottom) {
         scrollIndicatorBtn.classList.add('at-bottom');
         scrollIndicatorBtn.setAttribute('title', 'Voltar ao topo');

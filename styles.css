@@ -1096,10 +1096,10 @@ body {
   position: fixed;
   bottom: 24px;
   right: 20px;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: var(--color-dark);
+  background: var(--color-orange);
   color: #FFFFFF;
   border: none;
   cursor: pointer;
@@ -1107,17 +1107,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.22;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  opacity: 0.75;
+  box-shadow: 0 4px 14px rgba(243, 138, 0, 0.35);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   animation: floatArrow 2.5s ease-in-out infinite alternate;
 }
 
-.scroll-indicator-btn:hover {
-  opacity: 0.95;
-  transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  background: var(--color-orange);
+.scroll-indicator-btn:hover,
+.scroll-indicator-btn.scrolled,
+.scroll-indicator-btn.at-bottom {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(243, 138, 0, 0.5);
+  background: linear-gradient(135deg, #F38A00 0%, #EB0028 100%);
 }
 
 .scroll-arrow-icon {
@@ -1131,7 +1133,7 @@ body {
 .bottom-popup-card.active ~ .scroll-indicator-btn,
 body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   bottom: 140px;
-  opacity: 0.35;
+  opacity: 0.9;
 }
 
 @keyframes floatArrow {
