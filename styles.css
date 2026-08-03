@@ -1,0 +1,1521 @@
+/* ==========================================================================
+   JUVENTUDE MISSIONÁRIA - REGNUM CHRISTI VALE DO PARAÍBA
+   Ultra-Minimalist Brand Design System & Mobile First UX
+   ========================================================================== */
+
+/* --- PALETA DE CORES (Manual de Identidade Corporativa JFM) --- */
+:root {
+  /* Cores Principais do Isotipo Juventude Missionária */
+  --color-yellow: #FFDB00;        /* Amarelo Vibrante JFM */
+  --color-orange: #F38A00;        /* Laranja Quente JFM */
+  --color-red: #EB0028;           /* Vermelho Vibrante JFM */
+  --color-dark: #2E2925;          /* Preto/Grafite JFM */
+
+  /* Cores Auxiliares e Neutras */
+  --color-blue-dark: #001A70;     /* Pantone 2748C */
+  --color-bg-light: #FDFCF9;      /* Fundo Off-White Limpo */
+  --color-card-bg: #FFFFFF;
+  --color-border: #EAE6DF;
+  --color-text-muted: #5C564E;
+  
+  /* WhatsApp */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-hover: #1EBE5D;
+
+  /* Tipografias */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-bible: 'Newsreader', Georgia, serif;
+
+  /* Sombras & Transições */
+  --shadow-subtle: 0 4px 16px rgba(46, 41, 37, 0.03);
+  --shadow-card: 0 8px 24px rgba(46, 41, 37, 0.05);
+  --shadow-highlight: 0 12px 36px rgba(243, 138, 0, 0.18);
+  --shadow-pop: 0 16px 48px rgba(46, 41, 37, 0.12);
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- RESET & BASE --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-light);
+  color: var(--color-dark);
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* --- ELEMENTOS DE FUNDO MINIMALISTAS --- */
+.bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(243, 138, 0, 0.06);
+}
+
+.circle-1 {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -200px;
+}
+
+.circle-2 {
+  width: 900px;
+  height: 900px;
+  bottom: -300px;
+  left: -300px;
+}
+
+/* --- CONTAINER --- */
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.container-narrow {
+  max-width: 720px;
+}
+
+/* --- HEADER --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(253, 252, 249, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.75rem 0;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1.1;
+  color: var(--color-dark);
+}
+
+.brand-subtitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* --- BOTÕES --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  border-radius: 99px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  white-space: nowrap;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.825rem;
+}
+
+.btn-md {
+  padding: 0.85rem 1.5rem;
+  font-size: 0.925rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FFDB00 0%, #F38A00 100%);
+  color: var(--color-dark);
+  box-shadow: 0 4px 14px rgba(243, 138, 0, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(243, 138, 0, 0.35);
+}
+
+.btn-jfm-brand {
+  background: linear-gradient(135deg, #F38A00 0%, #EB0028 100%);
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(243, 138, 0, 0.3);
+}
+
+.btn-jfm-brand:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 24px rgba(235, 0, 40, 0.4);
+}
+
+.btn-whatsapp-header {
+  background: var(--color-whatsapp);
+  color: #FFFFFF;
+}
+
+.btn-whatsapp-header:hover {
+  background: var(--color-whatsapp-hover);
+}
+
+.btn-whatsapp {
+  background: var(--color-whatsapp);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.2);
+}
+
+.btn-whatsapp:hover {
+  background: var(--color-whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-dark {
+  background: var(--color-dark);
+  color: #FFFFFF;
+}
+
+.btn-dark:hover {
+  background: #1A1715;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-dark);
+}
+
+.btn-outline-dark:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+  background: rgba(243, 138, 0, 0.04);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--color-orange);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+  padding: 2.5rem 0 4rem 0;
+  text-align: center;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 1. TÍTULO PRINCIPAL (FONTE BÍBLICA ELEGANTE) */
+.hero-headline-serif {
+  font-family: var(--font-bible);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--color-dark);
+  margin-bottom: 1.5rem;
+}
+
+.text-orange {
+  color: var(--color-orange);
+  font-style: italic;
+}
+
+/* 2. CARD DO LINK DO WHATSAPP */
+.hero-top-cta-wrapper {
+  width: 100%;
+  max-width: 620px;
+  margin-bottom: 2rem;
+}
+
+.hero-whatsapp-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: #FFFFFF;
+  border: 2px solid var(--color-whatsapp);
+  padding: 0.85rem 1.2rem;
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--color-dark);
+  box-shadow: var(--shadow-subtle);
+  transition: var(--transition-normal);
+  text-align: left;
+}
+
+.hero-whatsapp-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
+  background: #F4FDF7;
+}
+
+.whatsapp-badge-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--color-whatsapp);
+  color: #FFFFFF;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.banner-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-highlight {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #128C7E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.banner-title {
+  font-family: var(--font-display);
+  font-size: 0.925rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.25;
+}
+
+/* 3. IMAGEM DA MENINA COM TAG LARANJA PADRÃO */
+.hero-image-container {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 2.25rem;
+}
+
+.hero-image-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-overlay-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-orange); /* Fundo Laranja Padrão */
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  white-space: nowrap;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 4px 12px rgba(243, 138, 0, 0.35);
+}
+
+/* 4. MENSAGEM PERSUASIVA & ACOLHEDORA MINIMALISTA */
+.movement-persuasive-box {
+  width: 100%;
+  max-width: 640px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-orange);
+  border-radius: 20px;
+  padding: 1.85rem 1.65rem;
+  margin-bottom: 2.25rem;
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition-normal);
+}
+
+.movement-persuasive-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.persuasive-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.persuasive-title {
+  font-family: var(--font-bible);
+  font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+}
+
+.hero-persuasive-text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.hero-persuasive-text strong {
+  color: var(--color-dark);
+}
+
+/* DESTAQUE E FONTE DIFERENCIADA PARA "RESPOSTA DE DEUS PARA MUITAS FAMÍLIAS" */
+.highlight-deus-resposta {
+  color: var(--color-orange);
+  font-weight: 700;
+}
+
+.font-serif-familias {
+  font-family: var(--font-bible);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.12em;
+  color: #D96200; /* Laranja rico ligeiramente diferente */
+}
+
+/* 5. CARD DESTACADO COM OS TONS OFICIAIS DA LOGO JUVENTUDE MISSIONÁRIA */
+.form-interest-card-highlight {
+  width: 100%;
+  max-width: 620px;
+  background: linear-gradient(180deg, #FFFDF8 0%, #FFF8EE 100%);
+  border: 2px solid var(--color-orange);
+  border-radius: 24px;
+  padding: 2rem 1.75rem;
+  margin-bottom: 2.25rem;
+  box-shadow: var(--shadow-highlight);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-normal);
+}
+
+.form-interest-card-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #FFDB00 0%, #F38A00 50%, #EB0028 100%);
+}
+
+.form-interest-card-highlight:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 42px rgba(243, 138, 0, 0.25);
+}
+
+.interest-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(243, 138, 0, 0.1);
+  color: var(--color-orange);
+  border: 1px solid rgba(243, 138, 0, 0.25);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.interest-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 800;
+  font-style: normal;
+  color: var(--color-dark);
+  margin-bottom: 0.4rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.interest-card-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  max-width: 520px;
+}
+
+.prayer-commitment-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(243, 138, 0, 0.07);
+  border: 1px dashed rgba(243, 138, 0, 0.35);
+  border-radius: 12px;
+  padding: 0.65rem 1.1rem;
+  margin-bottom: 1.4rem;
+  font-size: 0.825rem;
+  color: var(--color-dark);
+  font-weight: 600;
+  max-width: 520px;
+  text-align: left;
+  line-height: 1.45;
+}
+
+.prayer-commitment-note .prayer-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* 6. FRASE BÍBLICA CATÓLICA */
+.catholic-bible-card {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-orange);
+  border-radius: 16px;
+  padding: 1.35rem 1.5rem;
+  max-width: 520px;
+  width: 100%;
+  margin-bottom: 2.25rem;
+  box-shadow: var(--shadow-subtle);
+  text-align: center;
+}
+
+.bible-cross-symbol {
+  font-size: 1.1rem;
+  color: var(--color-orange);
+  margin-bottom: 0.3rem;
+}
+
+.catholic-quote {
+  font-family: var(--font-bible);
+  font-size: 1.65rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.3;
+  margin-bottom: 0.35rem;
+}
+
+.catholic-reference {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.825rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-style: normal;
+}
+
+/* 7. CONTADOR REGRESSIVO MINIMALISTA */
+.countdown-card {
+  width: 100%;
+  max-width: 680px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 1.85rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 2rem;
+}
+
+.countdown-header-minimal {
+  margin-bottom: 1.25rem;
+}
+
+.countdown-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  letter-spacing: 0.08em;
+}
+
+.countdown-event-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.countdown-event-dates {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  margin-top: 0.2rem;
+}
+
+.timer-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 55px;
+}
+
+.timer-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-dark);
+}
+
+.timer-divider {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  margin-top: -0.75rem;
+}
+
+.timer-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+.countdown-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* 8. DÚVIDAS FREQUENTES LOGO EMBAIXO DO TIMER */
+.faq-container-inline {
+  width: 100%;
+  max-width: 680px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  padding: 1.6rem 1.35rem;
+  box-shadow: var(--shadow-card);
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.section-title-wrapper-minimal {
+  margin-bottom: 1.15rem;
+  text-align: center;
+}
+
+.section-title-sm {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.accordion-item.active {
+  border-color: var(--color-orange);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  cursor: pointer;
+}
+
+.accordion-icon {
+  color: var(--color-orange);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-out;
+  padding: 0 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+}
+
+.accordion-item.active .accordion-content {
+  padding: 0 1rem 0.85rem 1rem;
+}
+
+/* --- SEÇÃO DETALHADA SOBRE O MOVIMENTO --- */
+.about-movement-section {
+  padding: 2.5rem 0 3.5rem 0;
+}
+
+.movement-details-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 22px;
+  padding: 2.25rem 1.75rem;
+  box-shadow: var(--shadow-card);
+}
+
+.movement-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.movement-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.3vw, 1.75rem);
+  font-weight: 800;
+  color: var(--color-dark);
+  margin: 0.35rem 0 0.9rem 0;
+}
+
+.movement-paragraph {
+  font-size: 0.925rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+/* LOGO REGNUM CHRISTI INSTITUCIONAL */
+.regnum-christi-logo-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 0 0.5rem 0;
+}
+
+.regnum-christi-official-logo {
+  max-width: 290px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movement-motto {
+  margin-top: 1.25rem;
+  padding: 0.9rem 1.15rem;
+  background: rgba(243, 138, 0, 0.06);
+  border-left: 4px solid var(--color-orange);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  color: var(--color-dark);
+}
+
+/* --- CITAÇÕES BÍBLICAS EM PIRÂMIDE INVERTIDA --- */
+.biblical-verses-section {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: #FFFFFF;
+}
+
+.inverted-pyramid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.pyramid-row-top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 ITENS LADO A LADO EM TODAS AS TELAS */
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.pyramid-row-bottom {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.verse-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+}
+
+.verse-item-centered {
+  max-width: 420px;
+}
+
+.verse-text {
+  font-family: var(--font-bible);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--color-dark);
+  line-height: 1.4;
+}
+
+.verse-ref {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- PILARES DA MISSÃO --- */
+.pillars-section {
+  padding: 3.5rem 0;
+}
+
+.section-title-wrapper {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.25rem auto;
+}
+
+.section-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  margin-bottom: 0.3rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 0.4rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.pillar-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.35rem 1.2rem;
+  position: relative;
+  transition: var(--transition-normal);
+}
+
+.pillar-card:hover {
+  border-color: var(--color-orange);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.pillar-number {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.pillar-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.35rem;
+}
+
+.pillar-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* --- BANNER FINAL --- */
+.final-cta-section {
+  padding: 3rem 0 4.5rem 0;
+}
+
+.cta-elegant-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-orange);
+  border-radius: 22px;
+  padding: 3rem 1.75rem;
+  text-align: center;
+  color: var(--color-dark);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.cta-logo-wrapper {
+  margin-bottom: 1rem;
+}
+
+.cta-jfm-logo {
+  height: 64px;
+  width: auto;
+  display: block;
+}
+
+.cta-regnum-logo {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cta-title {
+  font-family: var(--font-bible);
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin-bottom: 0.75rem;
+}
+
+.cta-subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  max-width: 580px;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+/* --- BOTÃO FLUTUANTE DE ROLAGEM --- */
+.scroll-indicator-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-dark);
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.22;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatArrow 2.5s ease-in-out infinite alternate;
+}
+
+.scroll-indicator-btn:hover {
+  opacity: 0.95;
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  background: var(--color-orange);
+}
+
+.scroll-arrow-icon {
+  transition: transform 0.3s ease;
+}
+
+.scroll-indicator-btn.at-bottom .scroll-arrow-icon {
+  transform: rotate(180deg);
+}
+
+.bottom-popup-card.active ~ .scroll-indicator-btn,
+body:has(.bottom-popup-card.active) .scroll-indicator-btn {
+  bottom: 140px;
+  opacity: 0.35;
+}
+
+@keyframes floatArrow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(5px); }
+}
+
+/* --- POP-UP SLIDE-IN --- */
+.bottom-popup-card {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 120;
+  width: calc(100vw - 40px);
+  max-width: 360px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-whatsapp);
+  border-radius: 20px;
+  padding: 1.25rem 1.15rem;
+  box-shadow: var(--shadow-pop);
+  transform: translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.bottom-popup-card.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  line-height: 1;
+}
+
+.popup-close-btn:hover {
+  color: var(--color-dark);
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.popup-badge {
+  font-size: 0.675rem;
+  font-weight: 800;
+  color: #128C7E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.popup-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.2;
+  margin-top: 0.15rem;
+}
+
+.popup-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  margin-top: 0.2rem;
+}
+
+/* --- FOOTER INSTITUCIONAL --- */
+.site-footer {
+  background: #FFFFFF;
+  border-top: 1px solid var(--color-border);
+  padding: 2.5rem 0 2rem 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.footer-regnum-logo {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.footer-inst-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-top: 0.25rem;
+}
+
+.footer-disclaimer-card {
+  max-width: 640px;
+  background: #FDFCF9;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.25rem 1.35rem;
+  margin: 0.75rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.footer-disclaimer-text {
+  font-size: 0.85rem;
+  color: var(--color-dark);
+  line-height: 1.55;
+}
+
+.footer-disclaimer-subtext {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.footer-official-link {
+  margin-top: 0.25rem;
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.footer-official-link:hover {
+  background: var(--color-orange);
+  color: #FFFFFF;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 0.4rem;
+}
+
+/* --- MODALS --- */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(46, 41, 37, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 440px;
+  padding: 1.65rem 1.4rem;
+  position: relative;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--color-dark);
+}
+
+.modal-header {
+  margin-bottom: 1.15rem;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-dark);
+}
+
+.modal-subtitle {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: left;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.65rem;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.form-group input {
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--color-orange);
+}
+
+/* --- TOASTS --- */
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.toast {
+  background: var(--color-dark);
+  color: #FFFFFF;
+  padding: 0.65rem 0.95rem;
+  border-radius: 8px;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-left: 3px solid var(--color-orange);
+}
+
+/* --- RESPONSIVIDADE COMPLETA PARA CELULARES (MOBILE QA) --- */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .site-header {
+    padding: 0.6rem 0;
+  }
+
+  .brand-logo {
+    height: 34px;
+  }
+
+  .brand-title {
+    font-size: 0.9rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.625rem;
+    letter-spacing: 0.03em;
+  }
+
+  .header-actions #btnShareHeader span {
+    display: none;
+  }
+
+  .btn-sm {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.775rem;
+  }
+
+  .btn-lg {
+    padding: 0.9rem 1.4rem;
+    font-size: 0.925rem;
+    width: 100%;
+  }
+
+  .btn-md {
+    width: 100%;
+  }
+
+  .hero-section {
+    padding: 1.75rem 0 3rem 0;
+  }
+
+  .hero-top-cta-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-whatsapp-banner {
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+    border-radius: 14px;
+  }
+
+  .whatsapp-badge-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .banner-title {
+    font-size: 0.85rem;
+  }
+
+  .movement-persuasive-box {
+    padding: 1.5rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .persuasive-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-persuasive-text {
+    font-size: 0.875rem;
+  }
+
+  .form-interest-card-highlight {
+    padding: 1.5rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .interest-card-title {
+    font-size: 1.35rem;
+  }
+
+  .interest-card-desc {
+    font-size: 0.85rem;
+  }
+
+  .countdown-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .timer-flex {
+    gap: 0.4rem;
+  }
+
+  .timer-unit {
+    min-width: 44px;
+  }
+
+  .timer-value {
+    font-size: 1.6rem;
+  }
+
+  .timer-divider {
+    font-size: 1.2rem;
+  }
+
+  .faq-container-inline {
+    padding: 1.35rem 1rem;
+    border-radius: 18px;
+  }
+
+  .movement-details-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .footer-disclaimer-card {
+    padding: 1.1rem 1rem;
+  }
+
+  .footer-official-link {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.85rem;
+    white-space: normal;
+  }
+
+  /* PIRÂMIDE INVERTIDA NO CELULAR: 2 LADO A LADO NA LINHA SUPERIOR, 1 CENTRALIZADO EMBAIXO */
+  .pyramid-row-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem;
+  }
+
+  .pyramid-row-top .verse-text {
+    font-size: 0.875rem;
+  }
+
+  .pyramid-row-top .verse-ref {
+    font-size: 0.65rem;
+  }
+
+  .pyramid-row-bottom .verse-text {
+    font-size: 0.95rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .scroll-indicator-btn {
+    bottom: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    opacity: 0.2;
+  }
+
+  .bottom-popup-card {
+    bottom: 12px;
+    right: 12px;
+    width: calc(100vw - 24px);
+    padding: 1.1rem 1rem;
+    border-radius: 16px;
+  }
+
+  .bottom-popup-card.active ~ .scroll-indicator-btn,
+  body:has(.bottom-popup-card.active) .scroll-indicator-btn {
+    bottom: 130px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-title {
+    font-size: 0.825rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.575rem;
+  }
+
+  .timer-value {
+    font-size: 1.35rem;
+  }
+
+  .pyramid-row-top .verse-text {
+    font-size: 0.825rem;
+  }
+}
