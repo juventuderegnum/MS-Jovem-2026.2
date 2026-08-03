@@ -716,14 +716,14 @@ body {
   background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: 20px;
-  padding: 1.6rem 1.35rem;
+  padding: 0.95rem 0.85rem;
   box-shadow: var(--shadow-card);
   text-align: left;
   margin-bottom: 2rem;
 }
 
 .section-title-wrapper-minimal {
-  margin-bottom: 1.15rem;
+  margin-bottom: 0.45rem;
   text-align: center;
 }
 
@@ -737,7 +737,7 @@ body {
 .accordion {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.14rem;
 }
 
 .accordion-item {
@@ -751,7 +751,7 @@ body {
 
 .accordion-header {
   width: 100%;
-  padding: 0.85rem 1rem;
+  padding: 0.58rem 0.82rem;
   background: none;
   border: none;
   display: flex;
@@ -780,13 +780,13 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.25s ease-out;
-  padding: 0 1rem;
+  padding: 0 0.82rem;
   color: var(--color-text-muted);
   font-size: 0.85rem;
 }
 
 .accordion-item.active .accordion-content {
-  padding: 0 1rem 0.85rem 1rem;
+  padding: 0 0.82rem 0.45rem 0.82rem;
 }
 
 /* --- SEÇÃO DETALHADA SOBRE O MOVIMENTO --- */
@@ -1500,6 +1500,12 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     font-size: 0.85rem;
   }
 
+  .banner-highlight {
+    font-size: 0.62rem;
+    white-space: nowrap;
+    line-height: 1.1;
+  }
+
   .movement-persuasive-box {
     padding: 1.5rem 1.15rem;
     border-radius: 18px;
@@ -1548,7 +1554,7 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   }
 
   .faq-container-inline {
-    padding: 1.35rem 1rem;
+    padding: 0.85rem 0.8rem;
     border-radius: 18px;
   }
 
