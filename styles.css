@@ -51,10 +51,38 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-bg-light);
   color: var(--color-dark);
-  line-height: 1.65;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+}
+
+/* --- ACESSIBILIDADE INVISÍVEL (SKIP-LINK & FOCO DE TECLADO) --- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-orange);
+  color: #FFFFFF;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s ease;
+  box-shadow: 0 4px 12px rgba(243, 138, 0, 0.4);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
 }
 
 /* --- ELEMENTOS DE FUNDO MINIMALISTAS --- */
