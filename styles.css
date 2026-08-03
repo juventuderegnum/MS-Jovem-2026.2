@@ -169,7 +169,8 @@ body {
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition-normal);
-  white-space: nowrap;
+  max-width: 100%;
+  text-align: center;
 }
 
 .btn-sm {
