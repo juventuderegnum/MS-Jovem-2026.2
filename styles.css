@@ -392,6 +392,14 @@ body {
   line-height: 1.25;
 }
 
+.banner-date {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  opacity: 0.8;
+  margin-top: 0.15rem;
+}
+
 /* 3. IMAGEM DA MENINA COM TAG LARANJA PADRÃO */
 .hero-image-container {
   width: 100%;
