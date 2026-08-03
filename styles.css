@@ -238,6 +238,13 @@ body {
   box-shadow: 0 10px 24px rgba(235, 0, 40, 0.4);
 }
 
+.btn-interest-card {
+  padding: 0.7rem 1.2rem;
+  font-size: 0.9rem;
+  align-self: center;
+  width: fit-content;
+}
+
 .btn-whatsapp-header {
   background: var(--color-whatsapp);
   color: #FFFFFF;
