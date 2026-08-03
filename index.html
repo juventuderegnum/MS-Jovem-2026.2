@@ -107,7 +107,7 @@
           </p>
         </div>
 
-        <!-- 5. CARD DESTACADO COM A LISTA DE INTERESSE & PLANEJAMENTO -->
+        <!-- 5. CARD DESTACADO COM A LISTA DE INTERESSE & PLANEJAMENTO (LINK PARA GOOGLE FORMS) -->
         <div class="form-interest-card-highlight">
           <div class="interest-badge-pill">LISTA DE INTERESSE & PLANEJAMENTO</div>
           <h3 class="interest-card-title">Quer fazer parte da Missão em SJC?</h3>
@@ -117,9 +117,9 @@
           <div class="prayer-commitment-note">
             <span>Nossa equipe colocará a intenção de cada inscrito em nossas orações e Adoração ao Santíssimo.</span>
           </div>
-          <button class="btn btn-jfm-brand btn-lg" id="btnInterestCardOpen">
-            <span>Preencher Ficha de Interesse Rápida →</span>
-          </button>
+          <a href="https://forms.google.com/" target="_blank" rel="noopener noreferrer" class="btn btn-jfm-brand btn-lg" id="btnInterestCardOpen">
+            <span>Preencher Ficha de Interesse no Google Forms →</span>
+          </a>
         </div>
 
         <!-- 6. FRASE BÍBLICA CATÓLICA -->
@@ -165,9 +165,9 @@
               class="btn btn-whatsapp btn-lg" id="btnWhatsappMain">
               <span>Garantir Minha Vaga no WhatsApp</span>
             </a>
-            <button class="btn btn-outline-dark btn-md" id="btnOpenForm">
-              <span>Tirar Dúvidas com a Coordenação</span>
-            </button>
+            <a href="https://forms.google.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-md" id="btnOpenForm">
+              <span>Preencher Ficha no Google Forms</span>
+            </a>
           </div>
         </div>
 
@@ -448,45 +448,6 @@
         Paraíba. Todos os direitos reservados.</p>
     </div>
   </footer>
-
-  <!-- MODAL DE CONTATO / TIRAR DÚVIDAS E PRÉ-INSCRIÇÃO -->
-  <div class="modal-backdrop" id="interestModal" aria-hidden="true">
-    <div class="modal-card">
-      <button class="modal-close" id="btnCloseModal" title="Fechar">&times;</button>
-      <div class="modal-header">
-        <h3 class="modal-title">Ficha de Pré-Inscrição & Interesse</h3>
-        <p class="modal-subtitle">Preencha seus dados abaixo para ajudar a equipe a organizar a demanda, receber o Guia
-          do Missionário e tirar suas dúvidas no WhatsApp.</p>
-      </div>
-      <form id="interestForm" class="modal-form">
-        <div class="form-group">
-          <label for="inputName">Seu Nome Completo *</label>
-          <input type="text" id="inputName" required placeholder="Ex: Maria Silva">
-        </div>
-        <div class="form-group">
-          <label for="inputPhone">Seu WhatsApp com DDD *</label>
-          <input type="tel" id="inputPhone" required placeholder="(12) 99999-9999">
-        </div>
-        <div class="form-group">
-          <label for="inputEmail">Seu E-mail principal</label>
-          <input type="email" id="inputEmail" placeholder="seuemail@exemplo.com">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="inputAge">Idade</label>
-            <input type="number" id="inputAge" placeholder="Ex: 20" min="12" max="99">
-          </div>
-          <div class="form-group">
-            <label for="inputCity">Cidade / Paróquia</label>
-            <input type="text" id="inputCity" placeholder="Sua cidade">
-          </div>
-        </div>
-        <button type="submit" class="btn btn-jfm-brand btn-block">
-          <span>Confirmar Pré-Inscrição no WhatsApp</span>
-        </button>
-      </form>
-    </div>
-  </div>
 
   <div class="toast-container" id="toastContainer"></div>
 
