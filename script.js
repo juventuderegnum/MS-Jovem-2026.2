@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     : defaultDate;
 
   let eventName = localStorage.getItem('missoes_event_name') || "Missão Nossa Senhora Aparecida";
-  let whatsappGroupUrl = localStorage.getItem('missoes_whatsapp_url') || "https://chat.whatsapp.com/missoes-regnumchristi";
+  let whatsappGroupUrl = localStorage.getItem('missoes_whatsapp_url') || "https://chat.whatsapp.com/D5Y6qvgEklg86qRzC8jn02";
 
   // --- 2. DOM ELEMENTS ---
   const elDays = document.getElementById('days');
