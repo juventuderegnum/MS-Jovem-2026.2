@@ -1118,8 +1118,8 @@ body {
 .scroll-indicator-btn.at-bottom {
   opacity: 1;
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(243, 138, 0, 0.5);
-  background: linear-gradient(135deg, #F38A00 0%, #EB0028 100%);
+  box-shadow: 0 6px 18px rgba(243, 138, 0, 0.45);
+  background: var(--color-orange);
 }
 
 .scroll-arrow-icon {
