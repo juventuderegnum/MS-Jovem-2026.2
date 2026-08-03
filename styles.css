@@ -228,14 +228,14 @@ body {
 }
 
 .btn-jfm-brand {
-  background: linear-gradient(135deg, #F38A00 0%, #EB0028 100%);
+  background: linear-gradient(135deg, #FF6500 0%, #FF7A00 100%);
   color: #FFFFFF;
-  box-shadow: 0 6px 18px rgba(243, 138, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(255, 101, 0, 0.28);
 }
 
 .btn-jfm-brand:hover {
   transform: translateY(-2px) scale(1.01);
-  box-shadow: 0 10px 24px rgba(235, 0, 40, 0.4);
+  box-shadow: 0 10px 24px rgba(255, 101, 0, 0.34);
 }
 
 .btn-interest-card {
