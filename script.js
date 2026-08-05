@@ -150,15 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
         i.classList.remove('active');
         const h = i.querySelector('.accordion-header');
         if (h) h.setAttribute('aria-expanded', 'false');
-        const content = i.querySelector('.accordion-content');
-        if (content) content.style.maxHeight = null;
       });
 
       if (!isActive) {
         item.classList.add('active');
         header.setAttribute('aria-expanded', 'true');
-        const content = item.querySelector('.accordion-content');
-        if (content) content.style.maxHeight = content.scrollHeight + 'px';
       }
     });
   });
