@@ -644,6 +644,7 @@ body {
 .quote-carousel-card {
   cursor: pointer;
   user-select: none;
+  touch-action: pan-y;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
   margin-bottom: 2.25rem;
 }
@@ -691,23 +692,33 @@ body {
   background: var(--color-orange);
 }
 
-.carousel-hint-tag {
-  display: inline-flex;
+.carousel-actions-group {
+  display: flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.725rem;
-  font-weight: 700;
-  color: var(--color-text-muted);
-  background: rgba(46, 41, 37, 0.05);
-  padding: 0.25rem 0.65rem;
-  border-radius: 99px;
-  transition: background 0.2s ease, color 0.2s ease;
+  gap: 0.45rem;
 }
 
-.quote-carousel-card:hover .carousel-hint-tag,
-.quote-carousel-card:focus-visible .carousel-hint-tag {
+.carousel-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  background: rgba(46, 41, 37, 0.05);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-action-btn:hover,
+.carousel-action-btn:focus-visible {
   background: rgba(243, 138, 0, 0.12);
   color: var(--color-orange);
+  border-color: rgba(243, 138, 0, 0.3);
 }
 
 /* 7. CONTADOR REGRESSIVO MINIMALISTA */

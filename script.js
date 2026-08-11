@@ -159,57 +159,145 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- 7. SINGLE QUOTE CAROUSEL ENGINE ---
+  // --- 7. SINGLE QUOTE CAROUSEL ENGINE WITH TRANSLATION ---
   const quoteCarouselCard = document.getElementById('quoteCarouselCard');
   const quoteCarouselText = document.getElementById('quoteCarouselText');
   const quoteCarouselRef = document.getElementById('quoteCarouselRef');
+  const btnTranslateQuote = document.getElementById('btnTranslateQuote');
+  const translateBtnLabel = document.getElementById('translateBtnLabel');
+  const btnNextQuote = document.getElementById('btnNextQuote');
+  const nextBtnLabel = document.getElementById('nextBtnLabel');
   const dot0 = document.getElementById('dot0');
   const dot1 = document.getElementById('dot1');
 
-  if (quoteCarouselCard && quoteCarouselText && quoteCarouselRef) {
+  if (quoteCarouselCard && quoteCarouselText) {
     const quotesList = [
       {
-        quote: "«Christus vivit. Christus vocat. Christus mittit.»",
-        ref: "Cristo vive. Cristo chama. Cristo envia."
+        latin: "«Christus vivit. Christus vocat. Christus mittit.»",
+        pt: "«Cristo vive. Cristo chama. Cristo envia.»",
+        latinRef: "",
+        ptRef: "",
+        hasTranslation: true,
+        nextLabel: "Próxima →"
       },
       {
-        quote: "«Vinde e vede.»",
-        ref: "São João 1, 39"
+        latin: "«Vinde e vede.»",
+        pt: "«Vinde e vede.»",
+        latinRef: "São João 1, 39",
+        ptRef: "São João 1, 39",
+        hasTranslation: false,
+        nextLabel: "← Voltar"
       }
     ];
 
-    let currentQuoteIndex = 0;
+    let currentIndex = 0;
+    let isTranslated = false;
 
-    function nextQuote() {
-      currentQuoteIndex = (currentQuoteIndex + 1) % quotesList.length;
-
+    function renderQuote() {
       quoteCarouselText.style.opacity = '0';
-      quoteCarouselText.style.transform = 'translateY(-4px)';
-      quoteCarouselRef.style.opacity = '0';
+      if (quoteCarouselRef) quoteCarouselRef.style.opacity = '0';
 
       setTimeout(() => {
-        const q = quotesList[currentQuoteIndex];
-        quoteCarouselText.textContent = q.quote;
-        quoteCarouselRef.textContent = q.ref;
+        const q = quotesList[currentIndex];
+
+        if (isTranslated && q.hasTranslation) {
+          quoteCarouselText.textContent = q.pt;
+          if (quoteCarouselRef) {
+            quoteCarouselRef.textContent = q.ptRef;
+            quoteCarouselRef.style.display = q.ptRef ? 'block' : 'none';
+          }
+          if (translateBtnLabel) translateBtnLabel.textContent = "Ver em Latim";
+        } else {
+          quoteCarouselText.textContent = q.latin;
+          if (quoteCarouselRef) {
+            quoteCarouselRef.textContent = q.latinRef;
+            quoteCarouselRef.style.display = q.latinRef ? 'block' : 'none';
+          }
+          if (translateBtnLabel) translateBtnLabel.textContent = "Traduzir";
+        }
+
+        if (btnTranslateQuote) {
+          btnTranslateQuote.style.display = q.hasTranslation ? 'inline-flex' : 'none';
+        }
+
+        if (nextBtnLabel) {
+          nextBtnLabel.textContent = q.nextLabel;
+        }
 
         if (dot0 && dot1) {
-          dot0.classList.toggle('active', currentQuoteIndex === 0);
-          dot1.classList.toggle('active', currentQuoteIndex === 1);
+          dot0.classList.toggle('active', currentIndex === 0);
+          dot1.classList.toggle('active', currentIndex === 1);
         }
 
         quoteCarouselText.style.opacity = '1';
-        quoteCarouselText.style.transform = 'translateY(0)';
-        quoteCarouselRef.style.opacity = '1';
+        if (quoteCarouselRef) quoteCarouselRef.style.opacity = '1';
       }, 150);
     }
 
-    quoteCarouselCard.addEventListener('click', nextQuote);
+    if (btnTranslateQuote) {
+      btnTranslateQuote.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isTranslated = !isTranslated;
+        renderQuote();
+      });
+    }
+
+    function nextQuote() {
+      currentIndex = (currentIndex + 1) % quotesList.length;
+      isTranslated = false;
+      renderQuote();
+    }
+
+    function prevQuote() {
+      currentIndex = (currentIndex - 1 + quotesList.length) % quotesList.length;
+      isTranslated = false;
+      renderQuote();
+    }
+
+    if (btnNextQuote) {
+      btnNextQuote.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextQuote();
+      });
+    }
+
+    // Touch Swipe Gesture Support (Arrastar para esquerda = Próxima, Arrastar para direita = Voltar)
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    quoteCarouselCard.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    quoteCarouselCard.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+
+      if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX < 0) {
+          nextQuote();
+        } else {
+          prevQuote();
+        }
+      }
+    }, { passive: true });
+
+    quoteCarouselCard.addEventListener('click', (e) => {
+      if (e.target.closest('#btnTranslateQuote') || e.target.closest('#btnNextQuote')) return;
+      nextQuote();
+    });
+
     quoteCarouselCard.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
+      if (e.target === quoteCarouselCard && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
         nextQuote();
       }
     });
+
+    renderQuote();
   }
 
   // --- 8. TOAST NOTIFICATION UTILITY ---
