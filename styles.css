@@ -640,31 +640,58 @@ body {
   font-style: normal;
 }
 
-/* CARD DA FRASE EM LATIM INTERATIVA */
-.latin-toggle-card {
+/* CARROSSEL INTERATIVO DE FRASES CATÓLICAS */
+.quote-carousel-card {
   cursor: pointer;
   user-select: none;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-  margin-top: -0.75rem;
+  margin-bottom: 2.25rem;
 }
 
-.latin-toggle-card:hover,
-.latin-toggle-card:focus-visible {
+.quote-carousel-card:hover,
+.quote-carousel-card:focus-visible {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(243, 138, 0, 0.15);
   border-color: var(--color-orange);
 }
 
-.latin-quote-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 0.25rem;
+.quote-carousel-text {
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
-.latin-hint-badge {
+.quote-carousel-ref {
+  transition: opacity 0.15s ease;
+}
+
+.quote-carousel-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.85rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--color-border);
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--color-border);
+  transition: background 0.25s ease, width 0.25s ease;
+}
+
+.carousel-dot.active {
+  width: 18px;
+  background: var(--color-orange);
+}
+
+.carousel-hint-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -677,8 +704,8 @@ body {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.latin-toggle-card:hover .latin-hint-badge,
-.latin-toggle-card:focus-visible .latin-hint-badge {
+.quote-carousel-card:hover .carousel-hint-tag,
+.quote-carousel-card:focus-visible .carousel-hint-tag {
   background: rgba(243, 138, 0, 0.12);
   color: var(--color-orange);
 }

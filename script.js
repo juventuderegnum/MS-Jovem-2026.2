@@ -159,40 +159,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- 7. LATIN QUOTE INTERACTIVE TOGGLE ---
-  const latinQuoteCard = document.getElementById('latinQuoteCard');
-  const latinQuoteText = document.getElementById('latinQuoteText');
-  const latinQuoteRef = document.getElementById('latinQuoteRef');
-  const latinHintText = document.getElementById('latinHintText');
+  // --- 7. SINGLE QUOTE CAROUSEL ENGINE ---
+  const quoteCarouselCard = document.getElementById('quoteCarouselCard');
+  const quoteCarouselText = document.getElementById('quoteCarouselText');
+  const quoteCarouselRef = document.getElementById('quoteCarouselRef');
+  const dot0 = document.getElementById('dot0');
+  const dot1 = document.getElementById('dot1');
 
-  if (latinQuoteCard && latinQuoteText) {
-    let isTranslated = false;
-    const textLatin = "«Christus vivit. Christus vocat. Christus mittit.»";
-    const textPt = "«Cristo vive. Cristo chama. Cristo envia.»";
+  if (quoteCarouselCard && quoteCarouselText && quoteCarouselRef) {
+    const quotesList = [
+      {
+        quote: "«Christus vivit. Christus vocat. Christus mittit.»",
+        ref: "Cristo vive. Cristo chama. Cristo envia."
+      },
+      {
+        quote: "«Vinde e vede.»",
+        ref: "São João 1, 39"
+      }
+    ];
 
-    function toggleLatinTranslation() {
-      isTranslated = !isTranslated;
-      latinQuoteText.style.opacity = '0';
+    let currentQuoteIndex = 0;
+
+    function nextQuote() {
+      currentQuoteIndex = (currentQuoteIndex + 1) % quotesList.length;
+
+      quoteCarouselText.style.opacity = '0';
+      quoteCarouselText.style.transform = 'translateY(-4px)';
+      quoteCarouselRef.style.opacity = '0';
 
       setTimeout(() => {
-        if (isTranslated) {
-          latinQuoteText.textContent = textPt;
-          if (latinQuoteRef) latinQuoteRef.textContent = "Lema Vocacional (Tradução)";
-          if (latinHintText) latinHintText.textContent = "Ver em latim";
-        } else {
-          latinQuoteText.textContent = textLatin;
-          if (latinQuoteRef) latinQuoteRef.textContent = "Lema Vocacional Missionário";
-          if (latinHintText) latinHintText.textContent = "Clique para traduzir";
+        const q = quotesList[currentQuoteIndex];
+        quoteCarouselText.textContent = q.quote;
+        quoteCarouselRef.textContent = q.ref;
+
+        if (dot0 && dot1) {
+          dot0.classList.toggle('active', currentQuoteIndex === 0);
+          dot1.classList.toggle('active', currentQuoteIndex === 1);
         }
-        latinQuoteText.style.opacity = '1';
+
+        quoteCarouselText.style.opacity = '1';
+        quoteCarouselText.style.transform = 'translateY(0)';
+        quoteCarouselRef.style.opacity = '1';
       }, 150);
     }
 
-    latinQuoteCard.addEventListener('click', toggleLatinTranslation);
-    latinQuoteCard.addEventListener('keydown', (e) => {
+    quoteCarouselCard.addEventListener('click', nextQuote);
+    quoteCarouselCard.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        toggleLatinTranslation();
+        nextQuote();
       }
     });
   }
