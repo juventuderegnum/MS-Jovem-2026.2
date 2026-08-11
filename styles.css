@@ -640,6 +640,49 @@ body {
   font-style: normal;
 }
 
+/* CARD DA FRASE EM LATIM INTERATIVA */
+.latin-toggle-card {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  margin-top: -0.75rem;
+}
+
+.latin-toggle-card:hover,
+.latin-toggle-card:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(243, 138, 0, 0.15);
+  border-color: var(--color-orange);
+}
+
+.latin-quote-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.latin-hint-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background: rgba(46, 41, 37, 0.05);
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.latin-toggle-card:hover .latin-hint-badge,
+.latin-toggle-card:focus-visible .latin-hint-badge {
+  background: rgba(243, 138, 0, 0.12);
+  color: var(--color-orange);
+}
+
 /* 7. CONTADOR REGRESSIVO MINIMALISTA */
 .countdown-card {
   width: 100%;

@@ -159,7 +159,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- 7. TOAST NOTIFICATION UTILITY ---
+  // --- 7. LATIN QUOTE INTERACTIVE TOGGLE ---
+  const latinQuoteCard = document.getElementById('latinQuoteCard');
+  const latinQuoteText = document.getElementById('latinQuoteText');
+  const latinQuoteRef = document.getElementById('latinQuoteRef');
+  const latinHintText = document.getElementById('latinHintText');
+
+  if (latinQuoteCard && latinQuoteText) {
+    let isTranslated = false;
+    const textLatin = "«Christus vivit. Christus vocat. Christus mittit.»";
+    const textPt = "«Cristo vive. Cristo chama. Cristo envia.»";
+
+    function toggleLatinTranslation() {
+      isTranslated = !isTranslated;
+      latinQuoteText.style.opacity = '0';
+
+      setTimeout(() => {
+        if (isTranslated) {
+          latinQuoteText.textContent = textPt;
+          if (latinQuoteRef) latinQuoteRef.textContent = "Lema Vocacional (Tradução)";
+          if (latinHintText) latinHintText.textContent = "Ver em latim";
+        } else {
+          latinQuoteText.textContent = textLatin;
+          if (latinQuoteRef) latinQuoteRef.textContent = "Lema Vocacional Missionário";
+          if (latinHintText) latinHintText.textContent = "Clique para traduzir";
+        }
+        latinQuoteText.style.opacity = '1';
+      }, 150);
+    }
+
+    latinQuoteCard.addEventListener('click', toggleLatinTranslation);
+    latinQuoteCard.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleLatinTranslation();
+      }
+    });
+  }
+
+  // --- 8. TOAST NOTIFICATION UTILITY ---
   function showToast(message) {
     if (!toastContainer) return;
     const toast = document.createElement('div');
