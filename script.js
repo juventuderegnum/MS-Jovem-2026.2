@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. CONFIGURATION & STATE ---
   const DEFAULT_EVENT_NAME = "Missão Nossa Senhora Aparecida (SJC • 10 a 12 de Outubro de 2026)";
+  const OFFICIAL_WHATSAPP_URL = "https://chat.whatsapp.com/D5Y6qvgEklg86qRzC8jn02";
   const defaultDate = new Date('2026-10-10T08:00:00');
 
   const targetEventDate = localStorage.getItem('missoes_target_date') 
@@ -14,7 +15,23 @@ document.addEventListener('DOMContentLoaded', () => {
     : defaultDate;
 
   const eventName = localStorage.getItem('missoes_event_name') || "Missão Nossa Senhora Aparecida";
-  const whatsappGroupUrl = localStorage.getItem('missoes_whatsapp_url') || "https://chat.whatsapp.com/D5Y6qvgEklg86qRzC8jn02";
+  
+  // Safe WhatsApp URL loader with strict validation against localStorage corruption
+  let rawStoredWhatsapp = localStorage.getItem('missoes_whatsapp_url');
+  let whatsappGroupUrl = OFFICIAL_WHATSAPP_URL;
+
+  if (rawStoredWhatsapp) {
+    const isValidWhatsappUrl = typeof rawStoredWhatsapp === 'string' &&
+      (rawStoredWhatsapp.startsWith('https://chat.whatsapp.com/') || rawStoredWhatsapp.startsWith('https://wa.me/')) &&
+      rawStoredWhatsapp.length > 25;
+    
+    if (isValidWhatsappUrl) {
+      whatsappGroupUrl = rawStoredWhatsapp;
+    } else {
+      // Purge invalid or stale localStorage entry
+      localStorage.removeItem('missoes_whatsapp_url');
+    }
+  }
 
   // --- 2. DOM ELEMENTS ---
   const elDays = document.getElementById('days');
@@ -76,11 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateEventDetailsUI() {
     if (elCountdownEventName) elCountdownEventName.textContent = eventName;
-    if (btnWhatsappTop) btnWhatsappTop.href = whatsappGroupUrl;
-    if (btnWhatsappMain) btnWhatsappMain.href = whatsappGroupUrl;
-    if (btnWhatsappBottom) btnWhatsappBottom.href = whatsappGroupUrl;
-    if (btnHeaderCta) btnHeaderCta.href = whatsappGroupUrl;
-    if (btnPopupWhatsapp) btnPopupWhatsapp.href = whatsappGroupUrl;
+    const whatsappButtons = [btnWhatsappTop, btnWhatsappMain, btnWhatsappBottom, btnHeaderCta, btnPopupWhatsapp];
+    whatsappButtons.forEach(btn => {
+      if (btn) btn.href = whatsappGroupUrl;
+    });
   }
 
   // --- 5. OPTIMIZED SCROLL INDICATOR & POPUP ENGINE (THROTTLED WITH RAF) ---
