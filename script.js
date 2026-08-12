@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. CONFIGURATION & STATE ---
   const DEFAULT_EVENT_NAME = "Missão Nossa Senhora Aparecida (SJC • 10 a 12 de Outubro de 2026)";
-  const OFFICIAL_WHATSAPP_URL = "https://chat.whatsapp.com/D5Y6qvgEklg86qRzC8jn02";
+  const OFFICIAL_WHATSAPP_URL = "https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya";
   const defaultDate = new Date('2026-10-10T08:00:00');
 
   const targetEventDate = localStorage.getItem('missoes_target_date') 
@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const eventName = localStorage.getItem('missoes_event_name') || "Missão Nossa Senhora Aparecida";
   
+  // Purge old revoked link if previously stored
+  if (localStorage.getItem('missoes_whatsapp_url') && localStorage.getItem('missoes_whatsapp_url').includes('D5Y6qvgEklg86qRzC8jn02')) {
+    localStorage.removeItem('missoes_whatsapp_url');
+  }
+
   // Safe WhatsApp URL loader with strict validation against localStorage corruption
   let rawStoredWhatsapp = localStorage.getItem('missoes_whatsapp_url');
   let whatsappGroupUrl = OFFICIAL_WHATSAPP_URL;
@@ -28,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isValidWhatsappUrl) {
       whatsappGroupUrl = rawStoredWhatsapp;
     } else {
-      // Purge invalid or stale localStorage entry
       localStorage.removeItem('missoes_whatsapp_url');
     }
   }
