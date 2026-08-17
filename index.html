@@ -347,38 +347,125 @@
             </div>
           </div>
 
-          <!-- DINÂMICA DOS 3 DIAS DA MISSÃO (CRONOGRAMA RESUMIDO) -->
+          <!-- DINÂMICA DOS 3 DIAS DA MISSÃO (TIMELINE / JORNADA DO MISSIONÁRIO) -->
           <div class="mission-timeline-block">
-            <h3 class="apostolates-block-title">A Dinâmica dos 3 Dias de Missão</h3>
-            <p class="movement-paragraph-sm">
-              Um feriado inesquecível de oração, ação e verdadeira amizade. Veja o que esperar de cada dia:
-            </p>
+            <div class="timeline-heading-group">
+              <span class="timeline-badge-tag">PROGRAMAÇÃO RESUMIDA</span>
+              <h3 class="apostolates-block-title">A Dinâmica dos 3 Dias de Missão</h3>
+              <p class="movement-paragraph-sm">
+                Um feriado inesquecível de oração, ação e verdadeira amizade. Veja a jornada planejada para cada dia:
+              </p>
+            </div>
+
+            <!-- STEPPER PROGRESS BAR VISUAL -->
+            <div class="journey-stepper-track" aria-hidden="true">
+              <div class="stepper-line"></div>
+              <div class="stepper-node node-1">
+                <span class="node-num">1</span>
+                <span class="node-label">10/Out • Sábado</span>
+              </div>
+              <div class="stepper-node node-2 highlight">
+                <span class="node-num">2</span>
+                <span class="node-label">11/Out • Domingo</span>
+              </div>
+              <div class="stepper-node node-3">
+                <span class="node-num">3</span>
+                <span class="node-label">12/Out • Segunda</span>
+              </div>
+            </div>
+
             <div class="timeline-steps-grid">
-              <div class="timeline-step-card">
-                <div class="step-header">
-                  <span class="step-day-pill">SÁBADO • 10/10</span>
-                  <span class="step-number-tag">Dia 1</span>
+              <!-- DIA 1 -->
+              <div class="timeline-step-card step-card-1">
+                <div class="step-card-header">
+                  <div class="step-icon-badge icon-badge-1">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                  </div>
+                  <div class="step-card-meta">
+                    <span class="step-day-pill">SÁBADO • 10/10</span>
+                    <span class="step-phase-label">Chegada & Envio</span>
+                  </div>
                 </div>
                 <h4 class="step-title">Acolhida & Missa de Envio</h4>
-                <p class="step-desc">Chegada dos jovens em SJC, acomodação, formação prática e a Missa de Envio dos missionários para as primeiras visitas às famílias.</p>
+                <ul class="step-highlights-list">
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Chegada dos jovens em SJC e acomodação</span>
+                  </li>
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Formação prática e dinâmicas de entrosamento</span>
+                  </li>
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Santa Missa de Envio e primeiras visitas</span>
+                  </li>
+                </ul>
               </div>
 
-              <div class="timeline-step-card highlight">
-                <div class="step-header">
-                  <span class="step-day-pill highlight">DOMINGO • 11/10</span>
-                  <span class="step-number-tag highlight">Dia 2</span>
+              <!-- DIA 2 (DESTAQUE) -->
+              <div class="timeline-step-card step-card-2 highlight">
+                <div class="step-featured-badge">DIA PRINCIPAL</div>
+                <div class="step-card-header">
+                  <div class="step-icon-badge icon-badge-2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                  </div>
+                  <div class="step-card-meta">
+                    <span class="step-day-pill highlight">DOMINGO • 11/10</span>
+                    <span class="step-phase-label highlight">Imersão Missionária</span>
+                  </div>
                 </div>
                 <h4 class="step-title">Dia Missionário & Vigília</h4>
-                <p class="step-desc">Visitas de porta em porta, gincana e evangelização infantil, Adoração ao Santíssimo e Noite de Fraternidade Jovem.</p>
+                <ul class="step-highlights-list">
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Visitas de porta em porta e oração nos lares</span>
+                  </li>
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Gincanas e evangelização com as crianças</span>
+                  </li>
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Adoração ao Santíssimo e Noite Fraterna</span>
+                  </li>
+                </ul>
               </div>
 
-              <div class="timeline-step-card">
-                <div class="step-header">
-                  <span class="step-day-pill">SEGUNDA • 12/10</span>
-                  <span class="step-number-tag">Dia 3</span>
+              <!-- DIA 3 -->
+              <div class="timeline-step-card step-card-3">
+                <div class="step-card-header">
+                  <div class="step-icon-badge icon-badge-3">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="8" r="7"></circle>
+                      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                    </svg>
+                  </div>
+                  <div class="step-card-meta">
+                    <span class="step-day-pill">SEGUNDA • 12/10</span>
+                    <span class="step-phase-label">Feriado da Padroeira</span>
+                  </div>
                 </div>
-                <h4 class="step-title">Missa Solene & Retorno</h4>
-                <p class="step-desc">Missa Festiva de Nossa Senhora Aparecida com a comunidade paroquial, partilha de testemunhos, confraternização e envio para casa.</p>
+                <h4 class="step-title">Festa de N. Sra. & Retorno</h4>
+                <ul class="step-highlights-list">
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Missa Solene com a comunidade paroquial</span>
+                  </li>
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Partilha de testemunhos e almoço festivo</span>
+                  </li>
+                  <li>
+                    <span class="highlight-bullet"></span>
+                    <span>Confraternização e retorno para casa renovados</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
