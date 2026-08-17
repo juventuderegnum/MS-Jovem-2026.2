@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnWhatsappBottom = document.getElementById('btnWhatsappBottom');
   const btnHeaderCta = document.getElementById('btnHeaderCta');
   const btnPopupWhatsapp = document.getElementById('btnPopupWhatsapp');
+  const btnFaqSupport = document.getElementById('btnFaqSupport');
 
   // Scroll Indicator & Bottom Popup
   const scrollIndicatorBtn = document.getElementById('scrollIndicatorBtn');
@@ -198,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         latinRef: "",
         ptRef: "",
         hasTranslation: true,
-        nextLabel: "Próxima →"
+        nextLabel: "Próxima"
       },
       {
         latin: "«Vinde e vede.»",
@@ -206,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         latinRef: "São João 1, 39",
         ptRef: "São João 1, 39",
         hasTranslation: false,
-        nextLabel: "← Voltar"
+        nextLabel: "Voltar"
       }
     ];
 

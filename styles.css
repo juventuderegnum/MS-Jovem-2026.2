@@ -117,6 +117,17 @@ body {
   left: -300px;
 }
 
+.nsa-bg-watermark {
+  position: absolute;
+  top: 120px;
+  right: 6%;
+  width: clamp(220px, 28vw, 360px);
+  height: auto;
+  opacity: 0.045;
+  color: #D96200;
+  pointer-events: none;
+}
+
 /* --- CONTAINER --- */
 .container {
   width: 100%;
@@ -557,6 +568,33 @@ body {
   margin-bottom: 0.6rem;
 }
 
+.interest-steps-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  background: rgba(243, 138, 0, 0.08);
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  border: 1px solid rgba(243, 138, 0, 0.2);
+}
+
+.step-chip {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.step-chip-highlight {
+  color: var(--color-orange);
+}
+
+.step-separator {
+  color: var(--color-orange);
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
 .interest-card-title {
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
@@ -731,6 +769,19 @@ body {
   padding: 1.85rem 1.5rem;
   box-shadow: var(--shadow-card);
   margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-nsa-watermark {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  width: 85px;
+  height: auto;
+  opacity: 0.065;
+  color: var(--color-orange);
+  pointer-events: none;
 }
 
 .countdown-header-minimal {
@@ -891,6 +942,78 @@ body {
   padding: 0 0.82rem 0.55rem 0.82rem;
 }
 
+.faq-support-box {
+  margin-top: 1rem;
+  padding: 1.15rem 1rem;
+  background: linear-gradient(180deg, #F4FDF7 0%, #EBFBF1 100%);
+  border: 1.5px solid rgba(37, 211, 102, 0.4);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.08);
+}
+
+.faq-support-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.faq-support-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #128C7E;
+  background: rgba(18, 140, 126, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 99px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.faq-support-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-top: 0.15rem;
+}
+
+.faq-support-text {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.btn-coordinator-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-whatsapp);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border-radius: 99px;
+  text-decoration: none;
+  width: 100%;
+  max-width: 340px;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-coordinator-wa:hover {
+  background: #20BA5A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+
 /* --- SEÇÃO DETALHADA SOBRE O MOVIMENTO --- */
 .about-movement-section {
   padding: 2.5rem 0 3.5rem 0;
@@ -1002,6 +1125,91 @@ body {
 
 .jfm-activities-list li strong {
   color: var(--color-dark);
+}
+
+/* --- DINÂMICA DOS 3 DIAS DA MISSÃO --- */
+.mission-timeline-block {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--color-border);
+}
+
+.timeline-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.15rem;
+  text-align: left;
+}
+
+.timeline-step-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 1.15rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.timeline-step-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  border-color: rgba(243, 138, 0, 0.4);
+}
+
+.timeline-step-card.highlight {
+  border-top: 3px solid var(--color-orange);
+  background: linear-gradient(180deg, #FFFDF8 0%, #FFFFFF 100%);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.step-day-pill {
+  font-family: var(--font-display);
+  font-size: 0.675rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  background: rgba(46, 41, 37, 0.06);
+  padding: 0.2rem 0.55rem;
+  border-radius: 99px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.step-day-pill.highlight {
+  background: rgba(243, 138, 0, 0.12);
+  color: var(--color-orange);
+}
+
+.step-number-tag {
+  font-size: 0.675rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+}
+
+.step-number-tag.highlight {
+  color: var(--color-orange);
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.25;
+}
+
+.step-desc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
 }
 
 /* LOGO REGNUM CHRISTI INSTITUCIONAL */
@@ -1163,6 +1371,123 @@ body {
   font-size: 0.85rem;
   color: var(--color-text-muted);
   line-height: 1.5;
+}
+
+/* --- SEÇÃO INSTAGRAM DA JUVENTUDE MISSIONÁRIA --- */
+.instagram-community-section {
+  padding: 1.5rem 0 2.5rem 0;
+}
+
+.instagram-feed-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+  border: 1px solid var(--color-border);
+  border-radius: 22px;
+  padding: 2rem 1.75rem;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.instagram-feed-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
+}
+
+.insta-header-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+}
+
+.insta-avatar-wrapper {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  padding: 2.5px;
+  background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+  flex-shrink: 0;
+}
+
+.insta-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #FFFFFF;
+  object-fit: cover;
+  display: block;
+}
+
+.insta-verified-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 18px;
+  height: 18px;
+  background: #0095F6;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+}
+
+.insta-badge-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #DD2A7B;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.insta-handle-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+.insta-handle-sub {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.insta-card-bio {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  max-width: 480px;
+  margin: 0;
+}
+
+.btn-instagram-gradient {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.7rem 1.4rem;
+  border-radius: 99px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(221, 42, 123, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-instagram-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(221, 42, 123, 0.45);
+  filter: brightness(1.05);
 }
 
 /* --- BANNER FINAL --- */
@@ -1398,8 +1723,55 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   line-height: 1.5;
 }
 
-.footer-official-link {
+.btn-share-friend {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  color: #128C7E;
+  border: 1.5px solid var(--color-whatsapp);
+  border-radius: 99px;
+  padding: 0.75rem 1.4rem;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-share-friend:hover {
+  background: #F4FDF7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.2);
+}
+
+.footer-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  width: 100%;
   margin-top: 0.25rem;
+}
+
+.footer-instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-color: rgba(46, 41, 37, 0.2);
+  color: var(--color-dark);
+}
+
+.footer-instagram-link:hover {
+  background: #E1306C;
+  color: #FFFFFF;
+  border-color: #E1306C;
+}
+
+.footer-official-link {
   border-color: var(--color-orange);
   color: var(--color-orange);
 }
@@ -1716,6 +2088,43 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     width: calc(100vw - 24px);
     padding: 1.1rem 1rem;
     border-radius: 16px;
+  }
+
+  .timeline-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .faq-support-box {
+    padding: 1.15rem 0.95rem;
+  }
+
+  .btn-coordinator-wa {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .btn-share-friend {
+    width: 100%;
+  }
+
+  .footer-actions-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footer-instagram-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .instagram-feed-card {
+    padding: 1.5rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .btn-instagram-gradient {
+    width: 100%;
   }
 
   .bottom-popup-card.active ~ .scroll-indicator-btn,

@@ -35,10 +35,24 @@
 <body>
   <a href="#inicio" class="skip-link">Pular para o conteúdo principal</a>
 
-  <!-- Minimalist Background Accent Lines -->
+  <!-- Minimalist Background Accent Lines & Watermark NSA -->
   <div class="bg-decorations" aria-hidden="true">
     <div class="bg-circle circle-1"></div>
     <div class="bg-circle circle-2"></div>
+    <svg class="nsa-bg-watermark" viewBox="0 0 100 135" fill="currentColor">
+      <circle cx="50" cy="38" r="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.75"/>
+      <circle cx="50" cy="38" r="26" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+      <path d="M42 22 L40 14 L45 17 L50 9 L55 17 L60 14 L58 22 Z" fill="currentColor"/>
+      <circle cx="50" cy="7" r="1.5" fill="currentColor"/>
+      <rect x="42" y="21" width="16" height="2.5" rx="1" fill="currentColor"/>
+      <ellipse cx="50" cy="28" rx="4.5" ry="5.5" fill="currentColor"/>
+      <path d="M46 25 Q32 45 22 92 Q20 99 26 100 Q40 102 50 102 Q60 102 74 100 Q80 99 78 92 Q68 45 54 25 Z" fill="currentColor"/>
+      <path d="M47 34 Q50 36 53 34 L56 78 Q50 82 44 78 Z" fill="#FFFDF8" opacity="0.95"/>
+      <path d="M47 52 Q50 48 53 52 L52 62 Q50 64 48 62 Z" fill="currentColor"/>
+      <path d="M28 95 Q50 98 72 95" fill="none" stroke="#FFFDF8" stroke-width="1.5" opacity="0.8"/>
+      <path d="M35 70 Q50 72 65 70" fill="none" stroke="#FFFDF8" stroke-width="1" opacity="0.5"/>
+      <path d="M28 102 Q38 108 50 108 Q62 108 72 102 Q76 106 70 110 Q50 115 30 110 Q24 106 28 102 Z" fill="currentColor" opacity="0.7"/>
+    </svg>
   </div>
 
   <!-- Header / Navigation (LOGO JUVENTUDE MISSIONÁRIA 1/2) -->
@@ -117,7 +131,11 @@
 
         <!-- 5. CARD DESTACADO COM A LISTA DE INTERESSE & PLANEJAMENTO (LINK PARA GOOGLE FORMS) -->
         <div class="form-interest-card-highlight">
-          <div class="interest-badge-pill">LISTA DE INTERESSE & PLANEJAMENTO</div>
+          <div class="interest-steps-badge">
+            <span class="step-chip step-chip-highlight"><strong>Passo 1:</strong> Entre no Grupo</span>
+            <span class="step-separator">•</span>
+            <span class="step-chip"><strong>Passo 2:</strong> Preencha a Lista</span>
+          </div>
           <h3 class="interest-card-title">Quer fazer parte da Missão em SJC?</h3>
           <p class="interest-card-desc">Preencha nossa lista de interesse em 1 minuto! O seu pré-cadastro ajuda nossa
             equipe a dimensionar a estrutura da missão, organizar as vagas e enviar o Guia do Missionário diretamente no
@@ -152,7 +170,7 @@
                 <span id="translateBtnLabel">Traduzir</span>
               </button>
               <button type="button" class="carousel-action-btn" id="btnNextQuote" title="Alternar frase">
-                <span id="nextBtnLabel">Próxima →</span>
+                <span id="nextBtnLabel">Próxima</span>
               </button>
             </div>
           </div>
@@ -234,6 +252,35 @@
                 <p><strong>Sim, mediante autorização oficial.</strong> O menor de idade que não apresentar o documento oficial de autorização assinado pelos pais ou responsável legal, ou que estiver desacompanhado quando exigido, <strong>NÃO poderá participar das atividades missionárias</strong>. O modelo desse documento, as orientações de preenchimento e as regras completas sobre a participação de menores serão disponibilizados em breve no Grupo Oficial do WhatsApp junto com as inscrições definitivas.</p>
               </div>
             </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-6" aria-expanded="false" aria-controls="faq-content-6">
+                <span>Como funciona a acomodação e o que preciso levar para dormir?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-6" role="region" aria-labelledby="faq-header-6">
+                <p>A hospedagem dos missionários será em <strong>locais da paróquia ou em casas de famílias acolhedoras da comunidade</strong>. Como é uma vivência comunitária e missionária, cada participante deve levar: <strong>colchonete, isolante térmico ou colchão inflável, travesseiro, lençol/cobertor e itens de higiene pessoal</strong>. O checklist completo e as orientações finais serão enviados com antecedência no Grupo Oficial do WhatsApp.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CANAL DE DÚVIDAS DIRETO COM A COORDENAÇÃO -->
+          <div class="faq-support-box">
+            <div class="faq-support-info">
+              <span class="faq-support-badge">ATENDIMENTO DIRETO</span>
+              <h4 class="faq-support-title">Ainda ficou com alguma dúvida?</h4>
+              <p class="faq-support-text">Converse diretamente com a equipe de coordenação pelo WhatsApp.</p>
+            </div>
+            <a href="https://wa.me/5512991882850?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20a%20Miss%C3%A3o%20em%20SJC." target="_blank" rel="noopener noreferrer" class="btn btn-coordinator-wa" id="btnFaqSupport">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+              <span>Clique aqui e tire sua dúvida</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -297,6 +344,41 @@
               <div class="apostolate-pill-card">
                 <strong>Superação</strong>
                 <span>Reforma e construção de capelas em comunidades carentes, criando um espaço sagrado de esperança, oração e união para as famílias.</span>
+            </div>
+          </div>
+
+          <!-- DINÂMICA DOS 3 DIAS DA MISSÃO (CRONOGRAMA RESUMIDO) -->
+          <div class="mission-timeline-block">
+            <h3 class="apostolates-block-title">A Dinâmica dos 3 Dias de Missão</h3>
+            <p class="movement-paragraph-sm">
+              Um feriado inesquecível de oração, ação e verdadeira amizade. Veja o que esperar de cada dia:
+            </p>
+            <div class="timeline-steps-grid">
+              <div class="timeline-step-card">
+                <div class="step-header">
+                  <span class="step-day-pill">SÁBADO • 10/10</span>
+                  <span class="step-number-tag">Dia 1</span>
+                </div>
+                <h4 class="step-title">Acolhida & Missa de Envio</h4>
+                <p class="step-desc">Chegada dos jovens em SJC, acomodação, formação prática e a Missa de Envio dos missionários para as primeiras visitas às famílias.</p>
+              </div>
+
+              <div class="timeline-step-card highlight">
+                <div class="step-header">
+                  <span class="step-day-pill highlight">DOMINGO • 11/10</span>
+                  <span class="step-number-tag highlight">Dia 2</span>
+                </div>
+                <h4 class="step-title">Dia Missionário & Vigília</h4>
+                <p class="step-desc">Visitas de porta em porta, gincana e evangelização infantil, Adoração ao Santíssimo e Noite de Fraternidade Jovem.</p>
+              </div>
+
+              <div class="timeline-step-card">
+                <div class="step-header">
+                  <span class="step-day-pill">SEGUNDA • 12/10</span>
+                  <span class="step-number-tag">Dia 3</span>
+                </div>
+                <h4 class="step-title">Missa Solene & Retorno</h4>
+                <p class="step-desc">Missa Festiva de Nossa Senhora Aparecida com a comunidade paroquial, partilha de testemunhos, confraternização e envio para casa.</p>
               </div>
             </div>
           </div>
@@ -321,6 +403,20 @@
     <section class="countdown-section-standalone" style="padding: 1.5rem 0 2.5rem 0;">
       <div class="container container-narrow">
         <div class="countdown-card" id="contador">
+          <svg class="countdown-nsa-watermark" viewBox="0 0 100 135" fill="currentColor" aria-hidden="true">
+            <circle cx="50" cy="38" r="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.75"/>
+            <circle cx="50" cy="38" r="26" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+            <path d="M42 22 L40 14 L45 17 L50 9 L55 17 L60 14 L58 22 Z" fill="currentColor"/>
+            <circle cx="50" cy="7" r="1.5" fill="currentColor"/>
+            <rect x="42" y="21" width="16" height="2.5" rx="1" fill="currentColor"/>
+            <ellipse cx="50" cy="28" rx="4.5" ry="5.5" fill="currentColor"/>
+            <path d="M46 25 Q32 45 22 92 Q20 99 26 100 Q40 102 50 102 Q60 102 74 100 Q80 99 78 92 Q68 45 54 25 Z" fill="currentColor"/>
+            <path d="M47 34 Q50 36 53 34 L56 78 Q50 82 44 78 Z" fill="#FFFDF8" opacity="0.95"/>
+            <path d="M47 52 Q50 48 53 52 L52 62 Q50 64 48 62 Z" fill="currentColor"/>
+            <path d="M28 95 Q50 98 72 95" fill="none" stroke="#FFFDF8" stroke-width="1.5" opacity="0.8"/>
+            <path d="M35 70 Q50 72 65 70" fill="none" stroke="#FFFDF8" stroke-width="1" opacity="0.5"/>
+            <path d="M28 102 Q38 108 50 108 Q62 108 72 102 Q76 106 70 110 Q50 115 30 110 Q24 106 28 102 Z" fill="currentColor" opacity="0.7"/>
+          </svg>
           <div class="countdown-header-minimal">
             <span class="countdown-eyebrow">SÃO JOSÉ DOS CAMPOS • SJC</span>
             <h2 class="countdown-event-title" id="countdownEventName">Missão Nossa Senhora Aparecida</h2>
@@ -356,6 +452,16 @@
             </a>
             <a href="https://forms.gle/7ZzeopLgGRqusiUk7" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-md" id="btnOpenForm">
               <span>Preencher Ficha de Interesse</span>
+            </a>
+            <a href="https://api.whatsapp.com/send?text=Oi!%20Bora%20participar%20da%20Miss%C3%A3o%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%20no%20feriado%20de%20Outubro%3F%20D%C3%A1%20uma%20olhada%20no%20site%3A%20https%3A%2F%2Fmissoes-regnum.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-share-friend btn-md" id="btnShareFriend">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+              <span>Convidar um Amigo no WhatsApp</span>
             </a>
           </div>
         </div>
@@ -428,6 +534,47 @@
       </div>
     </section>
 
+    <!-- SEÇÃO: INSTAGRAM OFICIAL & COMUNIDADE MISSIONÁRIA -->
+    <section class="instagram-community-section">
+      <div class="container container-narrow">
+        <div class="instagram-feed-card">
+          <div class="insta-header-flex">
+            <div class="insta-avatar-wrapper">
+              <picture>
+                <source srcset="assets/logo-isotipo.webp" type="image/webp">
+                <img src="assets/logo-isotipo.png" alt="Juventude Missionária Vale do Paraíba" class="insta-avatar-img" width="56" height="56" loading="lazy">
+              </picture>
+              <div class="insta-verified-badge" title="Perfil Oficial">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="insta-text-info">
+              <span class="insta-badge-tag">INSTAGRAM OFICIAL</span>
+              <h3 class="insta-handle-title">@jm.valedoparaiba</h3>
+              <p class="insta-handle-sub">Juventude Missionária • Vale do Paraíba</p>
+            </div>
+          </div>
+
+          <p class="insta-card-bio">
+            Acompanhe fotos, bastidores, memórias das missões e os avisos oficiais da <strong>Missão Nossa Senhora Aparecida em SJC</strong> direto no nosso feed.
+          </p>
+
+          <div class="insta-action-wrapper">
+            <a href="https://www.instagram.com/jm.valedoparaiba/" target="_blank" rel="noopener noreferrer" class="btn btn-instagram-gradient" id="btnInstagramFeed">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span>Ver Fotos e Seguir no Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- BANNER FINAL CLEAN E ELEGANTE (LOGO JUVENTUDE MISSIONÁRIA 2/2) -->
     <section class="final-cta-section">
       <div class="container">
@@ -475,7 +622,7 @@
       </div>
       <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
         class="btn btn-whatsapp btn-md btn-block" id="btnPopupWhatsapp">
-        <span>Entrar no Grupo Agora →</span>
+        <span>Entrar no Grupo Agora</span>
       </a>
     </div>
   </div>
@@ -497,15 +644,27 @@
           <p class="footer-disclaimer-subtext">
             Para maior clareza e certeza de todas as informações a respeito do <strong>Regnum Christi</strong>, consulte diretamente o seu portal oficial.
           </p>
-          <a href="https://regnumchristi.com.br/" target="_blank" rel="noopener noreferrer"
-            class="btn btn-outline-dark btn-sm footer-official-link" id="btnOfficialRegnumLink">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="2" y1="12" x2="22" y2="12" />
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-            </svg>
-            <span>Acessar regnumchristi.com.br →</span>
-          </a>
+          <div class="footer-actions-group">
+            <a href="https://www.instagram.com/jm.valedoparaiba/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-outline-dark btn-sm footer-instagram-link" id="btnInstagramLink">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span>Instagram @jm.valedoparaiba</span>
+            </a>
+
+            <a href="https://regnumchristi.com.br/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-outline-dark btn-sm footer-official-link" id="btnOfficialRegnumLink">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+              <span>Acessar regnumchristi.com.br</span>
+            </a>
+          </div>
         </div>
       </div>
       <p class="footer-copy">&copy; <span id="currentYear"></span> Juventude Missionária • Regnum Christi Vale do
