@@ -5,37 +5,18 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1. CONFIGURATION & STATE ---
-  const DEFAULT_EVENT_NAME = "Missão Nossa Senhora Aparecida (SJC • 10 a 12 de Outubro de 2026)";
+  // --- 1. CONFIGURATION & STATE (HARDENED: no localStorage override) ---
   const OFFICIAL_WHATSAPP_URL = "https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya";
-  const defaultDate = new Date('2026-10-10T08:00:00');
+  const targetEventDate = new Date('2026-10-10T08:00:00');
+  const eventName = "Missão Nossa Senhora Aparecida";
+  const whatsappGroupUrl = OFFICIAL_WHATSAPP_URL;
 
-  const targetEventDate = localStorage.getItem('missoes_target_date') 
-    ? new Date(localStorage.getItem('missoes_target_date')) 
-    : defaultDate;
-
-  const eventName = localStorage.getItem('missoes_event_name') || "Missão Nossa Senhora Aparecida";
-  
-  // Purge old revoked link if previously stored
-  if (localStorage.getItem('missoes_whatsapp_url') && localStorage.getItem('missoes_whatsapp_url').includes('D5Y6qvgEklg86qRzC8jn02')) {
+  // Security: purge any poisoned localStorage keys from previous versions (one-time cleanup, no read-back)
+  try {
     localStorage.removeItem('missoes_whatsapp_url');
-  }
-
-  // Safe WhatsApp URL loader with strict validation against localStorage corruption
-  let rawStoredWhatsapp = localStorage.getItem('missoes_whatsapp_url');
-  let whatsappGroupUrl = OFFICIAL_WHATSAPP_URL;
-
-  if (rawStoredWhatsapp) {
-    const isValidWhatsappUrl = typeof rawStoredWhatsapp === 'string' &&
-      (rawStoredWhatsapp.startsWith('https://chat.whatsapp.com/') || rawStoredWhatsapp.startsWith('https://wa.me/')) &&
-      rawStoredWhatsapp.length > 25;
-    
-    if (isValidWhatsappUrl) {
-      whatsappGroupUrl = rawStoredWhatsapp;
-    } else {
-      localStorage.removeItem('missoes_whatsapp_url');
-    }
-  }
+    localStorage.removeItem('missoes_target_date');
+    localStorage.removeItem('missoes_event_name');
+  } catch (e) { /* storage may be blocked */ }
 
   // --- 2. DOM ELEMENTS ---
   const elDays = document.getElementById('days');
