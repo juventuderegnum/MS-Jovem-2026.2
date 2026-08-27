@@ -541,6 +541,50 @@ body {
   color: #D96200; /* Laranja rico ligeiramente diferente */
 }
 
+.persuasive-micro-cta-wrapper {
+  margin-top: 1.15rem;
+  display: flex;
+  justify-content: center;
+}
+
+.persuasive-micro-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 1.05rem;
+  background: rgba(243, 138, 0, 0.08);
+  border: 1.5px solid rgba(243, 138, 0, 0.3);
+  border-radius: 99px;
+  color: var(--color-orange);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(243, 138, 0, 0.08);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.persuasive-micro-cta:hover {
+  background: rgba(243, 138, 0, 0.16);
+  border-color: var(--color-orange);
+  transform: translateY(2px);
+  color: #D96200;
+  box-shadow: 0 4px 12px rgba(243, 138, 0, 0.18);
+}
+
+@keyframes microBounceDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+.micro-cta-arrow {
+  animation: microBounceDown 1.8s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
 /* 5. CARD DESTACADO COM OS TONS OFICIAIS DA LOGO JUVENTUDE MISSIONÁRIA */
 .form-interest-card-highlight {
   width: 100%;

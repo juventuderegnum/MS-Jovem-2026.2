@@ -21,26 +21,31 @@ Esta é a landing page oficial, responsiva e de alta performance desenvolvida pa
 * **Métricas do Instagram:** Identificação automática de acessos originados do navegador interno do Instagram (*In-App Browser*).
 * **Zero Impacto em Performance:** Script carregado de forma assíncrona (`async`).
 
-### 2. ⏳ Contador Regressivo em Tempo Real
+### 2. 🎯 Funil de Conversão em 2 Passos & Ficha de Interesse
+* **Micro-CTA Persuasivo:** Pílula minimalista com scroll suave conectando a mensagem de propósito diretamente à ficha de interesse.
+* **Mini Stepper Visual:** Trilha sequencial clara (*Passo 1: Preencha a Ficha* $\rightarrow$ *Passo 2: Entre no Grupo*).
+* **CTA Pulsante de Alta Conversão:** Botão de inscrição com borda em vermelho Regnum Christi e halo luminoso pulsante (`@keyframes redPulseAttention`).
+
+### 3. ⏳ Contador Regressivo em Tempo Real
 * Cálculo dinâmico até o dia de início da missão (10 de Outubro de 2026).
 * Otimização de ciclo de vida com auto-limpeza (`clearInterval`) para não consumir CPU do dispositivo.
 * Marca d'água sagrada e sutil de Nossa Senhora Aparecida integrada ao card.
 
-### 3. 🗺️ Dinâmica dos 3 Dias (Linha do Tempo / Stepper Track)
+### 4. 🗺️ Dinâmica dos 3 Dias (Linha do Tempo / Stepper Track)
 * Trilha visual de progresso conectada (`10/Out • Sábado` $\rightarrow$ `11/Out • Domingo` $\rightarrow$ `12/Out • Segunda`).
 * Destaque do **Dia Principal de Missão** com visitas aos lares e adoração.
 * Ícone vetorial estilizado da silhueta de Nossa Senhora Aparecida no Dia 3.
 
-### 4. 📖 Frase Católica Interativa & Tradução
+### 5. 📖 Frase Católica Interativa & Tradução
 * Carrossel de citações em latim e português com suporte a **gestos de toque lateral (*touch swipe*)**.
 * Botão interativo de alternância e tradução instantânea.
 
-### 5. ❓ FAQ Dinâmico & Atendimento da Coordenação
+### 6. ❓ FAQ Dinâmico & Atendimento da Coordenação
 * Sistema de sanfona (*accordion*) com animações suaves e total acessibilidade (`aria-expanded`, `role="region"`).
 * Informações transparentes sobre locais atendidos na **Zona Norte de São José dos Campos**, alojamento paroquial, alimentação e autorização de menores.
 * Botão de contato direto via WhatsApp com a equipe de coordenação (`+55 12 99188-2850`).
 
-### 6. 🌐 Ecossistema Regnum Christi & Apostolados
+### 7. 🌐 Ecossistema Regnum Christi & Apostolados
 * Apresentação histórica dos **40 anos da Juventude Missionária (1986–2026)**.
 * Seção de apostolados irmãos no Vale do Paraíba com ícones vetoriais temáticos: *ECYD* (chama jovem), *Cristo na Rua* (cruz e calçadas da cidade), *Teologia no Bar* (diálogo e fé), *Sonhar Acordado* (alegria infantil), *Superação* (construção de capelas) e *MedCal* (estetoscópio e saúde humanitária).
 * Card de comunidade com link direto para o Instagram oficial.
