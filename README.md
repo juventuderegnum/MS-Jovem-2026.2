@@ -42,7 +42,7 @@ Esta é a landing page oficial, responsiva e de alta performance desenvolvida pa
 
 ### 6. 🌐 Ecossistema Regnum Christi & Apostolados
 * Apresentação histórica dos **40 anos da Juventude Missionária (1986–2026)**.
-* Seção de apostolados irmãos no Vale do Paraíba: *ECYD*, *Cristo na Rua*, *Teologia no Bar*, *Sonhar Acordado*, *Superação* e *MedCal*.
+* Seção de apostolados irmãos no Vale do Paraíba com ícones vetoriais temáticos: *ECYD* (chama jovem), *Cristo na Rua* (cruz e calçadas da cidade), *Teologia no Bar* (diálogo e fé), *Sonhar Acordado* (alegria infantil), *Superação* (construção de capelas) e *MedCal* (estetoscópio e saúde humanitária).
 * Card de comunidade com link direto para o Instagram oficial.
 
 ---
