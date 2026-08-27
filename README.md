@@ -42,7 +42,7 @@ Esta é a landing page oficial, responsiva e de alta performance desenvolvida pa
 
 ### 6. 🌐 Ecossistema Regnum Christi & Apostolados
 * Apresentação histórica dos **40 anos da Juventude Missionária (1986–2026)**.
-* Seção de apostolados irmãos no Vale do Paraíba: *ECYD*, *Cristo na Rua*, *Teologia no Bar*, *Sonhar Acordado* e *Superação*.
+* Seção de apostolados irmãos no Vale do Paraíba: *ECYD*, *Cristo na Rua*, *Teologia no Bar*, *Sonhar Acordado*, *Superação* e *MedCal*.
 * Card de comunidade com link direto para o Instagram oficial.
 
 ---
@@ -119,4 +119,5 @@ O projeto está conectado diretamente à plataforma **Vercel** via repositório 
 ## ⛪ Juventude Missionária • Regnum Christi
 *«Vinde e vede.» (São João 1, 39)*  
 *«Sejas o que fores, sê todo de Deus.»*  
-*«A Cristo, o Reino presente aqui e agora!»*
+*«Christus Rex noster, adveniat Regnum Tuum!»*  
+*«Cristo Rei nosso, venha a nós o Vosso Reino!»*

@@ -249,11 +249,34 @@ body {
   box-shadow: 0 10px 24px rgba(255, 101, 0, 0.34);
 }
 
+@keyframes redPulseAttention {
+  0% {
+    box-shadow: 0 0 0 3px rgba(235, 0, 40, 0.2), 0 8px 22px rgba(235, 0, 40, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(235, 0, 40, 0.38), 0 12px 28px rgba(235, 0, 40, 0.38);
+  }
+  100% {
+    box-shadow: 0 0 0 3px rgba(235, 0, 40, 0.2), 0 8px 22px rgba(235, 0, 40, 0.25);
+  }
+}
+
 .btn-interest-card {
-  padding: 0.7rem 1.2rem;
-  font-size: 0.9rem;
+  padding: 0.82rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 800;
   align-self: center;
   width: fit-content;
+  border: 2.5px solid #EB0028; /* LISTRA EM VOLTA VERMELHA ATRAENTE */
+  border-radius: 99px;
+  animation: redPulseAttention 3s infinite ease-in-out;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-interest-card:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #C8102E;
+  box-shadow: 0 0 0 6px rgba(235, 0, 40, 0.45), 0 14px 32px rgba(235, 0, 40, 0.45);
 }
 
 .btn-whatsapp-header {
@@ -568,31 +591,82 @@ body {
   margin-bottom: 0.6rem;
 }
 
-.interest-steps-badge {
+.interest-stepper-container {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.85rem;
-  background: rgba(243, 138, 0, 0.08);
-  padding: 0.3rem 0.75rem;
+  gap: 0.75rem;
+  background: #FFFFFF;
+  padding: 0.42rem 0.95rem;
   border-radius: 99px;
-  border: 1px solid rgba(243, 138, 0, 0.2);
+  border: 1.5px solid rgba(243, 138, 0, 0.28);
+  box-shadow: 0 4px 16px rgba(46, 41, 37, 0.06);
+  margin-bottom: 1.15rem;
+  user-select: none;
 }
 
-.step-chip {
-  font-size: 0.725rem;
+.interest-step-node {
+  display: flex;
+  align-items: center;
+  gap: 0.48rem;
+}
+
+.step-node-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  background: rgba(243, 138, 0, 0.14);
+  color: var(--color-orange);
+  transition: all 0.2s ease;
+}
+
+.interest-step-node.active .step-node-badge {
+  background: linear-gradient(135deg, #FF6500 0%, #EB0028 100%);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(235, 0, 40, 0.35);
+}
+
+.step-node-text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.step-node-tag {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.interest-step-node.active .step-node-tag {
+  color: #EB0028;
+}
+
+.step-node-action {
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--color-dark);
 }
 
-.step-chip-highlight {
-  color: var(--color-orange);
+.interest-step-node.active .step-node-action {
+  color: #1A1A1A;
+  font-weight: 800;
 }
 
-.step-separator {
+.interest-stepper-connector {
+  display: flex;
+  align-items: center;
   color: var(--color-orange);
-  font-size: 0.8rem;
-  opacity: 0.6;
+  opacity: 0.55;
+  margin: 0 0.1rem;
 }
 
 .interest-card-title {
@@ -1089,6 +1163,25 @@ body {
   flex-direction: column;
   gap: 0.2rem;
   text-align: left;
+}
+
+.apostolate-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.2rem;
+}
+
+.apostolate-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(243, 138, 0, 0.1);
+  color: var(--color-orange);
+  flex-shrink: 0;
 }
 
 .apostolate-pill-card strong {
@@ -2146,6 +2239,16 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   .form-interest-card-highlight {
     padding: 1.5rem 1.15rem;
     border-radius: 18px;
+  }
+
+  .interest-stepper-container {
+    padding: 0.35rem 0.65rem;
+    gap: 0.45rem;
+    max-width: 100%;
+  }
+
+  .step-node-action {
+    font-size: 0.72rem;
   }
 
   .interest-card-title {
