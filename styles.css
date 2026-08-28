@@ -26,6 +26,7 @@
   --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-bible: 'Newsreader', Georgia, serif;
+  --font-roman: 'Cinzel', Georgia, serif;
 
   /* Sombras & Transições */
   --shadow-subtle: 0 4px 16px rgba(46, 41, 37, 0.03);
@@ -164,29 +165,78 @@ body {
 }
 
 .brand-logo {
-  height: 40px;
+  height: 42px;
   width: auto;
+  flex-shrink: 0;
+  display: block;
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .brand-title {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.05rem;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--color-dark);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.brand-subtitle-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  margin-top: 0.15rem;
+}
+
+.brand-tricolor-accent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5px;
+  width: 11px;
+  flex-shrink: 0;
+}
+
+.tricolor-stripe {
+  height: 1.5px;
+  width: 100%;
+  border-radius: 99px;
+  display: block;
+}
+
+.stripe-yellow {
+  background: #FFDB00;
+}
+
+.stripe-orange {
+  background: #F38A00;
+}
+
+.stripe-red {
+  background: #EB0028;
 }
 
 .brand-subtitle {
-  font-size: 0.7rem;
+  font-family: var(--font-roman);
+  font-size: 0.58rem;
   font-weight: 700;
-  color: var(--color-orange);
+  color: #2E2925;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.brand-dot {
+  color: var(--color-orange);
+  font-weight: 900;
+  margin: 0 0.15rem;
 }
 
 .header-actions {
@@ -461,18 +511,30 @@ body {
   bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-orange);
-  color: #FFFFFF;
-  font-size: 0.725rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(243, 138, 0, 0.35);
+  color: var(--color-dark);
+  font-size: 0.72rem;
   font-weight: 800;
-  padding: 0.4rem 0.95rem;
+  letter-spacing: 0.02em;
+  padding: 0.4rem 1.05rem;
   border-radius: 99px;
-  width: calc(100% - 24px);
-  max-width: 360px;
+  width: max-content;
+  max-width: calc(100% - 24px);
   text-align: center;
-  white-space: normal;
-  line-height: 1.3;
-  box-shadow: 0 4px 12px rgba(243, 138, 0, 0.35);
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(243, 138, 0, 0.16), 0 2px 8px rgba(46, 41, 37, 0.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  z-index: 2;
+}
+
+.image-overlay-tag .tag-dot {
+  color: var(--color-orange);
+  font-weight: 900;
 }
 
 /* 4. MENSAGEM PERSUASIVA & ACOLHEDORA MINIMALISTA */
@@ -498,33 +560,71 @@ body {
   box-shadow: var(--shadow-card);
 }
 
-.persuasive-badge {
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--color-orange);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
+.unified-mission-card {
+  width: 100%;
+  max-width: 535px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF9F0 100%);
+  border: 2px solid var(--color-orange);
+  border-radius: 20px;
+  padding: 1.9rem 1.55rem;
+  margin-bottom: 1.9rem;
+  box-shadow: 0 10px 30px rgba(243, 138, 0, 0.11), 0 3px 12px rgba(46, 41, 37, 0.04);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-normal);
 }
 
-.persuasive-title {
+.unified-mission-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #FFDB00 0%, #F38A00 50%, #EB0028 100%);
+}
+
+.unified-mission-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(243, 138, 0, 0.2);
+}
+
+.unified-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(243, 138, 0, 0.1);
+  color: var(--color-orange);
+  border: 1px solid rgba(243, 138, 0, 0.25);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.28rem 0.75rem;
+  border-radius: 99px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+
+.unified-card-title {
   font-family: var(--font-bible);
-  font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
   font-style: italic;
   font-weight: 600;
   color: var(--color-dark);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
   line-height: 1.25;
 }
 
-.hero-persuasive-text {
-  font-size: 0.95rem;
+.unified-card-lead {
+  font-size: 0.825rem;
   color: var(--color-text-muted);
-  line-height: 1.65;
-}
-
-.hero-persuasive-text strong {
-  color: var(--color-dark);
+  line-height: 1.6;
+  margin-bottom: 1.15rem;
+  max-width: 460px;
 }
 
 /* DESTAQUE E FONTE DIFERENCIADA PARA "RESPOSTA DE DEUS PARA MUITAS FAMÍLIAS" */
@@ -537,132 +637,46 @@ body {
   font-family: var(--font-bible);
   font-style: italic;
   font-weight: 700;
-  font-size: 1.12em;
-  color: #D96200; /* Laranja rico ligeiramente diferente */
-}
-
-.persuasive-micro-cta-wrapper {
-  margin-top: 1.15rem;
-  display: flex;
-  justify-content: center;
-}
-
-.persuasive-micro-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.42rem 1.05rem;
-  background: rgba(243, 138, 0, 0.08);
-  border: 1.5px solid rgba(243, 138, 0, 0.3);
-  border-radius: 99px;
-  color: var(--color-orange);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(243, 138, 0, 0.08);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.persuasive-micro-cta:hover {
-  background: rgba(243, 138, 0, 0.16);
-  border-color: var(--color-orange);
-  transform: translateY(2px);
+  font-size: 1.1em;
   color: #D96200;
-  box-shadow: 0 4px 12px rgba(243, 138, 0, 0.18);
 }
 
-@keyframes microBounceDown {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-}
-
-.micro-cta-arrow {
-  animation: microBounceDown 1.8s infinite ease-in-out;
-  flex-shrink: 0;
-}
-
-/* 5. CARD DESTACADO COM OS TONS OFICIAIS DA LOGO JUVENTUDE MISSIONÁRIA */
-.form-interest-card-highlight {
-  width: 100%;
-  max-width: 620px;
-  background: linear-gradient(180deg, #FFFDF8 0%, #FFF8EE 100%);
-  border: 2px solid var(--color-orange);
-  border-radius: 24px;
-  padding: 2rem 1.75rem;
-  margin-bottom: 2.25rem;
-  box-shadow: var(--shadow-highlight);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  transition: var(--transition-normal);
-}
-
-.form-interest-card-highlight::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, #FFDB00 0%, #F38A00 50%, #EB0028 100%);
-}
-
-.form-interest-card-highlight:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 42px rgba(243, 138, 0, 0.25);
-}
-
-.interest-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  background: rgba(243, 138, 0, 0.1);
-  color: var(--color-orange);
-  border: 1px solid rgba(243, 138, 0, 0.25);
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.35rem 0.85rem;
-  border-radius: 99px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
+.unified-card-desc {
+  font-size: 0.775rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.95rem;
+  max-width: 440px;
 }
 
 .interest-stepper-container {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.65rem;
   background: #FFFFFF;
-  padding: 0.42rem 0.95rem;
+  padding: 0.35rem 0.8rem;
   border-radius: 99px;
   border: 1.5px solid rgba(243, 138, 0, 0.28);
-  box-shadow: 0 4px 16px rgba(46, 41, 37, 0.06);
-  margin-bottom: 1.15rem;
+  box-shadow: 0 3px 12px rgba(46, 41, 37, 0.05);
+  margin-bottom: 0.95rem;
   user-select: none;
 }
 
 .interest-step-node {
   display: flex;
   align-items: center;
-  gap: 0.48rem;
+  gap: 0.42rem;
 }
 
 .step-node-badge {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 19px;
+  height: 19px;
   border-radius: 50%;
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 800;
   background: rgba(243, 138, 0, 0.14);
   color: var(--color-orange);
@@ -672,7 +686,7 @@ body {
 .interest-step-node.active .step-node-badge {
   background: linear-gradient(135deg, #FF6500 0%, #EB0028 100%);
   color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(235, 0, 40, 0.35);
+  box-shadow: 0 2px 6px rgba(235, 0, 40, 0.3);
 }
 
 .step-node-text-group {
@@ -683,7 +697,7 @@ body {
 }
 
 .step-node-tag {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   color: var(--color-text-muted);
@@ -695,7 +709,7 @@ body {
 }
 
 .step-node-action {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--color-dark);
 }
@@ -735,18 +749,18 @@ body {
 .prayer-commitment-note {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.45rem;
   background: rgba(243, 138, 0, 0.07);
   border: 1px dashed rgba(243, 138, 0, 0.35);
-  border-radius: 12px;
-  padding: 0.65rem 1.1rem;
-  margin-bottom: 1.4rem;
-  font-size: 0.825rem;
+  border-radius: 10px;
+  padding: 0.52rem 0.95rem;
+  margin-bottom: 1.15rem;
+  font-size: 0.74rem;
   color: var(--color-dark);
   font-weight: 600;
-  max-width: 520px;
+  max-width: 440px;
   text-align: left;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .prayer-commitment-note .prayer-icon {
@@ -2207,16 +2221,33 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   }
 
   .brand-logo {
-    height: 34px;
+    height: 36px;
   }
 
   .brand-title {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .brand-tricolor-accent {
+    width: 8px;
+    gap: 1.2px;
+  }
+
+  .tricolor-stripe {
+    height: 1.2px;
   }
 
   .brand-subtitle {
-    font-size: 0.625rem;
-    letter-spacing: 0.03em;
+    font-size: 0.52rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  .image-overlay-tag {
+    padding: 0.32rem 0.75rem;
+    font-size: 0.65rem;
+    gap: 0.38rem;
   }
 
   .header-actions #btnShareHeader span {
@@ -2267,22 +2298,17 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     line-height: 1.1;
   }
 
-  .movement-persuasive-box {
-    padding: 1.5rem 1.15rem;
+  .unified-mission-card {
+    padding: 1.6rem 1.15rem;
     border-radius: 18px;
   }
 
-  .persuasive-title {
-    font-size: 1.2rem;
+  .unified-card-title {
+    font-size: 1.28rem;
   }
 
-  .hero-persuasive-text {
-    font-size: 0.875rem;
-  }
-
-  .form-interest-card-highlight {
-    padding: 1.5rem 1.15rem;
-    border-radius: 18px;
+  .unified-card-lead {
+    font-size: 0.88rem;
   }
 
   .interest-stepper-container {
@@ -2446,11 +2472,29 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
 
 @media (max-width: 380px) {
   .brand-title {
-    font-size: 0.825rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .brand-tricolor-accent {
+    width: 6px;
+    gap: 1px;
+  }
+
+  .tricolor-stripe {
+    height: 1px;
   }
 
   .brand-subtitle {
-    font-size: 0.575rem;
+    font-size: 0.46rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .image-overlay-tag {
+    padding: 0.28rem 0.6rem;
+    font-size: 0.58rem;
+    gap: 0.3rem;
   }
 
   .timer-value {

@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600;1,6..72,700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600;1,6..72,700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Stylesheet -->
@@ -85,7 +85,19 @@
         </picture>
         <div class="brand-text">
           <span class="brand-title">Juventude Missionária</span>
-          <span class="brand-subtitle">Regnum Christi • Vale do Paraíba</span>
+          <div class="brand-subtitle-lockup">
+            <div class="brand-tricolor-accent" aria-hidden="true">
+              <span class="tricolor-stripe stripe-yellow"></span>
+              <span class="tricolor-stripe stripe-orange"></span>
+              <span class="tricolor-stripe stripe-red"></span>
+            </div>
+            <span class="brand-subtitle">Regnum Christi <span class="brand-dot">•</span> Vale do Paraíba</span>
+            <div class="brand-tricolor-accent" aria-hidden="true">
+              <span class="tricolor-stripe stripe-yellow"></span>
+              <span class="tricolor-stripe stripe-orange"></span>
+              <span class="tricolor-stripe stripe-red"></span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="header-actions">
@@ -134,31 +146,34 @@
               <img src="assets/garotinha-missoes.jpg" alt="Garotinha Missionária com Cristo" class="hero-image"
                 id="heroMissionImg" width="848" height="1024" loading="eager" fetchpriority="high">
             </picture>
-            <div class="image-overlay-tag">Juventude Missionária • Regnum Christi Vale do Paraíba</div>
+            <div class="image-overlay-tag">
+              <div class="brand-tricolor-accent" aria-hidden="true">
+                <span class="tricolor-stripe stripe-yellow"></span>
+                <span class="tricolor-stripe stripe-orange"></span>
+                <span class="tricolor-stripe stripe-red"></span>
+              </div>
+              <span class="overlay-tag-text">Juventude Missionária <span class="tag-dot">•</span> Vale do Paraíba</span>
+              <div class="brand-tricolor-accent" aria-hidden="true">
+                <span class="tricolor-stripe stripe-yellow"></span>
+                <span class="tricolor-stripe stripe-orange"></span>
+                <span class="tricolor-stripe stripe-red"></span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 4. MENSAGEM PERSUASIVA & CONVENCEDORA SEM REPETIR DATAS -->
-        <div class="movement-persuasive-box">
-          <span class="persuasive-badge">JUVENTUDE MISSIONÁRIA</span>
-          <h2 class="persuasive-title">Você sente que a sua juventude tem um propósito?</h2>
-          <p class="hero-persuasive-text">
+        <!-- 4. CARD UNIFICADO: PROPÓSITO & FICHA DE INTERESSE DA MISSÃO -->
+        <div class="unified-mission-card" id="ficha-interesse">
+          <span class="unified-card-badge">MISSÃO OUTUBRO 2026</span>
+          
+          <h2 class="unified-card-title">Você sente que a sua juventude tem um propósito?</h2>
+          
+          <p class="unified-card-lead">
             Venha viver uma experiência inesquecível de fé, serviço e verdadeira fraternidade. Em cada visita e em cada
             oração, <span class="highlight-deus-resposta">você será a resposta de Deus para muitas <em
                 class="font-serif-familias">famílias</em></span>.
           </p>
-          <div class="persuasive-micro-cta-wrapper">
-            <a href="#ficha-interesse" class="persuasive-micro-cta" aria-label="Ir para a ficha de interesse">
-              <span>Preencha a ficha de interesse</span>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="micro-cta-arrow" aria-hidden="true">
-                <path d="M7 13l5 5 5-5M12 4v14"/>
-              </svg>
-            </a>
-          </div>
-        </div>
 
-        <!-- 5. CARD DESTACADO COM A FICHA DE INTERESSE & PLANEJAMENTO (LINK PARA GOOGLE FORMS) -->
-        <div class="form-interest-card-highlight" id="ficha-interesse">
           <div class="interest-stepper-container" aria-label="Passos para participar">
             <div class="interest-step-node step-node-1 active">
               <span class="step-node-badge">1</span>
@@ -180,13 +195,15 @@
               </div>
             </div>
           </div>
-          <h3 class="interest-card-title">Quer fazer parte da Missão em SJC-SP?</h3>
-          <p class="interest-card-desc">Preencha nossa ficha de interesse em 1 minuto! O seu pré-cadastro ajuda nossa
+
+          <p class="unified-card-desc">Preencha nossa ficha de interesse em 1 minuto! O seu pré-cadastro ajuda nossa
             equipe a dimensionar a estrutura da missão, organizar as vagas e enviar o Guia do Missionário diretamente no
             seu contato.</p>
+
           <div class="prayer-commitment-note">
             <span>Nossa equipe colocará a intenção de cada inscrito em nossas orações e Adoração ao Santíssimo.</span>
           </div>
+
           <a href="https://forms.gle/7ZzeopLgGRqusiUk7" target="_blank" rel="noopener noreferrer" class="btn btn-jfm-brand btn-md btn-interest-card" id="btnInterestCardOpen">
             <span>Preencher Ficha de Interesse</span>
           </a>
