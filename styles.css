@@ -932,10 +932,36 @@ body {
   border-radius: 99px;
   box-shadow: 0 3px 10px rgba(243, 138, 0, 0.1), 0 1px 4px rgba(46, 41, 37, 0.04);
   margin-bottom: 0.45rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-badge-tag::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(243, 138, 0, 0.22), transparent);
+  transform: skewX(-20deg);
+  animation: tagShimmerGlance 4.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes tagShimmerGlance {
+  0%, 70% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
 }
 
 .experience-badge-tag span {
   white-space: nowrap;
+  position: relative;
+  z-index: 1;
 }
 
 .experience-title {
@@ -1894,7 +1920,6 @@ body {
   display: flex;
   gap: 13px;
   width: max-content;
-  animation: marqueeContinuous 54s linear infinite;
   will-change: transform;
   cursor: grab;
   user-select: none;
@@ -1903,11 +1928,6 @@ body {
 
 .infinite-carousel-track:active {
   cursor: grabbing;
-}
-
-.infinite-carousel-container:hover .infinite-carousel-track,
-.infinite-carousel-track.is-paused {
-  animation-play-state: paused !important;
 }
 
 .carousel-slide-item {
@@ -1919,12 +1939,16 @@ body {
   box-shadow: 0 6px 20px rgba(46, 41, 37, 0.08);
   border: 2px solid #FFFFFF;
   background: #F4EFEA;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
 }
 
-.carousel-slide-item:hover {
-  transform: scale(1.04);
-  box-shadow: 0 10px 24px rgba(243, 138, 0, 0.25);
+.carousel-slide-item:hover,
+.carousel-slide-item.is-spotlight {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(243, 138, 0, 0.28), 0 4px 12px rgba(46, 41, 37, 0.08);
+  border-color: #FFFDF8;
+  z-index: 2;
 }
 
 .carousel-slide-item img {
@@ -1933,15 +1957,6 @@ body {
   object-fit: cover;
   display: block;
   pointer-events: none;
-}
-
-@keyframes marqueeContinuous {
-  0% {
-    transform: translateX(calc(-33.333333%));
-  }
-  100% {
-    transform: translateX(calc(-66.666666%));
-  }
 }
 
 /* CONTROLE MINIMALISTA & INSTAGRAM COMPACTO */
@@ -1983,6 +1998,19 @@ body {
   border-color: var(--color-orange);
   color: var(--color-orange);
   box-shadow: 0 3px 10px rgba(243, 138, 0, 0.18);
+  animation: playPulseHalo 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+@keyframes playPulseHalo {
+  0% {
+    box-shadow: 0 0 0 0 rgba(243, 138, 0, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(243, 138, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(243, 138, 0, 0);
+  }
 }
 
 .btn-instagram-compact {
@@ -2790,7 +2818,6 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
 
   .infinite-carousel-track {
     gap: 10px;
-    animation-duration: 40s;
   }
 
   .bottom-popup-card.active ~ .scroll-indicator-btn,

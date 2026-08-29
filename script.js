@@ -323,25 +323,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (carouselContainer && carouselTrack) {
     let isUserPaused = false;
-    let manualOffset = 0;
     let isDragging = false;
     let dragStartX = 0;
     let dragStartOffset = 0;
+    let currentOffset = 0;
+    let setWidth = 0;
+    let lastTime = 0;
+    const speed = 34; // pixels por segundo (rolagem suave e natural)
 
-    function getTrackCurrentTranslateX() {
-      const matrix = window.getComputedStyle(carouselTrack).transform;
-      if (matrix && matrix !== 'none') {
-        const values = matrix.split('(')[1].split(')')[0].split(',');
-        return parseFloat(values[4]) || 0;
+    const items = Array.from(carouselTrack.querySelectorAll('.carousel-slide-item'));
+
+    function measureDimensions() {
+      const totalWidth = carouselTrack.scrollWidth;
+      setWidth = totalWidth / 3;
+      if (currentOffset === 0 && setWidth > 0) {
+        currentOffset = -setWidth;
+        carouselTrack.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
       }
-      return manualOffset || 0;
     }
 
-    function normalizeOffset(offset) {
-      const totalWidth = carouselTrack.scrollWidth;
-      const setWidth = totalWidth / 3;
-      if (!setWidth || setWidth <= 0) return offset;
+    // Inicializa medidas quando imagens carregarem
+    measureDimensions();
+    window.addEventListener('resize', measureDimensions);
+    window.addEventListener('load', measureDimensions);
 
+    function normalizeOffset(offset) {
+      if (!setWidth || setWidth <= 0) return offset;
       while (offset > -setWidth / 3) {
         offset -= setWidth;
       }
@@ -351,20 +358,64 @@ document.addEventListener('DOMContentLoaded', () => {
       return offset;
     }
 
+    // Animação Criativa: Spotlight dinâmico na foto central em foco
+    function updateSpotlight() {
+      if (!items.length) return;
+      const containerRect = carouselContainer.getBoundingClientRect();
+      const centerX = containerRect.left + containerRect.width / 2;
+      let closestItem = null;
+      let minDistance = Infinity;
+
+      items.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        if (rect.right > containerRect.left && rect.left < containerRect.right) {
+          const itemCenterX = rect.left + rect.width / 2;
+          const dist = Math.abs(centerX - itemCenterX);
+          if (dist < minDistance) {
+            minDistance = dist;
+            closestItem = item;
+          }
+        }
+      });
+
+      items.forEach((item) => {
+        if (item === closestItem) {
+          item.classList.add('is-spotlight');
+        } else {
+          item.classList.remove('is-spotlight');
+        }
+      });
+    }
+
+    // Loop contínuo RAF que retoma EXATAMENTE na foto onde foi pausado
+    function animationLoop(timestamp) {
+      if (!lastTime) lastTime = timestamp;
+      const delta = (timestamp - lastTime) / 1000;
+      lastTime = timestamp;
+
+      if (!isUserPaused && !isDragging && setWidth > 0) {
+        currentOffset -= speed * delta;
+        currentOffset = normalizeOffset(currentOffset);
+        carouselTrack.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
+      }
+
+      updateSpotlight();
+      requestAnimationFrame(animationLoop);
+    }
+    requestAnimationFrame(animationLoop);
+
     function updatePlayPauseUI() {
       if (!btnCarouselPlayPause) return;
       const iconPause = btnCarouselPlayPause.querySelector('.icon-pause');
       const iconPlay = btnCarouselPlayPause.querySelector('.icon-play');
 
       if (isUserPaused) {
-        carouselTrack.classList.add('is-paused');
         btnCarouselPlayPause.classList.add('active-pause');
         btnCarouselPlayPause.setAttribute('title', 'Continuar rolagem automática');
         btnCarouselPlayPause.setAttribute('aria-label', 'Continuar rolagem automática');
         if (iconPause) iconPause.style.display = 'none';
         if (iconPlay) iconPlay.style.display = 'block';
       } else {
-        carouselTrack.classList.remove('is-paused');
         btnCarouselPlayPause.classList.remove('active-pause');
         btnCarouselPlayPause.setAttribute('title', 'Pausar rolagem automática');
         btnCarouselPlayPause.setAttribute('aria-label', 'Pausar rolagem automática');
@@ -383,11 +434,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnCarouselPlayPause) {
       btnCarouselPlayPause.addEventListener('click', () => {
         isUserPaused = !isUserPaused;
-        if (!isUserPaused) {
-          carouselTrack.style.transition = 'transform 0.5s ease';
-          carouselTrack.style.transform = '';
-          carouselTrack.style.animation = '';
-        }
+        lastTime = 0; // reset delta timestamp para não dar pulo
         updatePlayPauseUI();
       });
     }
@@ -396,9 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carouselTrack.addEventListener('mousedown', (e) => {
       isDragging = true;
       dragStartX = e.pageX;
-      carouselTrack.style.animation = 'none';
-      carouselTrack.style.transition = 'none';
-      dragStartOffset = getTrackCurrentTranslateX();
+      dragStartOffset = currentOffset;
     });
 
     window.addEventListener('mousemove', (e) => {
@@ -409,25 +454,25 @@ document.addEventListener('DOMContentLoaded', () => {
         pauseByTouchOrDrag();
       }
       const rawOffset = dragStartOffset + walk;
-      manualOffset = normalizeOffset(rawOffset);
-      if (manualOffset !== rawOffset) {
-        dragStartOffset += (manualOffset - rawOffset);
+      currentOffset = normalizeOffset(rawOffset);
+      if (currentOffset !== rawOffset) {
+        dragStartOffset += (currentOffset - rawOffset);
       }
-      carouselTrack.style.transform = `translateX(${manualOffset}px)`;
+      carouselTrack.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
+      updateSpotlight();
     });
 
     window.addEventListener('mouseup', () => {
       if (!isDragging) return;
       isDragging = false;
+      lastTime = 0;
     });
 
-    // Touch support for mobile (touch swipe pauses and wraps bidirectionally)
+    // Touch support for mobile (deslize com dedo com preservação de ponto exato)
     let touchStartX = 0;
     carouselTrack.addEventListener('touchstart', (e) => {
       touchStartX = e.touches[0].pageX;
-      carouselTrack.style.animation = 'none';
-      carouselTrack.style.transition = 'none';
-      dragStartOffset = getTrackCurrentTranslateX();
+      dragStartOffset = currentOffset;
     }, { passive: true });
 
     carouselTrack.addEventListener('touchmove', (e) => {
@@ -437,11 +482,16 @@ document.addEventListener('DOMContentLoaded', () => {
         pauseByTouchOrDrag();
       }
       const rawOffset = dragStartOffset + walk;
-      manualOffset = normalizeOffset(rawOffset);
-      if (manualOffset !== rawOffset) {
-        dragStartOffset += (manualOffset - rawOffset);
+      currentOffset = normalizeOffset(rawOffset);
+      if (currentOffset !== rawOffset) {
+        dragStartOffset += (currentOffset - rawOffset);
       }
-      carouselTrack.style.transform = `translateX(${manualOffset}px)`;
+      carouselTrack.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
+      updateSpotlight();
+    }, { passive: true });
+
+    carouselTrack.addEventListener('touchend', () => {
+      lastTime = 0;
     }, { passive: true });
   }
 
