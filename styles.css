@@ -156,12 +156,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.25rem;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  min-width: 0;
 }
 
 .brand-logo {
@@ -889,6 +891,69 @@ body {
   background: rgba(243, 138, 0, 0.12);
   color: var(--color-orange);
   border-color: rgba(243, 138, 0, 0.3);
+}
+
+.btn-interest-card {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* 5. BLOCO DE EXPERIÊNCIA & MEMÓRIAS DE MISSÕES ANTERIORES */
+.mission-experience-block {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.65rem 0 1.85rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.experience-header-lockup {
+  margin-bottom: 0.85rem;
+  max-width: 620px;
+  padding: 0 0.5rem;
+}
+
+.experience-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #2E2925;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(243, 138, 0, 0.35);
+  padding: 0.28rem 0.85rem;
+  border-radius: 99px;
+  box-shadow: 0 3px 10px rgba(243, 138, 0, 0.1), 0 1px 4px rgba(46, 41, 37, 0.04);
+  margin-bottom: 0.45rem;
+}
+
+.experience-badge-tag span {
+  white-space: nowrap;
+}
+
+.experience-title {
+  font-family: var(--font-bible);
+  font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
+}
+
+.experience-sub {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 /* 7. CONTADOR REGRESSIVO MINIMALISTA */
@@ -1698,19 +1763,35 @@ body {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
 }
 
-.insta-header-flex {
+.instagram-community-section {
+  padding: 3rem 0 3.5rem 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 100%);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.insta-showcase-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  text-align: left;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.insta-profile-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
 }
 
 .insta-avatar-wrapper {
   position: relative;
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  padding: 2.5px;
+  padding: 2px;
   background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
   flex-shrink: 0;
 }
@@ -1728,15 +1809,15 @@ body {
   position: absolute;
   bottom: -2px;
   right: -2px;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   background: #0095F6;
   color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #FFFFFF;
+  border: 1.5px solid #FFFFFF;
 }
 
 .insta-badge-tag {
@@ -1756,39 +1837,166 @@ body {
 }
 
 .insta-handle-sub {
-  font-size: 0.8rem;
+  font-size: 0.775rem;
   color: var(--color-text-muted);
 }
 
-.insta-card-bio {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  line-height: 1.5;
-  max-width: 480px;
-  margin: 0;
-}
-
-.btn-instagram-gradient {
+.btn-instagram-pill {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: linear-gradient(45deg, #F58529 0%, #DD2A7B 50%, #8134AF 100%);
+  gap: 0.45rem;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
   color: #FFFFFF;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.825rem;
   font-weight: 700;
-  padding: 0.7rem 1.4rem;
+  padding: 0.5rem 1.15rem;
   border-radius: 99px;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(221, 42, 123, 0.3);
+  box-shadow: 0 4px 14px rgba(220, 39, 67, 0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
-.btn-instagram-gradient:hover {
+.btn-instagram-pill:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(221, 42, 123, 0.45);
+  box-shadow: 0 6px 18px rgba(220, 39, 67, 0.4);
   filter: brightness(1.05);
+  color: #FFFFFF;
+}
+
+/* CARROSSEL INFINITO (MARQUEE CONTINUO) */
+.infinite-carousel-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0.5rem 0 0.75rem 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.infinite-carousel-track {
+  display: flex;
+  gap: 13px;
+  width: max-content;
+  animation: marqueeContinuous 54s linear infinite;
+  will-change: transform;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.infinite-carousel-track:active {
+  cursor: grabbing;
+}
+
+.infinite-carousel-container:hover .infinite-carousel-track,
+.infinite-carousel-track.is-paused {
+  animation-play-state: paused !important;
+}
+
+.carousel-slide-item {
+  width: 205px;
+  height: 205px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(46, 41, 37, 0.08);
+  border: 2px solid #FFFFFF;
+  background: #F4EFEA;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.carousel-slide-item:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 24px rgba(243, 138, 0, 0.25);
+}
+
+.carousel-slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+@keyframes marqueeContinuous {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 6.5px));
+  }
+}
+
+/* CONTROLE MINIMALISTA & INSTAGRAM COMPACTO */
+.carousel-footer-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.carousel-playpause-round-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1.5px solid rgba(243, 138, 0, 0.35);
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(243, 138, 0, 0.12), 0 1px 4px rgba(46, 41, 37, 0.04);
+  transition: var(--transition-normal);
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.carousel-playpause-round-btn:hover {
+  transform: scale(1.08);
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+  box-shadow: 0 5px 14px rgba(243, 138, 0, 0.2);
+}
+
+.carousel-playpause-round-btn.active-pause {
+  background: #FFF4E5;
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+  box-shadow: 0 3px 10px rgba(243, 138, 0, 0.18);
+}
+
+.btn-instagram-compact {
+  padding: 0.34rem 0.9rem;
+  font-size: 0.78rem;
+  gap: 0.38rem;
+  box-shadow: 0 2px 10px rgba(220, 39, 67, 0.2);
+}
+
+.insta-showcase-footer {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.showcase-lead-phrase {
+  font-family: var(--font-bible);
+  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: 0.35rem;
+}
+
+.showcase-lead-sub {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
 }
 
 /* --- BANNER FINAL --- */
@@ -2217,20 +2425,28 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   }
 
   .site-header {
-    padding: 0.6rem 0;
+    padding: 0.65rem 0;
+  }
+
+  .header-container {
+    gap: 0.85rem;
+  }
+
+  .brand {
+    gap: 0.6rem;
   }
 
   .brand-logo {
-    height: 36px;
+    height: 40px;
   }
 
   .brand-title {
-    font-size: 0.92rem;
+    font-size: 0.98rem;
     white-space: nowrap;
   }
 
   .brand-tricolor-accent {
-    width: 8px;
+    width: 9px;
     gap: 1.2px;
   }
 
@@ -2239,7 +2455,7 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   }
 
   .brand-subtitle {
-    font-size: 0.52rem;
+    font-size: 0.55rem;
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
@@ -2252,6 +2468,15 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
 
   .header-actions #btnShareHeader span {
     display: none;
+  }
+
+  .btn-whatsapp-header {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.78rem;
+    gap: 0.35rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .btn-sm {
@@ -2455,13 +2680,74 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     justify-content: center;
   }
 
-  .instagram-feed-card {
-    padding: 1.5rem 1.15rem;
-    border-radius: 18px;
+  .insta-showcase-header {
+    justify-content: center;
+    text-align: center;
   }
 
-  .btn-instagram-gradient {
+  .insta-profile-lockup {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .btn-instagram-pill {
     width: 100%;
+    justify-content: center;
+  }
+
+  .header-container {
+    gap: 0.65rem;
+  }
+
+  .brand {
+    gap: 0.52rem;
+  }
+
+  .brand-logo {
+    height: 36px;
+  }
+
+  .brand-title {
+    font-size: 0.92rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-whatsapp-header {
+    padding: 0.42rem 0.78rem;
+    font-size: 0.76rem;
+    gap: 0.32rem;
+  }
+
+  .experience-badge-tag {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.75rem;
+    gap: 0.38rem;
+  }
+
+  .carousel-slide-item {
+    width: 165px;
+    height: 165px;
+    border-radius: 16px;
+  }
+
+  .carousel-playpause-round-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .btn-instagram-compact {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.74rem;
+    width: auto;
+  }
+
+  .infinite-carousel-track {
+    gap: 10px;
+    animation-duration: 40s;
   }
 
   .bottom-popup-card.active ~ .scroll-indicator-btn,
@@ -2471,18 +2757,30 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
 }
 
 @media (max-width: 380px) {
+  .header-container {
+    gap: 0.5rem;
+  }
+
+  .brand {
+    gap: 0.45rem;
+  }
+
+  .brand-logo {
+    height: 34px;
+  }
+
   .brand-title {
-    font-size: 0.8rem;
+    font-size: 0.86rem;
     white-space: nowrap;
   }
 
   .brand-tricolor-accent {
-    width: 6px;
+    width: 7px;
     gap: 1px;
   }
 
   .tricolor-stripe {
-    height: 1px;
+    height: 1.1px;
   }
 
   .brand-subtitle {
@@ -2491,10 +2789,21 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     white-space: nowrap;
   }
 
+  .btn-whatsapp-header {
+    padding: 0.38rem 0.65rem;
+    font-size: 0.72rem;
+  }
+
   .image-overlay-tag {
     padding: 0.28rem 0.6rem;
     font-size: 0.58rem;
     gap: 0.3rem;
+  }
+
+  .experience-badge-tag {
+    font-size: 0.54rem;
+    padding: 0.22rem 0.55rem;
+    gap: 0.25rem;
   }
 
   .timer-value {

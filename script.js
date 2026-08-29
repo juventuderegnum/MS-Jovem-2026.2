@@ -316,4 +316,115 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
+  // --- 9. INTERACTIVE INFINITE PHOTO CAROUSEL CONTROLLER ---
+  const carouselContainer = document.getElementById('carouselContainer');
+  const carouselTrack = document.getElementById('carouselTrack');
+  const btnCarouselPlayPause = document.getElementById('btnCarouselPlayPause');
+
+  if (carouselContainer && carouselTrack) {
+    let isUserPaused = false;
+    let manualOffset = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartOffset = 0;
+
+    function updatePlayPauseUI() {
+      if (!btnCarouselPlayPause) return;
+      const iconPause = btnCarouselPlayPause.querySelector('.icon-pause');
+      const iconPlay = btnCarouselPlayPause.querySelector('.icon-play');
+
+      if (isUserPaused) {
+        carouselTrack.classList.add('is-paused');
+        btnCarouselPlayPause.classList.add('active-pause');
+        btnCarouselPlayPause.setAttribute('title', 'Continuar rolagem automática');
+        btnCarouselPlayPause.setAttribute('aria-label', 'Continuar rolagem automática');
+        if (iconPause) iconPause.style.display = 'none';
+        if (iconPlay) iconPlay.style.display = 'block';
+      } else {
+        carouselTrack.classList.remove('is-paused');
+        btnCarouselPlayPause.classList.remove('active-pause');
+        btnCarouselPlayPause.setAttribute('title', 'Pausar rolagem automática');
+        btnCarouselPlayPause.setAttribute('aria-label', 'Pausar rolagem automática');
+        if (iconPause) iconPause.style.display = 'block';
+        if (iconPlay) iconPlay.style.display = 'none';
+      }
+    }
+
+    if (btnCarouselPlayPause) {
+      btnCarouselPlayPause.addEventListener('click', () => {
+        isUserPaused = !isUserPaused;
+        updatePlayPauseUI();
+      });
+    }
+
+    // Mouse Drag support
+    carouselTrack.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      dragStartX = e.pageX;
+      carouselTrack.style.animation = 'none';
+      carouselTrack.style.transition = 'none';
+      const matrix = window.getComputedStyle(carouselTrack).transform;
+      if (matrix && matrix !== 'none') {
+        const values = matrix.split('(')[1].split(')')[0].split(',');
+        dragStartOffset = parseFloat(values[4]) || 0;
+      } else {
+        dragStartOffset = manualOffset;
+      }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const currentX = e.pageX;
+      const walk = currentX - dragStartX;
+      manualOffset = dragStartOffset + walk;
+      carouselTrack.style.transform = `translateX(${manualOffset}px)`;
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      if (!isUserPaused) {
+        clearTimeout(carouselTrack._resumeTimer);
+        carouselTrack._resumeTimer = setTimeout(() => {
+          carouselTrack.style.transition = 'transform 0.6s ease';
+          carouselTrack.style.transform = '';
+          carouselTrack.style.animation = '';
+        }, 3000);
+      }
+    });
+
+    // Touch support for mobile
+    let touchStartX = 0;
+    carouselTrack.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].pageX;
+      carouselTrack.style.animation = 'none';
+      carouselTrack.style.transition = 'none';
+      const matrix = window.getComputedStyle(carouselTrack).transform;
+      if (matrix && matrix !== 'none') {
+        const values = matrix.split('(')[1].split(')')[0].split(',');
+        dragStartOffset = parseFloat(values[4]) || 0;
+      } else {
+        dragStartOffset = manualOffset;
+      }
+    }, { passive: true });
+
+    carouselTrack.addEventListener('touchmove', (e) => {
+      const currentX = e.touches[0].pageX;
+      const walk = currentX - touchStartX;
+      manualOffset = dragStartOffset + walk;
+      carouselTrack.style.transform = `translateX(${manualOffset}px)`;
+    }, { passive: true });
+
+    carouselTrack.addEventListener('touchend', () => {
+      if (!isUserPaused) {
+        clearTimeout(carouselTrack._resumeTimer);
+        carouselTrack._resumeTimer = setTimeout(() => {
+          carouselTrack.style.transition = 'transform 0.6s ease';
+          carouselTrack.style.transform = '';
+          carouselTrack.style.animation = '';
+        }, 3000);
+      }
+    }, { passive: true });
+  }
+
 });
