@@ -1917,14 +1917,14 @@ body {
   max-width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 0.5rem 0 0.75rem 0;
+  padding: 0.65rem 0 1rem 0;
   mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
 .infinite-carousel-track {
   display: flex;
-  gap: 13px;
+  gap: 16px;
   width: max-content;
   will-change: transform;
   cursor: grab;
@@ -1937,13 +1937,13 @@ body {
 }
 
 .carousel-slide-item {
-  width: 205px;
-  height: 205px;
+  width: 265px;
+  height: 265px;
   flex-shrink: 0;
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(46, 41, 37, 0.08);
-  border: 2px solid #FFFFFF;
+  box-shadow: 0 8px 24px rgba(46, 41, 37, 0.09);
+  border: 2.5px solid #FFFFFF;
   background: #F4EFEA;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
   will-change: transform;
@@ -1952,7 +1952,7 @@ body {
 .carousel-slide-item:hover,
 .carousel-slide-item.is-spotlight {
   transform: scale(1.05);
-  box-shadow: 0 12px 28px rgba(243, 138, 0, 0.28), 0 4px 12px rgba(46, 41, 37, 0.08);
+  box-shadow: 0 14px 32px rgba(243, 138, 0, 0.3), 0 4px 14px rgba(46, 41, 37, 0.08);
   border-color: #FFFDF8;
   z-index: 2;
 }
@@ -1965,19 +1965,17 @@ body {
   pointer-events: none;
 }
 
-/* CONTROLE MINIMALISTA & INSTAGRAM COMPACTO */
+/* CONTROLE MINIMALISTA DE ROLAGEM */
 .carousel-footer-stack {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
-  margin-top: 0.75rem;
+  margin-top: 0.85rem;
 }
 
 .carousel-playpause-round-btn {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.96);
   border: 1.5px solid rgba(243, 138, 0, 0.35);
@@ -2019,29 +2017,80 @@ body {
   }
 }
 
-.btn-instagram-compact {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  vertical-align: middle;
-  text-align: center;
-  padding: 0.38rem 0.95rem;
-  font-size: 0.78rem;
-  font-weight: 700;
-  line-height: 1;
-  gap: 0.42rem;
-  box-shadow: 0 3px 12px rgba(220, 39, 67, 0.22);
+/* --- SEÇÃO SOCIAL COMMUNITY & INSTAGRAM OFICIAL COMPACTO --- */
+.social-community-section {
+  padding: 0.75rem 0 1.75rem 0;
 }
 
-.btn-instagram-compact svg {
-  display: block;
+.instagram-highlight-card {
+  max-width: 420px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF9FB 100%);
+  border: 1px solid rgba(220, 39, 67, 0.2);
+  border-radius: 18px;
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 4px 16px rgba(220, 39, 67, 0.05), 0 1px 4px rgba(46, 41, 37, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.45rem;
+  transition: var(--transition-normal);
+}
+
+.instagram-highlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(220, 39, 67, 0.1);
+  border-color: rgba(220, 39, 67, 0.35);
+}
+
+.instagram-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #DC2743;
+  background: rgba(220, 39, 67, 0.07);
+  padding: 0.18rem 0.58rem;
+  border-radius: 99px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.instagram-card-badge svg {
+  width: 12px;
+  height: 12px;
+  stroke: #DC2743;
   flex-shrink: 0;
 }
 
-.btn-instagram-compact span {
-  display: inline-block;
-  line-height: 1;
-  white-space: nowrap;
+.instagram-card-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.25;
+  margin: 0;
+}
+
+.instagram-card-desc {
+  font-size: 0.775rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  max-width: 360px;
+  margin: 0 0 0.25rem 0;
+}
+
+.btn-instagram-action {
+  padding: 0.45rem 1.15rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  gap: 0.4rem;
+  border-radius: 99px;
+  width: auto;
+  max-width: 100%;
 }
 
 /* LIGHTBOX DE FOTO EXPANDIDA (ZOOM AO CLICAR) */
@@ -2918,6 +2967,23 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+
+  .carousel-slide-item {
+    width: 200px;
+    height: 200px;
+    border-radius: 18px;
+  }
+
+  .instagram-highlight-card {
+    padding: 1.1rem 1rem;
+    border-radius: 16px;
+    max-width: 100%;
+  }
+
+  .btn-instagram-action {
+    width: 100%;
+    justify-content: center;
   }
 
   .scroll-indicator-btn {
