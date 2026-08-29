@@ -226,7 +226,7 @@
               </div>
             </div>
             <h3 class="experience-title">Como é viver essa missão na prática?</h3>
-            <p class="experience-sub">Registros reais de fé, profunda amizade, visitas aos lares e evangelização no Vale do Paraíba.</p>
+            <p class="experience-sub">Registros reais de fé, fraternidade, profunda amizade, visitas aos lares e evangelização.</p>
           </div>
 
           <!-- CARROSSEL INFINITO PANORÂMICO (MARQUEE CONTINUOUS LOOP) -->
@@ -311,6 +311,46 @@
               </svg>
               <span>@jm.valedoparaiba</span>
             </a>
+          </div>
+
+          <!-- LIGHTBOX MODAL DE FOTO EXPANDIDA (AMPLIAR FOTO AO CLICAR) -->
+          <div class="photo-lightbox-modal" id="photoLightboxModal" aria-hidden="true" role="dialog" aria-label="Visualização ampliada da foto">
+            <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+            <div class="lightbox-content-card">
+              <button type="button" class="lightbox-close-btn" id="btnLightboxClose" aria-label="Fechar visualização">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+
+              <button type="button" class="lightbox-nav-btn lightbox-prev-btn" id="btnLightboxPrev" aria-label="Foto anterior">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+
+              <div class="lightbox-image-wrapper">
+                <img id="lightboxMainImage" src="" alt="Registro da Missão" width="800" height="800">
+                <div class="lightbox-caption-bar">
+                  <div class="lightbox-tag">
+                    <div class="brand-tricolor-accent" aria-hidden="true">
+                      <span class="tricolor-stripe stripe-yellow"></span>
+                      <span class="tricolor-stripe stripe-orange"></span>
+                      <span class="tricolor-stripe stripe-red"></span>
+                    </div>
+                    <span>JUVENTUDE MISSIONÁRIA</span>
+                  </div>
+                  <p class="lightbox-caption-text" id="lightboxCaptionText">Memórias da Missão</p>
+                </div>
+              </div>
+
+              <button type="button" class="lightbox-nav-btn lightbox-next-btn" id="btnLightboxNext" aria-label="Próxima foto">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 

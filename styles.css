@@ -2038,6 +2038,194 @@ body {
   white-space: nowrap;
 }
 
+/* LIGHTBOX DE FOTO EXPANDIDA (ZOOM AO CLICAR) */
+.carousel-slide-item {
+  cursor: pointer;
+}
+
+.photo-lightbox-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+  padding: 1rem;
+}
+
+.photo-lightbox-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 14, 11, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+}
+
+.lightbox-content-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.92);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-lightbox-modal.active .lightbox-content-card {
+  transform: scale(1);
+}
+
+.lightbox-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  background: #1A1715;
+}
+
+.lightbox-image-wrapper img {
+  width: 100%;
+  height: auto;
+  max-height: min(72vh, 520px);
+  object-fit: cover;
+  display: block;
+}
+
+.lightbox-caption-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem 0.85rem 1rem;
+  background: linear-gradient(0deg, rgba(15, 12, 10, 0.95) 0%, rgba(15, 12, 10, 0.75) 60%, transparent 100%);
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.lightbox-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.22rem 0.65rem;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+  white-space: nowrap;
+}
+
+.lightbox-tag .brand-tricolor-accent {
+  width: 8px;
+  gap: 1.2px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lightbox-caption-text {
+  font-family: var(--font-bible);
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.35;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid rgba(243, 138, 0, 0.3);
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.lightbox-close-btn:hover {
+  transform: scale(1.1);
+  background: #FFF4E5;
+  color: var(--color-orange);
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(243, 138, 0, 0.35);
+  color: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  z-index: 20;
+  transition: all 0.2s ease;
+}
+
+.lightbox-prev-btn {
+  left: -21px;
+}
+
+.lightbox-next-btn {
+  right: -21px;
+}
+
+.lightbox-nav-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: #FFFFFF;
+  color: var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+@media (max-width: 640px) {
+  .lightbox-prev-btn {
+    left: 8px;
+    background: rgba(255, 255, 255, 0.85);
+  }
+  .lightbox-next-btn {
+    right: 8px;
+    background: rgba(255, 255, 255, 0.85);
+  }
+  .lightbox-close-btn {
+    top: 8px;
+    right: 8px;
+  }
+}
+
 .insta-showcase-footer {
   text-align: center;
   margin-top: 2rem;

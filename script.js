@@ -440,9 +440,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mouse Drag support
+    let dragDistance = 0;
     carouselTrack.addEventListener('mousedown', (e) => {
       isDragging = true;
       dragStartX = e.pageX;
+      dragDistance = 0;
       dragStartOffset = currentOffset;
     });
 
@@ -450,7 +452,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!isDragging) return;
       const currentX = e.pageX;
       const walk = currentX - dragStartX;
-      if (Math.abs(walk) > 3) {
+      dragDistance = Math.abs(walk);
+      if (dragDistance > 4) {
         pauseByTouchOrDrag();
       }
       const rawOffset = dragStartOffset + walk;
@@ -470,15 +473,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Touch support for mobile (deslize com dedo com preservação de ponto exato)
     let touchStartX = 0;
+    let touchDistance = 0;
     carouselTrack.addEventListener('touchstart', (e) => {
       touchStartX = e.touches[0].pageX;
+      touchDistance = 0;
       dragStartOffset = currentOffset;
     }, { passive: true });
 
     carouselTrack.addEventListener('touchmove', (e) => {
       const currentX = e.touches[0].pageX;
       const walk = currentX - touchStartX;
-      if (Math.abs(walk) > 3) {
+      touchDistance = Math.abs(walk);
+      if (touchDistance > 4) {
         pauseByTouchOrDrag();
       }
       const rawOffset = dragStartOffset + walk;
@@ -493,6 +499,92 @@ document.addEventListener('DOMContentLoaded', () => {
     carouselTrack.addEventListener('touchend', () => {
       lastTime = 0;
     }, { passive: true });
+
+    // --- 10. LIGHTBOX CONTROLLER (ZOOM / AMPLIAR FOTO AO CLICAR) ---
+    const photoLightboxModal = document.getElementById('photoLightboxModal');
+    const lightboxBackdrop = document.getElementById('lightboxBackdrop');
+    const btnLightboxClose = document.getElementById('btnLightboxClose');
+    const btnLightboxPrev = document.getElementById('btnLightboxPrev');
+    const btnLightboxNext = document.getElementById('btnLightboxNext');
+    const lightboxMainImage = document.getElementById('lightboxMainImage');
+    const lightboxCaptionText = document.getElementById('lightboxCaptionText');
+
+    const photoList = [
+      { src: 'assets/carrossel/missao-01.webp', caption: 'Acolhimento sincero e a alegria contagiante da missão' },
+      { src: 'assets/carrossel/missao-02.webp', caption: 'Evangelização nas ruas, levando a esperança de porta em porta' },
+      { src: 'assets/carrossel/missao-03.webp', caption: 'Juventude reunida: testemunho vivo de fraternidade e fé' },
+      { src: 'assets/carrossel/missao-04.webp', caption: 'Fraternidade e comunhão na partilha da mesa missionária' },
+      { src: 'assets/carrossel/missao-05.webp', caption: 'Amor em gestos concretos no cuidado e carinho com as crianças' },
+      { src: 'assets/carrossel/missao-06.webp', caption: 'Santa Missa e adoração: o coração de toda a nossa missão' },
+      { src: 'assets/carrossel/missao-07.webp', caption: 'Serviço voluntário, escuta atenta e dedicação ao próximo' },
+      { src: 'assets/carrossel/missao-08.webp', caption: 'O abraço que acolhe: bênção, afeto e escuta nos lares visitados' },
+      { src: 'assets/carrossel/missao-09.webp', caption: 'A caminho da missão: unidade e entusiasmo no envio apostólico' },
+      { src: 'assets/carrossel/missao-10.webp', caption: 'Momentos de oração pessoal e encontro íntimo com Deus' },
+      { src: 'assets/carrossel/missao-11.webp', caption: 'O Santo Terço: devoção mariana fortalecendo nossos passos' },
+      { src: 'assets/carrossel/missao-12.webp', caption: 'Bênção dos lares, levando a paz de Cristo às famílias' },
+      { src: 'assets/carrossel/missao-13.webp', caption: 'Alegria jovem em ação, transformando corações com o Evangelho' },
+      { src: 'assets/carrossel/missao-14.webp', caption: 'Vínculos fraternos que unem missionários e comunidade' },
+      { src: 'assets/carrossel/missao-15.webp', caption: 'Jovens missionários: corações ardentes e pés a caminho' },
+      { src: 'assets/carrossel/missao-16.webp', caption: 'Silêncio, oração e entrega confiante nas mãos do Senhor' },
+      { src: 'assets/carrossel/missao-17.webp', caption: 'Fraternidade e amizades verdadeiras que duram para a vida inteira' }
+    ];
+
+    let currentPhotoIndex = 0;
+
+    function openLightbox(index) {
+      if (!photoLightboxModal || !lightboxMainImage) return;
+      currentPhotoIndex = (index + photoList.length) % photoList.length;
+      const photo = photoList[currentPhotoIndex];
+      lightboxMainImage.src = photo.src;
+      lightboxMainImage.alt = photo.caption;
+      if (lightboxCaptionText) {
+        lightboxCaptionText.textContent = photo.caption;
+      }
+      photoLightboxModal.classList.add('active');
+      photoLightboxModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Pausa a rolagem enquanto a foto está ampliada
+      pauseByTouchOrDrag();
+    }
+
+    function closeLightbox() {
+      if (!photoLightboxModal) return;
+      photoLightboxModal.classList.remove('active');
+      photoLightboxModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function showPrevPhoto() {
+      openLightbox(currentPhotoIndex - 1);
+    }
+
+    function showNextPhoto() {
+      openLightbox(currentPhotoIndex + 1);
+    }
+
+    if (photoLightboxModal) {
+      if (btnLightboxClose) btnLightboxClose.addEventListener('click', closeLightbox);
+      if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+      if (btnLightboxPrev) btnLightboxPrev.addEventListener('click', showPrevPhoto);
+      if (btnLightboxNext) btnLightboxNext.addEventListener('click', showNextPhoto);
+
+      window.addEventListener('keydown', (e) => {
+        if (!photoLightboxModal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrevPhoto();
+        if (e.key === 'ArrowRight') showNextPhoto();
+      });
+    }
+
+    // Clique em qualquer card do carrossel para ampliar
+    items.forEach((item, idx) => {
+      item.addEventListener('click', () => {
+        if (dragDistance > 6 || touchDistance > 6) return;
+        const photoIndex = idx % 17;
+        openLightbox(photoIndex);
+      });
+    });
   }
 
 });
