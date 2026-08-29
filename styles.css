@@ -1937,10 +1937,10 @@ body {
 
 @keyframes marqueeContinuous {
   0% {
-    transform: translateX(0);
+    transform: translateX(calc(-33.333333%));
   }
   100% {
-    transform: translateX(calc(-50% - 6.5px));
+    transform: translateX(calc(-66.666666%));
   }
 }
 

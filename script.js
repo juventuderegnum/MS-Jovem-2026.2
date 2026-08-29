@@ -337,6 +337,20 @@ document.addEventListener('DOMContentLoaded', () => {
       return manualOffset || 0;
     }
 
+    function normalizeOffset(offset) {
+      const totalWidth = carouselTrack.scrollWidth;
+      const setWidth = totalWidth / 3;
+      if (!setWidth || setWidth <= 0) return offset;
+
+      while (offset > -setWidth / 3) {
+        offset -= setWidth;
+      }
+      while (offset < -2.2 * setWidth) {
+        offset += setWidth;
+      }
+      return offset;
+    }
+
     function updatePlayPauseUI() {
       if (!btnCarouselPlayPause) return;
       const iconPause = btnCarouselPlayPause.querySelector('.icon-pause');
@@ -370,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnCarouselPlayPause.addEventListener('click', () => {
         isUserPaused = !isUserPaused;
         if (!isUserPaused) {
-          carouselTrack.style.transition = 'transform 0.4s ease';
+          carouselTrack.style.transition = 'transform 0.5s ease';
           carouselTrack.style.transform = '';
           carouselTrack.style.animation = '';
         }
@@ -394,7 +408,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (Math.abs(walk) > 3) {
         pauseByTouchOrDrag();
       }
-      manualOffset = dragStartOffset + walk;
+      const rawOffset = dragStartOffset + walk;
+      manualOffset = normalizeOffset(rawOffset);
+      if (manualOffset !== rawOffset) {
+        dragStartOffset += (manualOffset - rawOffset);
+      }
       carouselTrack.style.transform = `translateX(${manualOffset}px)`;
     });
 
@@ -403,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
       isDragging = false;
     });
 
-    // Touch support for mobile (touch swipe pauses and lets user control)
+    // Touch support for mobile (touch swipe pauses and wraps bidirectionally)
     let touchStartX = 0;
     carouselTrack.addEventListener('touchstart', (e) => {
       touchStartX = e.touches[0].pageX;
@@ -418,7 +436,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (Math.abs(walk) > 3) {
         pauseByTouchOrDrag();
       }
-      manualOffset = dragStartOffset + walk;
+      const rawOffset = dragStartOffset + walk;
+      manualOffset = normalizeOffset(rawOffset);
+      if (manualOffset !== rawOffset) {
+        dragStartOffset += (manualOffset - rawOffset);
+      }
       carouselTrack.style.transform = `translateX(${manualOffset}px)`;
     }, { passive: true });
   }
