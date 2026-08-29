@@ -88,25 +88,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 5. OPTIMIZED SCROLL INDICATOR & POPUP ENGINE (THROTTLED WITH RAF) ---
   let isTicking = false;
 
+  let isScrollClicked = false;
+
   function handleScroll() {
-    const scrollPosition = window.scrollY;
+    const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
     const windowHeight = window.innerHeight;
     const fullHeight = document.documentElement.scrollHeight;
     const isNearBottom = (scrollPosition + windowHeight) >= (fullHeight - 300);
 
     if (scrollIndicatorBtn) {
-      if (scrollPosition > 80) {
-        scrollIndicatorBtn.classList.add('scrolled');
+      // Pouco visível (opacity: 0.18) após o 1º clique ou ao passar da foto da garotinha (scroll > 40)
+      if (scrollPosition > 40 || isScrollClicked) {
+        scrollIndicatorBtn.classList.add('scrolled-faded');
       } else {
-        scrollIndicatorBtn.classList.remove('scrolled');
+        scrollIndicatorBtn.classList.remove('scrolled-faded');
       }
 
       if (isNearBottom) {
         scrollIndicatorBtn.classList.add('at-bottom');
         scrollIndicatorBtn.setAttribute('title', 'Voltar ao topo');
+        scrollIndicatorBtn.setAttribute('aria-label', 'Voltar ao topo');
       } else {
         scrollIndicatorBtn.classList.remove('at-bottom');
-        scrollIndicatorBtn.setAttribute('title', 'Continuar lendo');
+        scrollIndicatorBtn.setAttribute('title', 'Rolar para conhecer a missão');
+        scrollIndicatorBtn.setAttribute('aria-label', 'Rolar para conhecer a missão');
       }
     }
 
@@ -124,12 +129,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
+  window.addEventListener('touchmove', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(handleScroll);
+      isTicking = true;
+    }
+  }, { passive: true });
+
   if (scrollIndicatorBtn) {
-    scrollIndicatorBtn.addEventListener('click', () => {
-      if (scrollIndicatorBtn.classList.contains('at-bottom')) {
+    scrollIndicatorBtn.addEventListener('click', (e) => {
+      // Remove o foco do botão para não manter estados :focus/:hover acesos no mobile
+      scrollIndicatorBtn.blur();
+      isScrollClicked = true;
+      scrollIndicatorBtn.classList.add('scrolled-faded');
+
+      const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      const fullHeight = document.documentElement.scrollHeight;
+      const windowHeight = window.innerHeight;
+      const isNearBottom = (scrollPosition + windowHeight) >= (fullHeight - 350);
+
+      if (isNearBottom || scrollIndicatorBtn.classList.contains('at-bottom')) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        window.scrollBy({ top: window.innerHeight * 0.7, behavior: 'smooth' });
+        // No 1º clique no topo, desce suavemente ~52% da tela (não desce tudo de uma vez)
+        if (scrollPosition < 60) {
+          window.scrollBy({ top: window.innerHeight * 0.52, behavior: 'smooth' });
+        } else {
+          // Nos cliques seguintes, avança suavemente para a próxima seção
+          const sections = [
+            document.getElementById('ficha-interesse'),
+            document.getElementById('carouselContainer'),
+            document.getElementById('duvidas'),
+            document.getElementById('pilares'),
+            document.getElementById('btnWhatsappBottom')
+          ].filter(Boolean);
+
+          let nextSection = null;
+          for (const sec of sections) {
+            const rect = sec.getBoundingClientRect();
+            if (rect.top > 80) {
+              nextSection = sec;
+              break;
+            }
+          }
+
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            window.scrollBy({ top: window.innerHeight * 0.6, behavior: 'smooth' });
+          }
+        }
       }
     });
   }
@@ -526,7 +575,8 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: 'assets/carrossel/missao-14.webp', caption: 'Vínculos fraternos que unem missionários e comunidade' },
       { src: 'assets/carrossel/missao-15.webp', caption: 'Jovens missionários: corações ardentes e pés a caminho' },
       { src: 'assets/carrossel/missao-16.webp', caption: 'Silêncio, oração e entrega confiante nas mãos do Senhor' },
-      { src: 'assets/carrossel/missao-17.webp', caption: 'Fraternidade e amizades verdadeiras que duram para a vida inteira' }
+      { src: 'assets/carrossel/missao-17.webp', caption: 'Fraternidade e amizades verdadeiras que duram para a vida inteira' },
+      { src: 'assets/carrossel/missao-18.webp', caption: 'Ação social e caridade: servindo com amor a quem mais precisa' }
     ];
 
     let currentPhotoIndex = 0;
