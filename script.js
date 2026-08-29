@@ -328,6 +328,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let dragStartX = 0;
     let dragStartOffset = 0;
 
+    function getTrackCurrentTranslateX() {
+      const matrix = window.getComputedStyle(carouselTrack).transform;
+      if (matrix && matrix !== 'none') {
+        const values = matrix.split('(')[1].split(')')[0].split(',');
+        return parseFloat(values[4]) || 0;
+      }
+      return manualOffset || 0;
+    }
+
     function updatePlayPauseUI() {
       if (!btnCarouselPlayPause) return;
       const iconPause = btnCarouselPlayPause.querySelector('.icon-pause');
@@ -350,9 +359,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    function pauseByTouchOrDrag() {
+      if (!isUserPaused) {
+        isUserPaused = true;
+        updatePlayPauseUI();
+      }
+    }
+
     if (btnCarouselPlayPause) {
       btnCarouselPlayPause.addEventListener('click', () => {
         isUserPaused = !isUserPaused;
+        if (!isUserPaused) {
+          carouselTrack.style.transition = 'transform 0.4s ease';
+          carouselTrack.style.transform = '';
+          carouselTrack.style.animation = '';
+        }
         updatePlayPauseUI();
       });
     }
@@ -363,19 +384,16 @@ document.addEventListener('DOMContentLoaded', () => {
       dragStartX = e.pageX;
       carouselTrack.style.animation = 'none';
       carouselTrack.style.transition = 'none';
-      const matrix = window.getComputedStyle(carouselTrack).transform;
-      if (matrix && matrix !== 'none') {
-        const values = matrix.split('(')[1].split(')')[0].split(',');
-        dragStartOffset = parseFloat(values[4]) || 0;
-      } else {
-        dragStartOffset = manualOffset;
-      }
+      dragStartOffset = getTrackCurrentTranslateX();
     });
 
     window.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       const currentX = e.pageX;
       const walk = currentX - dragStartX;
+      if (Math.abs(walk) > 3) {
+        pauseByTouchOrDrag();
+      }
       manualOffset = dragStartOffset + walk;
       carouselTrack.style.transform = `translateX(${manualOffset}px)`;
     });
@@ -383,47 +401,25 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('mouseup', () => {
       if (!isDragging) return;
       isDragging = false;
-      if (!isUserPaused) {
-        clearTimeout(carouselTrack._resumeTimer);
-        carouselTrack._resumeTimer = setTimeout(() => {
-          carouselTrack.style.transition = 'transform 0.6s ease';
-          carouselTrack.style.transform = '';
-          carouselTrack.style.animation = '';
-        }, 3000);
-      }
     });
 
-    // Touch support for mobile
+    // Touch support for mobile (touch swipe pauses and lets user control)
     let touchStartX = 0;
     carouselTrack.addEventListener('touchstart', (e) => {
       touchStartX = e.touches[0].pageX;
       carouselTrack.style.animation = 'none';
       carouselTrack.style.transition = 'none';
-      const matrix = window.getComputedStyle(carouselTrack).transform;
-      if (matrix && matrix !== 'none') {
-        const values = matrix.split('(')[1].split(')')[0].split(',');
-        dragStartOffset = parseFloat(values[4]) || 0;
-      } else {
-        dragStartOffset = manualOffset;
-      }
+      dragStartOffset = getTrackCurrentTranslateX();
     }, { passive: true });
 
     carouselTrack.addEventListener('touchmove', (e) => {
       const currentX = e.touches[0].pageX;
       const walk = currentX - touchStartX;
+      if (Math.abs(walk) > 3) {
+        pauseByTouchOrDrag();
+      }
       manualOffset = dragStartOffset + walk;
       carouselTrack.style.transform = `translateX(${manualOffset}px)`;
-    }, { passive: true });
-
-    carouselTrack.addEventListener('touchend', () => {
-      if (!isUserPaused) {
-        clearTimeout(carouselTrack._resumeTimer);
-        carouselTrack._resumeTimer = setTimeout(() => {
-          carouselTrack.style.transition = 'transform 0.6s ease';
-          carouselTrack.style.transform = '';
-          carouselTrack.style.animation = '';
-        }, 3000);
-      }
     }, { passive: true });
   }
 
