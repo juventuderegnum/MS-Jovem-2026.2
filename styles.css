@@ -1155,42 +1155,20 @@ body {
   font-size: 0.85rem;
 }
 
-.accordion-content > p,
-.accordion-content > div {
+.accordion-content > p {
   min-height: 0;
   overflow: hidden;
+  line-height: 1.55;
+}
+
+.accordion-content strong {
+  color: var(--color-dark);
+  font-weight: 700;
 }
 
 .accordion-item.active .accordion-content {
   grid-template-rows: 1fr;
   padding: 0 0.82rem 0.65rem 0.82rem;
-}
-
-.faq-highlight-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: linear-gradient(135deg, rgba(243, 138, 0, 0.12) 0%, rgba(235, 0, 40, 0.05) 100%);
-  border: 1px solid rgba(243, 138, 0, 0.3);
-  border-left: 3.5px solid var(--color-orange);
-  padding: 0.4rem 0.7rem;
-  border-radius: 8px;
-  margin-top: 0.45rem;
-  font-size: 0.8rem;
-  color: var(--color-dark);
-  line-height: 1.35;
-}
-
-.faq-highlight-badge .badge-icon {
-  color: var(--color-orange);
-  font-weight: 900;
-  font-size: 0.85rem;
-  flex-shrink: 0;
-}
-
-.faq-highlight-badge strong {
-  color: #C74E00;
-  font-weight: 800;
 }
 
 .faq-support-box {
