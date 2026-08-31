@@ -404,17 +404,31 @@ body {
 /* 1. TÍTULO PRINCIPAL (FONTE BÍBLICA ELEGANTE) */
 .hero-headline-serif {
   font-family: var(--font-bible);
-  font-size: clamp(1.68rem, 4.8vw, 3.6rem);
+  font-size: clamp(1.42rem, 4.4vw, 3.4rem);
   font-style: italic;
   font-weight: 600;
-  line-height: 1.18;
+  line-height: 1.2;
   color: var(--color-dark);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.35rem;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.hero-line-1 {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-line-2 {
+  display: block;
+  white-space: nowrap;
 }
 
 .text-orange {
   color: var(--color-orange);
   font-style: italic;
+  font-weight: 700;
+  text-shadow: 0 2px 14px rgba(243, 138, 0, 0.15);
 }
 
 /* 2. CARD DO LINK DO WHATSAPP */
@@ -2846,8 +2860,8 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   }
 
   .hero-headline-serif {
-    font-size: clamp(1.55rem, 6vw, 1.95rem);
-    line-height: 1.2;
+    font-size: clamp(1.25rem, 5.2vw, 1.7rem);
+    line-height: 1.25;
     margin-bottom: 1.25rem;
   }
 
