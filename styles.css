@@ -369,24 +369,25 @@ body {
   align-items: center;
 }
 
-/* 0. CRUZ SACRA MINIMALISTA TRICOLOR */
+/* 0. CRUZ SACRA MINIMALISTA TRICOLOR (VÉRTICE DA PIRÂMIDE) */
 .hero-cross-badge {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.48rem;
   user-select: none;
 }
 
 .hero-cross-svg {
   display: block;
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 6px rgba(243, 138, 0, 0.25));
-  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 8px rgba(243, 138, 0, 0.38)) drop-shadow(0 4px 14px rgba(235, 0, 40, 0.15));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
 }
 
 .hero-cross-svg:hover {
-  transform: scale(1.12);
+  transform: translateY(-2px) scale(1.1);
+  filter: drop-shadow(0 4px 12px rgba(243, 138, 0, 0.55)) drop-shadow(0 6px 18px rgba(235, 0, 40, 0.25));
 }
 
 /* 1. TÍTULO PRINCIPAL (FONTE BÍBLICA ELEGANTE) */
@@ -445,6 +446,10 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(37, 211, 102, 0.2);
   background: #F4FDF7;
+}
+
+.hero-whatsapp-banner:active {
+  transform: scale(0.985);
 }
 
 .whatsapp-badge-icon {
@@ -2142,7 +2147,7 @@ body {
 
 /* --- BANNER FINAL --- */
 .final-cta-section {
-  padding: 3rem 0 4.5rem 0;
+  padding: 2.25rem 0 3rem 0;
 }
 
 .cta-elegant-card {
@@ -2150,7 +2155,7 @@ body {
   border: 1px solid var(--color-border);
   border-top: 4px solid var(--color-orange);
   border-radius: 22px;
-  padding: 3rem 1.75rem;
+  padding: 2.25rem 1.5rem;
   text-align: center;
   color: var(--color-dark);
   box-shadow: var(--shadow-card);
@@ -2352,7 +2357,7 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
 .site-footer {
   background: #FFFFFF;
   border-top: 1px solid var(--color-border);
-  padding: 2.5rem 0 2rem 0;
+  padding: 1.85rem 0 1.5rem 0;
   text-align: center;
 }
 
