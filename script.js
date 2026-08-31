@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const fullHeight = document.documentElement.scrollHeight;
     const isNearBottom = (scrollPosition + windowHeight) >= (fullHeight - 300);
 
-    // Gatilho do Popup Inferior antecipado para 55% da rolagem total (Otimização Clarity UX)
+    // Gatilho do Popup Inferior aos 50% da rolagem total (Otimização Clarity UX)
     const scrollableHeight = fullHeight - windowHeight;
     const scrollPercentage = scrollableHeight > 0 ? (scrollPosition / scrollableHeight) * 100 : 0;
-    const isPastFiftyFivePercent = scrollPercentage >= 55;
+    const isPastFiftyPercent = scrollPercentage >= 50;
 
     if (scrollIndicatorBtn) {
       // Pouco visível (opacity: 0.18) após o 1º clique ou ao passar da foto da garotinha (scroll > 40)
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if ((isPastFiftyFivePercent || isNearBottom) && !isPopupDismissed && bottomPopupCard) {
+    if ((isPastFiftyPercent || isNearBottom) && !isPopupDismissed && bottomPopupCard) {
       bottomPopupCard.classList.add('active');
     }
 
