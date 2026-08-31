@@ -68,8 +68,14 @@ O projeto foi construído utilizando **Vanilla Web Technologies (Web Nativas)** 
   * Utilização da tag `<picture>` com fontes em formato **WebP** de última geração (redução de ~80% no peso).
   * Atributos de dimensionamento `width` e `height` explícitos em todas as imagens para evitar **CLS** (Cumulative Layout Shift).
   * Carregamento sob demanda (`loading="lazy"`) para elementos abaixo da dobra e prioridade (`fetchpriority="high"`) na imagem de abertura (Hero).
+* **Pipeline de Build & Minificação (esbuild):**
+  * Script automatizado (`tools/build.mjs`) que minifica `styles.css` (−37%), `script.js` (−54%) e `clarity.js` para a pasta `dist/` em ~50ms.
+  * Mantém o código-fonte raiz 100% legível e editável para desenvolvimento diário.
+* **Segurança Reforçada (CSP Estrita & Headers HTTP):**
+  * Content-Security-Policy (CSP) sem `'unsafe-inline'` para scripts (snippet do Microsoft Clarity externalizado em `clarity.js`).
+  * Headers de segurança modernos configurados no `vercel.json` (HSTS Preload, X-Frame-Options DENY, CORP, COOP e proteções contra XSS/MIME-sniffing).
 * **Hospedagem & Deploy:**
-  * Configurado para **Vercel** com integração contínua (CI/CD) direta do repositório **GitHub**. Qualquer atualização na branch `main` dispara um deploy automático na Vercel Edge Network.
+  * Configurado para **Vercel** com integração contínua (CI/CD) direta do repositório **GitHub**. Ao fazer `git push origin main`, a Vercel roda `npm run build` e publica o conteúdo otimizado de `dist/` na Vercel Edge Network.
 
 ---
 
@@ -77,38 +83,37 @@ O projeto foi construído utilizando **Vanilla Web Technologies (Web Nativas)** 
 
 ```
 MissoesRegnum/
-├── index.html                  # Estrutura HTML5 semântica, Microsoft Clarity e SEO
+├── index.html                  # Estrutura HTML5 semântica e SEO
 ├── styles.css                  # Design System, variáveis de cores e responsividade
 ├── script.js                   # Lógica de interações, carrossel, FAQ e contador regressivo
+├── clarity.js                  # Snippet externalizado do Microsoft Clarity (CSP compliance)
+├── vercel.json                 # Configurações de build, headers de segurança e CSP
+├── package.json                # Pipeline de build automatizado com esbuild
 ├── README.md                   # Documentação técnica e operacional do projeto
+├── tools/                      # Scripts auxiliares de build e análise de código morto
 └── assets/
     ├── garotinha-missoes.webp  # Imagem da missão (WebP otimizada)
     ├── garotinha-missoes.jpg   # Imagem da missão (Fallback JPG)
     ├── logo-isotipo.webp       # Logotipo Isotipo JFM (WebP)
     ├── logo-isotipo.png        # Logotipo Isotipo JFM (Fallback PNG)
     ├── logo-regnumchristi.webp # Escudo oficial Regnum Christi (WebP)
-    └── logo-regnumchristi.png  # Escudo oficial Regnum Christi (Fallback PNG)
+    ├── logo-regnumchristi.png  # Escudo oficial Regnum Christi (Fallback PNG)
+    └── carrossel/              # Galeria de fotos da missão em WebP
 ```
 
 ---
 
-## 🚀 Como Executar Localmente
+## 🚀 Como Executar e Compilar Localmente
 
-### 1. Abertura Direta
-Basta abrir o arquivo `index.html` em qualquer navegador moderno (Chrome, Safari, Edge, Firefox).
+### 1. Abertura Direta / Desenvolvimento
+Você pode abrir o arquivo `index.html` diretamente no navegador ou usar um servidor local (`python -m http.server 8080`).
 
-### 2. Servidor Local (Recomendado para Testes)
-Você pode subir um servidor HTTP local usando Python ou Node:
+### 2. Gerar Build de Produção
+Para rodar a minificação e compilar para `dist/`:
 
 ```bash
-# Com Python
-python -m http.server 8080
-
-# Com Node / npx
-npx http-server -p 8080
+npm run build
 ```
-
-Em seguida, acesse `http://localhost:8080` no seu navegador.
 
 ---
 
@@ -116,8 +121,8 @@ Em seguida, acesse `http://localhost:8080` no seu navegador.
 
 O projeto está conectado diretamente à plataforma **Vercel** via repositório **GitHub**.
 
-1. Ao efetuar qualquer `git push origin main`, a Vercel compila e disponibiliza a nova versão instantaneamente na CDN global com certificado SSL/HTTPS automático.
-2. Como se trata de um site estático (HTML/CSS/JS), não requer etapa de build complexa (`build command` vazio e diretório raiz `./`).
+1. Ao efetuar qualquer `git push origin main`, a Vercel executa `npm run build` e publica o diretório `dist/` instantaneamente na CDN global com certificado SSL/HTTPS automático.
+2. Apenas os arquivos de produção em `dist/` ficam expostos publicamente, garantindo segurança dos arquivos-fonte internos.
 
 ---
 

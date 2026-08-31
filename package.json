@@ -1,0 +1,12 @@
+{
+  "name": "missoes-regnum",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Landing page da Missão Nossa Senhora Aparecida — Juventude Missionária Regnum Christi Vale do Paraíba",
+  "scripts": {
+    "build": "node tools/build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

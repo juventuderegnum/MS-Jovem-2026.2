@@ -32,24 +32,25 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo-isotipo.png">
 
-  <!-- Fonts: Google Fonts -->
+  <!-- Fonts: Google Fonts (preload não bloqueante; aplicado via script.js com fallback <noscript>) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600;1,6..72,700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" id="googleFontsCss"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600;1,6..72,700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,500;1,6..72,600;1,6..72,700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  </noscript>
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Microsoft Clarity Analytics (Heatmaps & Session Recordings) -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y4hforzqno");
-  </script>
+  <!-- LCP: pré-carrega a imagem principal do hero -->
+  <link rel="preload" as="image" href="assets/garotinha-missoes.webp" fetchpriority="high">
+
+  <!-- Microsoft Clarity Analytics (Heatmaps & Session Recordings) — snippet externo (compatível com CSP estrita) -->
+  <link rel="preconnect" href="https://www.clarity.ms">
+  <script src="clarity.js" async></script>
 </head>
 
 <body>
@@ -114,6 +115,23 @@
     <section class="hero-section" id="inicio">
       <div class="container hero-container">
 
+        <!-- 0. CRUZ SACRA MINIMALISTA TRICOLOR JUVENTUDE MISSIONÁRIA -->
+        <div class="hero-cross-badge" aria-hidden="true">
+          <svg class="hero-cross-svg" width="18" height="24" viewBox="0 0 18 24" fill="none">
+            <defs>
+              <linearGradient id="jfmCrossLinear" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFBA00"/>
+                <stop offset="45%" stop-color="#F38A00"/>
+                <stop offset="100%" stop-color="#EB0028"/>
+              </linearGradient>
+            </defs>
+            <!-- Haste vertical -->
+            <line x1="9" y1="1.5" x2="9" y2="22.5" stroke="url(#jfmCrossLinear)" stroke-width="2" stroke-linecap="round"/>
+            <!-- Trave horizontal -->
+            <line x1="2.5" y1="7.5" x2="15.5" y2="7.5" stroke="url(#jfmCrossLinear)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
         <!-- 1. TÍTULO PRINCIPAL COM FONTE BÍBLICA ELEGANTE -->
         <h1 class="hero-headline-serif">
           <span class="hero-line-1">«Coração em Cristo,</span>
@@ -144,7 +162,7 @@
             <picture>
               <source srcset="assets/garotinha-missoes.webp" type="image/webp">
               <img src="assets/garotinha-missoes.jpg" alt="Garotinha Missionária com Cristo" class="hero-image"
-                id="heroMissionImg" width="848" height="1024" loading="eager" fetchpriority="high">
+                id="heroMissionImg" width="848" height="1024" loading="eager" fetchpriority="high" decoding="async">
             </picture>
             <div class="image-overlay-tag">
               <div class="brand-tricolor-accent" aria-hidden="true">
@@ -233,64 +251,64 @@
           <div class="infinite-carousel-container" id="carouselContainer" aria-label="Fotos reais da missão">
             <div class="infinite-carousel-track" id="carouselTrack">
               <!-- CONJUNTO 1 DE 17 FOTOS -->
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-01.webp" alt="Missão em São José dos Campos" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-02.webp" alt="Visita às famílias e oração" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-03.webp" alt="Juventude Missionária reunida" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-04.webp" alt="Momentos de bênção e fé" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-05.webp" alt="Evangelização nas ruas e lares" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-06.webp" alt="Santa Missa e adoração" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-07.webp" alt="Acolhimento de crianças e jovens" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-08.webp" alt="Fraternidade e oração" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-09.webp" alt="Missão Nossa Senhora Aparecida" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-10.webp" alt="Encontro de missionários" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-11.webp" alt="Alegria do Evangelho" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-12.webp" alt="Bênção dos lares" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-13.webp" alt="Juventude em ação" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-14.webp" alt="Comunidade Regnum Christi" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-15.webp" alt="Jovens em missão" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-16.webp" alt="Celebração e envio missionário" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-17.webp" alt="Fraternidade e comunhão na missão" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item"><img src="assets/carrossel/missao-18.webp" alt="Ação social e caridade na missão" loading="lazy" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-01.webp" alt="Missão em São José dos Campos" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-02.webp" alt="Visita às famílias e oração" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-03.webp" alt="Juventude Missionária reunida" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-04.webp" alt="Momentos de bênção e fé" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-05.webp" alt="Evangelização nas ruas e lares" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-06.webp" alt="Santa Missa e adoração" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-07.webp" alt="Acolhimento de crianças e jovens" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-08.webp" alt="Fraternidade e oração" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-09.webp" alt="Missão Nossa Senhora Aparecida" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-10.webp" alt="Encontro de missionários" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-11.webp" alt="Alegria do Evangelho" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-12.webp" alt="Bênção dos lares" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-13.webp" alt="Juventude em ação" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-14.webp" alt="Comunidade Regnum Christi" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-15.webp" alt="Jovens em missão" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-16.webp" alt="Celebração e envio missionário" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-17.webp" alt="Fraternidade e comunhão na missão" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item"><img src="assets/carrossel/missao-18.webp" alt="Ação social e caridade na missão" loading="lazy" decoding="async" width="480" height="480"></div>
 
               <!-- CONJUNTO 2 (DUPLICADO PARA LOOP INFINITO PERFEITO SEM CORTE) -->
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-01.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-02.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-03.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-04.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-05.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-06.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-07.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-08.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-09.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-10.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-11.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-12.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-13.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-14.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-15.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-16.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-17.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-18.webp" alt="" loading="lazy" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-01.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-02.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-03.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-04.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-05.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-06.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-07.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-08.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-09.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-10.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-11.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-12.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-13.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-14.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-15.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-16.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-17.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-18.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
 
               <!-- CONJUNTO 3 (BUFFER PARA LOOP INFINITO BIDIRECIONAL COMPLETO) -->
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-01.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-02.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-03.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-04.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-05.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-06.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-07.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-08.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-09.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-10.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-11.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-12.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-13.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-14.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-15.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-16.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-17.webp" alt="" loading="lazy" width="480" height="480"></div>
-              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-18.webp" alt="" loading="lazy" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-01.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-02.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-03.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-04.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-05.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-06.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-07.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-08.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-09.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-10.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-11.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-12.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-13.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-14.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-15.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-16.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-17.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
+              <div class="carousel-slide-item" aria-hidden="true"><img src="assets/carrossel/missao-18.webp" alt="" loading="lazy" decoding="async" width="480" height="480"></div>
             </div>
           </div>
 
@@ -301,7 +319,7 @@
                 <rect x="6" y="4" width="4" height="16" rx="1.5"></rect>
                 <rect x="14" y="4" width="4" height="16" rx="1.5"></rect>
               </svg>
-              <svg class="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+              <svg class="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                 <polygon points="6 4 20 12 6 20 6 4"></polygon>
               </svg>
             </button>
@@ -727,7 +745,7 @@
             <picture>
               <source srcset="assets/logo-regnumchristi.webp" type="image/webp">
               <img src="assets/logo-regnumchristi.png" alt="Regnum Christi Escudo Oficial"
-                class="regnum-christi-official-logo" width="1024" height="224" loading="lazy">
+                class="regnum-christi-official-logo" width="1024" height="224" loading="lazy" decoding="async">
             </picture>
           </div>
 
@@ -739,14 +757,14 @@
     </section>
 
     <!-- CONTADOR REGRESSIVO DA MISSÃO -->
-    <section class="countdown-section-standalone" style="padding: 1.5rem 0 2.5rem 0;">
+    <section class="countdown-section-standalone">
       <div class="container container-narrow">
         <!-- FRASE CATÓLICA INTERATIVA (CARROSSEL COM TOQUE & TRADUÇÃO) -->
         <div class="catholic-bible-card quote-carousel-card" id="quoteCarouselCard" tabindex="0" title="Toque para alternar a frase" aria-label="Frase inspiradora católica. Toque para alternar.">
           <blockquote class="catholic-quote quote-carousel-text" id="quoteCarouselText">
             «Christus vivit. Christus vocat. Christus mittit.»
           </blockquote>
-          <cite class="catholic-reference quote-carousel-ref" id="quoteCarouselRef" style="display: none;">
+          <cite class="catholic-reference quote-carousel-ref" id="quoteCarouselRef">
           </cite>
 
           <div class="quote-carousel-footer">
@@ -934,7 +952,7 @@
           <div class="cta-logo-wrapper">
             <picture>
               <source srcset="assets/logo-isotipo.webp" type="image/webp">
-              <img src="assets/logo-isotipo.png" alt="Juventude Missionária Isotipo" class="cta-jfm-logo" width="300" height="300" loading="lazy">
+              <img src="assets/logo-isotipo.png" alt="Juventude Missionária Isotipo" class="cta-jfm-logo" width="300" height="300" loading="lazy" decoding="async">
             </picture>
           </div>
           <h2 class="cta-title">Vem ser resposta de amor para o mundo.</h2>
@@ -985,7 +1003,7 @@
       <div class="footer-brand">
         <picture>
           <source srcset="assets/logo-regnumchristi.webp" type="image/webp">
-          <img src="assets/logo-regnumchristi.png" alt="Regnum Christi Logotipo Oficial" class="footer-regnum-logo" width="1024" height="224" loading="lazy">
+          <img src="assets/logo-regnumchristi.png" alt="Regnum Christi Logotipo Oficial" class="footer-regnum-logo" width="1024" height="224" loading="lazy" decoding="async">
         </picture>
         <p class="footer-inst-title">Juventude Missionária • Regnum Christi Vale do Paraíba</p>
 
@@ -1024,9 +1042,7 @@
     </div>
   </footer>
 
-  <div class="toast-container" id="toastContainer"></div>
-
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>

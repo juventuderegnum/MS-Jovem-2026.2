@@ -279,17 +279,6 @@ body {
   font-size: 1rem;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #FFDB00 0%, #F38A00 100%);
-  color: var(--color-dark);
-  box-shadow: 0 4px 14px rgba(243, 138, 0, 0.25);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(243, 138, 0, 0.35);
-}
-
 .btn-jfm-brand {
   background: linear-gradient(135deg, #FF6500 0%, #FF7A00 100%);
   color: #FFFFFF;
@@ -352,17 +341,6 @@ body {
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
 }
 
-.btn-dark {
-  background: var(--color-dark);
-  color: #FFFFFF;
-}
-
-.btn-dark:hover {
-  background: #1A1715;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
-}
-
 .btn-outline-dark {
   background: transparent;
   border: 1.5px solid var(--color-border);
@@ -373,16 +351,6 @@ body {
   border-color: var(--color-orange);
   color: var(--color-orange);
   background: rgba(243, 138, 0, 0.04);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: var(--color-dark);
-  border: 1px solid transparent;
-}
-
-.btn-ghost:hover {
-  color: var(--color-orange);
 }
 
 .btn-block {
@@ -399,6 +367,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* 0. CRUZ SACRA MINIMALISTA TRICOLOR */
+.hero-cross-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.35rem;
+  user-select: none;
+}
+
+.hero-cross-svg {
+  display: block;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(243, 138, 0, 0.25));
+  transition: transform 0.3s ease;
+}
+
+.hero-cross-svg:hover {
+  transform: scale(1.12);
 }
 
 /* 1. TÍTULO PRINCIPAL (FONTE BÍBLICA ELEGANTE) */
@@ -554,28 +542,6 @@ body {
 }
 
 /* 4. MENSAGEM PERSUASIVA & ACOLHEDORA MINIMALISTA */
-.movement-persuasive-box {
-  width: 100%;
-  max-width: 640px;
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
-  border-top: 3px solid var(--color-orange);
-  border-radius: 20px;
-  padding: 1.85rem 1.65rem;
-  margin-bottom: 2.25rem;
-  box-shadow: var(--shadow-subtle);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: var(--transition-normal);
-}
-
-.movement-persuasive-box:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
-}
-
 .unified-mission-card {
   width: 100%;
   max-width: 535px;
@@ -743,25 +709,6 @@ body {
   margin: 0 0.1rem;
 }
 
-.interest-card-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-  font-weight: 800;
-  font-style: normal;
-  color: var(--color-dark);
-  margin-bottom: 0.4rem;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-}
-
-.interest-card-desc {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  line-height: 1.55;
-  margin-bottom: 1rem;
-  max-width: 520px;
-}
-
 .prayer-commitment-note {
   display: inline-flex;
   align-items: center;
@@ -779,11 +726,6 @@ body {
   line-height: 1.4;
 }
 
-.prayer-commitment-note .prayer-icon {
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
 /* 6. FRASE BÍBLICA CATÓLICA */
 .catholic-bible-card {
   position: relative;
@@ -797,12 +739,6 @@ body {
   margin-bottom: 2.25rem;
   box-shadow: var(--shadow-subtle);
   text-align: center;
-}
-
-.bible-cross-symbol {
-  font-size: 1.1rem;
-  color: var(--color-orange);
-  margin-bottom: 0.3rem;
 }
 
 .catholic-quote {
@@ -847,6 +783,8 @@ body {
 }
 
 .quote-carousel-ref {
+  /* Inicia oculto (antes era style inline no HTML); o JS controla via style.display */
+  display: none;
   transition: opacity 0.15s ease;
 }
 
@@ -997,6 +935,10 @@ body {
 }
 
 /* 7. CONTADOR REGRESSIVO MINIMALISTA */
+.countdown-section-standalone {
+  padding: 1.5rem 0 2.5rem 0;
+}
+
 .countdown-card {
   width: 100%;
   max-width: 680px;
@@ -1785,108 +1727,6 @@ body {
   line-height: 1.5;
 }
 
-/* --- SEÇÃO INSTAGRAM DA JUVENTUDE MISSIONÁRIA --- */
-.instagram-community-section {
-  padding: 1.5rem 0 2.5rem 0;
-}
-
-.instagram-feed-card {
-  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
-  border: 1px solid var(--color-border);
-  border-radius: 22px;
-  padding: 2rem 1.75rem;
-  box-shadow: var(--shadow-card);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.instagram-feed-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.07);
-}
-
-.instagram-community-section {
-  padding: 3rem 0 3.5rem 0;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 100%);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  overflow: hidden;
-}
-
-.insta-showcase-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  margin-bottom: 1.75rem;
-  flex-wrap: wrap;
-}
-
-.insta-profile-lockup {
-  display: flex;
-  align-items: center;
-  gap: 0.95rem;
-}
-
-.insta-avatar-wrapper {
-  position: relative;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  padding: 2px;
-  background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
-  flex-shrink: 0;
-}
-
-.insta-avatar-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #FFFFFF;
-  object-fit: cover;
-  display: block;
-}
-
-.insta-verified-badge {
-  position: absolute;
-  bottom: -2px;
-  right: -2px;
-  width: 16px;
-  height: 16px;
-  background: #0095F6;
-  color: #FFFFFF;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid #FFFFFF;
-}
-
-.insta-badge-tag {
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: #DD2A7B;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.insta-handle-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--color-dark);
-  line-height: 1.2;
-}
-
-.insta-handle-sub {
-  font-size: 0.775rem;
-  color: var(--color-text-muted);
-}
-
 .btn-instagram-pill {
   display: inline-flex;
   align-items: center;
@@ -2029,6 +1869,11 @@ body {
   100% {
     box-shadow: 0 0 0 0 rgba(243, 138, 0, 0);
   }
+}
+
+/* Ícone "play" inicia oculto (antes era style inline no HTML); o JS controla via style.display */
+.icon-play {
+  display: none;
 }
 
 /* --- SEÇÃO SOCIAL COMMUNITY & INSTAGRAM OFICIAL COMPACTO --- */
@@ -2295,29 +2140,6 @@ body {
   }
 }
 
-.insta-showcase-footer {
-  text-align: center;
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.showcase-lead-phrase {
-  font-family: var(--font-bible);
-  font-size: clamp(1.3rem, 2.5vw, 1.65rem);
-  font-style: italic;
-  font-weight: 600;
-  color: var(--color-dark);
-  margin-bottom: 0.35rem;
-}
-
-.showcase-lead-sub {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin-bottom: 1.25rem;
-}
-
 /* --- BANNER FINAL --- */
 .final-cta-section {
   padding: 3rem 0 4.5rem 0;
@@ -2346,13 +2168,6 @@ body {
 .cta-jfm-logo {
   height: 64px;
   width: auto;
-  display: block;
-}
-
-.cta-regnum-logo {
-  max-width: 250px;
-  width: 100%;
-  height: auto;
   display: block;
 }
 
@@ -2653,128 +2468,6 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   margin-top: 0.4rem;
 }
 
-/* --- MODALS --- */
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(46, 41, 37, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-}
-
-.modal-backdrop.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-card {
-  background: #FFFFFF;
-  border-radius: 18px;
-  width: 100%;
-  max-width: 440px;
-  padding: 1.65rem 1.4rem;
-  position: relative;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.modal-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: var(--color-dark);
-}
-
-.modal-header {
-  margin-bottom: 1.15rem;
-}
-
-.modal-title {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: var(--color-dark);
-}
-
-.modal-subtitle {
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  line-height: 1.45;
-}
-
-.modal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  text-align: left;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 0.65rem;
-}
-
-.form-group label {
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.form-group input {
-  padding: 0.65rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: var(--color-orange);
-}
-
-/* --- TOASTS --- */
-.toast-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.toast {
-  background: var(--color-dark);
-  color: #FFFFFF;
-  padding: 0.65rem 0.95rem;
-  border-radius: 8px;
-  font-size: 0.825rem;
-  font-weight: 600;
-  border-left: 3px solid var(--color-orange);
-}
-
 /* --- RESPONSIVIDADE COMPLETA PARA CELULARES (MOBILE QA) --- */
 @media (max-width: 640px) {
   .container {
@@ -2825,10 +2518,6 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     padding: 0.32rem 0.75rem;
     font-size: 0.65rem;
     gap: 0.38rem;
-  }
-
-  .header-actions #btnShareHeader span {
-    display: none;
   }
 
   .btn-whatsapp-header {
@@ -2913,14 +2602,6 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     font-size: 0.72rem;
   }
 
-  .interest-card-title {
-    font-size: 1.35rem;
-  }
-
-  .interest-card-desc {
-    font-size: 0.85rem;
-  }
-
   .countdown-card {
     padding: 1.5rem 1.15rem;
     border-radius: 18px;
@@ -2983,10 +2664,6 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
 
   .pyramid-row-bottom .verse-text {
     font-size: 0.95rem;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
   }
 
   .carousel-slide-item {
@@ -3068,16 +2745,6 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     justify-content: center;
   }
 
-  .insta-showcase-header {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .insta-profile-lockup {
-    flex-direction: column;
-    text-align: center;
-  }
-
   .btn-instagram-pill {
     width: 100%;
     justify-content: center;
@@ -3130,12 +2797,6 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   .carousel-playpause-round-btn {
     width: 30px;
     height: 30px;
-  }
-
-  .btn-instagram-compact {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.74rem;
-    width: auto;
   }
 
   .infinite-carousel-track {

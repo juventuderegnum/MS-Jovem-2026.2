@@ -3,6 +3,13 @@
  * Landing Page Interaction & Countdown Engine
  */
 
+// Performance: aplica o CSS do Google Fonts pré-carregado (o <link rel="preload"> do head
+// vira stylesheet aqui, sem bloquear a primeira renderização; fallback em <noscript>).
+(function applyPreloadedFonts() {
+  const fontLink = document.getElementById('googleFontsCss');
+  if (fontLink) fontLink.rel = 'stylesheet';
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. CONFIGURATION & STATE (HARDENED: no localStorage override) ---
@@ -32,16 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnWhatsappBottom = document.getElementById('btnWhatsappBottom');
   const btnHeaderCta = document.getElementById('btnHeaderCta');
   const btnPopupWhatsapp = document.getElementById('btnPopupWhatsapp');
-  const btnFaqSupport = document.getElementById('btnFaqSupport');
 
   // Scroll Indicator & Bottom Popup
   const scrollIndicatorBtn = document.getElementById('scrollIndicatorBtn');
   const bottomPopupCard = document.getElementById('bottomPopupCard');
   const btnClosePopup = document.getElementById('btnClosePopup');
   let isPopupDismissed = false;
-
-  // Toast Container
-  const toastContainer = document.getElementById('toastContainer');
 
   // --- 3. INITIALIZE STATE ---
   if (elCurrentYear) elCurrentYear.textContent = new Date().getFullYear();
@@ -351,21 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderQuote();
   }
 
-  // --- 8. TOAST NOTIFICATION UTILITY ---
-  function showToast(message) {
-    if (!toastContainer) return;
-    const toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.textContent = message;
-    toastContainer.appendChild(toast);
-
-    setTimeout(() => {
-      toast.style.opacity = '0';
-      setTimeout(() => toast.remove(), 300);
-    }, 3000);
-  }
-
-  // --- 9. INTERACTIVE INFINITE PHOTO CAROUSEL CONTROLLER ---
+  // --- 8. INTERACTIVE INFINITE PHOTO CAROUSEL CONTROLLER ---
   const carouselContainer = document.getElementById('carouselContainer');
   const carouselTrack = document.getElementById('carouselTrack');
   const btnCarouselPlayPause = document.getElementById('btnCarouselPlayPause');
@@ -381,6 +370,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const speed = 34; // pixels por segundo (rolagem suave e natural)
 
     const items = Array.from(carouselTrack.querySelectorAll('.carousel-slide-item'));
+
+    // Performance: só recalcula o spotlight enquanto o carrossel está (quase) visível na tela.
+    // O rootMargin de 120px garante que as classes já estejam corretas ANTES de o carrossel
+    // entrar na viewport, mantendo o comportamento visual idêntico ao original.
+    let isCarouselInView = true;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        isCarouselInView = entries[0].isIntersecting;
+      }, { rootMargin: '120px 0px' }).observe(carouselContainer);
+    }
 
     function measureDimensions() {
       const totalWidth = carouselTrack.scrollWidth;
@@ -448,7 +447,8 @@ document.addEventListener('DOMContentLoaded', () => {
         carouselTrack.style.transform = `translate3d(${currentOffset}px, 0, 0)`;
       }
 
-      updateSpotlight();
+      // Off-screen: pula o recálculo do spotlight (economiza ~112 getBoundingClientRect/s por frame)
+      if (isCarouselInView) updateSpotlight();
       requestAnimationFrame(animationLoop);
     }
     requestAnimationFrame(animationLoop);
@@ -549,7 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
       lastTime = 0;
     }, { passive: true });
 
-    // --- 10. LIGHTBOX CONTROLLER (ZOOM / AMPLIAR FOTO AO CLICAR) ---
+    // --- 9. LIGHTBOX CONTROLLER (ZOOM / AMPLIAR FOTO AO CLICAR) ---
     const photoLightboxModal = document.getElementById('photoLightboxModal');
     const lightboxBackdrop = document.getElementById('lightboxBackdrop');
     const btnLightboxClose = document.getElementById('btnLightboxClose');
