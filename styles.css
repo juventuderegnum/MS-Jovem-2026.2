@@ -404,7 +404,7 @@ body {
 /* 1. TÍTULO PRINCIPAL (FONTE BÍBLICA ELEGANTE) */
 .hero-headline-serif {
   font-family: var(--font-bible);
-  font-size: clamp(1.42rem, 4.4vw, 3.4rem);
+  font-size: clamp(1.56rem, 4.8vw, 3.75rem);
   font-style: italic;
   font-weight: 600;
   line-height: 1.2;
@@ -2860,7 +2860,7 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   }
 
   .hero-headline-serif {
-    font-size: clamp(1.25rem, 5.2vw, 1.7rem);
+    font-size: clamp(1.38rem, 5.7vw, 1.88rem);
     line-height: 1.25;
     margin-bottom: 1.25rem;
   }
