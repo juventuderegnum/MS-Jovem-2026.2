@@ -15,37 +15,43 @@ Esta é a landing page oficial, responsiva e de alta performance desenvolvida pa
 
 ## ✨ Principais Funcionalidades & Recursos
 
-### 1. 📊 Analytics & Inteligência de Comportamento (Microsoft Clarity)
+### 1. ✝️ Hero Sagrado em Formato Piramidal (Golden Ratio)
+* **Cruz Minimalista Tricolor:** Ícone vetorial com fusão contínua das cores oficiais da Juventude Missionária (*Amarelo Solar*, *Laranja Missionário* e *Vermelho de Cristo*) coroando o topo da página como vértice da pirâmide visual.
+* **Hierarquia Bíblica:** Frase apostólica em 2 linhas (*«Coração em Cristo, / seja apóstolo no mundo.»*) com destaque dinâmico em laranja vibrante.
+
+### 2. 📊 Analytics & Inteligência de Comportamento (Microsoft Clarity)
 * **Mapas de Calor (*Heatmaps*):** Monitoramento visual de onde os usuários clicam e até onde rolam a tela no celular e desktop.
 * **Gravação de Sessões (*Session Replays*):** Vídeos anônimos e conformes com a LGPD da experiência real de navegação dos jovens.
-* **Métricas do Instagram:** Identificação automática de acessos originados do navegador interno do Instagram (*In-App Browser*).
-* **Zero Impacto em Performance:** Script carregado de forma assíncrona (`async`).
+* **Otimizações Baseadas em Dados (Data-Driven UX):**
+  * **Popup Flutuante Antecipado para 50% de Scroll:** Garante que o jovem tenha o botão de inscrição na mão durante a leitura do carrossel/FAQ.
+  * **FAQ de Participação Aberto por Padrão:** A dúvida campeã de cliques já inicia expandida, comunicando de imediato que não é necessária experiência e que famílias inteiras participam.
+  * **Paddings Inferiores Compactados:** Mantém o CTA final e Instagram dentro da profundidade ativa de 90% da rolagem.
 
-### 2. 🎯 Funil de Conversão em 2 Passos & Ficha de Interesse
+### 3. 🎯 Funil de Conversão em 2 Passos & Ficha de Interesse
 * **Micro-CTA Persuasivo:** Pílula minimalista com scroll suave conectando a mensagem de propósito diretamente à ficha de interesse.
 * **Mini Stepper Visual:** Trilha sequencial clara (*Passo 1: Preencha a Ficha* $\rightarrow$ *Passo 2: Entre no Grupo*).
 * **CTA Pulsante de Alta Conversão:** Botão de inscrição com borda em vermelho Regnum Christi e halo luminoso pulsante (`@keyframes redPulseAttention`).
 
-### 3. ⏳ Contador Regressivo em Tempo Real
+### 4. ⏳ Contador Regressivo em Tempo Real
 * Cálculo dinâmico até o dia de início da missão (10 de Outubro de 2026).
 * Otimização de ciclo de vida com auto-limpeza (`clearInterval`) para não consumir CPU do dispositivo.
 * Marca d'água sagrada e sutil de Nossa Senhora Aparecida integrada ao card.
 
-### 4. 🗺️ Dinâmica dos 3 Dias (Linha do Tempo / Stepper Track)
+### 5. 🗺️ Dinâmica dos 3 Dias (Linha do Tempo / Stepper Track)
 * Trilha visual de progresso conectada (`10/Out • Sábado` $\rightarrow$ `11/Out • Domingo` $\rightarrow$ `12/Out • Segunda`).
 * Destaque do **Dia Principal de Missão** com visitas aos lares e adoração.
 * Ícone vetorial estilizado da silhueta de Nossa Senhora Aparecida no Dia 3.
 
-### 5. 📖 Frase Católica Interativa & Tradução
+### 6. 📖 Frase Católica Interativa & Tradução
 * Carrossel de citações em latim e português com suporte a **gestos de toque lateral (*touch swipe*)**.
 * Botão interativo de alternância e tradução instantânea.
 
-### 6. ❓ FAQ Dinâmico & Atendimento da Coordenação
+### 7. ❓ FAQ Dinâmico & Atendimento da Coordenação
 * Sistema de sanfona (*accordion*) com animações suaves e total acessibilidade (`aria-expanded`, `role="region"`).
-* Informações transparentes sobre locais atendidos na **Zona Norte de São José dos Campos**, alojamento paroquial, alimentação e autorização de menores.
+* Informações completas sobre: participação de **jovens e famílias inteiras**, evangelização **de porta em porta**, apoio do **MedCal**, locais na **Zona Norte de SJC**, alojamento paroquial e autorização de menores.
 * Botão de contato direto via WhatsApp com a equipe de coordenação (`+55 12 99188-2850`).
 
-### 7. 🌐 Ecossistema Regnum Christi & Apostolados
+### 8. 🌐 Ecossistema Regnum Christi & Apostolados
 * Apresentação histórica dos **40 anos da Juventude Missionária (1986–2026)**.
 * Seção de apostolados irmãos no Vale do Paraíba com ícones vetoriais temáticos: *ECYD* (chama jovem), *Cristo na Rua* (cruz e calçadas da cidade), *Teologia no Bar* (diálogo e fé), *Sonhar Acordado* (alegria infantil), *Superação* (construção de capelas) e *MedCal* (estetoscópio e saúde humanitária).
 * Card de comunidade com link direto para o Instagram oficial.
