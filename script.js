@@ -642,4 +642,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- 11. COPIAR ENDEREÇO DA PARÓQUIA ---
+  const btnCopyAddress = document.getElementById('btnCopyParishAddress');
+  if (btnCopyAddress) {
+    btnCopyAddress.addEventListener('click', () => {
+      const address = btnCopyAddress.getAttribute('data-address') || 'R. Almenara, 146 - Vila Paiva, São José dos Campos - SP, 12213-440';
+      
+      function showFeedback() {
+        const copyTextEl = btnCopyAddress.querySelector('.copy-text');
+        const origText = copyTextEl ? copyTextEl.textContent : 'Copiar Endereço';
+        btnCopyAddress.classList.add('copied');
+        if (copyTextEl) copyTextEl.textContent = 'Copiado! ✓';
+        setTimeout(() => {
+          btnCopyAddress.classList.remove('copied');
+          if (copyTextEl) copyTextEl.textContent = origText;
+        }, 2200);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(address).then(showFeedback).catch(() => fallbackCopy(address));
+      } else {
+        fallbackCopy(address);
+      }
+
+      function fallbackCopy(text) {
+        const temp = document.createElement('input');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand('copy');
+          showFeedback();
+        } catch (e) {}
+        document.body.removeChild(temp);
+      }
+    });
+  }
+
 });
+

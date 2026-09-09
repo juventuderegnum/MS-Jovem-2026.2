@@ -115,28 +115,7 @@
     <section class="hero-section" id="inicio">
       <div class="container hero-container">
 
-        <!-- 0. CRUZ SACRA MINIMALISTA TRICOLOR (VÉRTICE DA PIRÂMIDE SAGRADA) -->
-        <div class="hero-cross-badge" aria-hidden="true">
-          <svg class="hero-cross-svg" width="22" height="28" viewBox="0 0 22 28" fill="none">
-            <defs>
-              <linearGradient id="jfmSmoothCrossGrad" x1="0" y1="0" x2="0" y2="28" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FFBA00"/>
-                <stop offset="36%" stop-color="#F38A00"/>
-                <stop offset="100%" stop-color="#EB0028"/>
-              </linearGradient>
-            </defs>
-            <!-- Traçado Único e Fluido com Gradiente Suave Contínuo -->
-            <path d="M11 2V26M3 9.5H19" stroke="url(#jfmSmoothCrossGrad)" stroke-width="2.8" stroke-linecap="round"/>
-          </svg>
-        </div>
-
-        <!-- 1. TÍTULO PRINCIPAL COM FONTE BÍBLICA ELEGANTE -->
-        <h1 class="hero-headline-serif">
-          <span class="hero-line-1">«Coração em Cristo,</span>
-          <span class="hero-line-2 text-orange">seja apóstolo no mundo.»</span>
-        </h1>
-
-        <!-- 2. CARD DO LINK DO WHATSAPP EMBAIXO DO TÍTULO COM LOCALIZAÇÃO E FERIADO -->
+        <!-- 1. CARD DO LINK DO WHATSAPP COM LOCALIZAÇÃO E FERIADO -->
         <div class="hero-top-cta-wrapper">
           <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer" class="hero-whatsapp-banner"
             id="btnWhatsappTop" aria-label="Abrir o grupo oficial de avisos da Missão para acompanhar informações da Juventude Missionária">
@@ -147,86 +126,336 @@
               </svg>
             </div>
             <div class="banner-text-group">
-              <span class="banner-highlight">Missões N. Sra. Aparecida • SJC-SP</span>
-              <span class="banner-title">Receba os avisos oficiais da missão</span>
-              <span class="banner-date">Data: 10 a 12 de Outubro de 2026</span>
+              <span class="banner-highlight">Paróquia São José Operário • Vila Paiva (SJC)</span>
+              <span class="banner-title">Missão N. Sra. Aparecida • 10 a 12 de Outubro</span>
+              <span class="banner-date">Entre no grupo oficial de avisos da missão</span>
             </div>
           </a>
         </div>
 
-        <!-- 3. IMAGEM DA MENINA COM TAG LARANJA PADRÃO -->
-        <div class="hero-image-container">
-          <div class="hero-image-frame">
-            <picture>
-              <source srcset="assets/garotinha-missoes.webp" type="image/webp">
-              <img src="assets/garotinha-missoes.jpg" alt="Garotinha Missionária com Cristo" class="hero-image"
-                id="heroMissionImg" width="848" height="1024" loading="eager" fetchpriority="high" decoding="async">
-            </picture>
-            <div class="image-overlay-tag">
-              <div class="brand-tricolor-accent" aria-hidden="true">
-                <span class="tricolor-stripe stripe-yellow"></span>
-                <span class="tricolor-stripe stripe-orange"></span>
-                <span class="tricolor-stripe stripe-red"></span>
+        <!-- 2. DÚVIDAS FREQUENTES (LOGO ABAIXO DO CARD OFICIAL) -->
+        <div class="faq-container-inline" id="duvidas">
+          <div class="section-title-wrapper-minimal">
+            <h3 class="section-title-sm">Dúvidas Frequentes</h3>
+          </div>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-1" aria-expanded="false" aria-controls="faq-content-1">
+                <span>Onde e quando acontece a Missão?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-1" role="region" aria-labelledby="faq-header-1">
+                <div class="accordion-inner">
+                  <p>A Missão acontecerá durante o feriado de <strong>Nossa Senhora Aparecida (10 a 12 de outubro de 2026)</strong>. Ponto de encontro oficial, envio missionário, refeições comunitárias, formações e celebrações acontecerão na nossa paróquia-base:</p>
+
+                  <div class="parish-location-card">
+                    <div class="parish-card-header">
+                      <div class="parish-pin-circle" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <div class="parish-card-title-wrap">
+                        <span class="parish-eyebrow">PARÓQUIA-BASE OFICIAL</span>
+                        <h4 class="parish-title">Paróquia São José Operário</h4>
+                      </div>
+                    </div>
+
+                    <div class="parish-address-box">
+                      <span class="parish-address-text">📍 R. Almenara, 146 - Vila Paiva, São José dos Campos - SP, 12213-440</span>
+                    </div>
+
+                    <div class="parish-card-actions">
+                      <a href="https://maps.app.goo.gl/XwG1zwyFaN1AvdTt7" target="_blank" rel="noopener noreferrer" class="btn-maps-action">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Google Maps</span>
+                      </a>
+                      <button type="button" class="btn-copy-address" id="btnCopyParishAddress" data-address="R. Almenara, 146 - Vila Paiva, São José dos Campos - SP, 12213-440">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span class="copy-text">Copiar Endereço</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span class="overlay-tag-text">Juventude Missionária <span class="tag-dot">•</span> Vale do Paraíba</span>
-              <div class="brand-tricolor-accent" aria-hidden="true">
-                <span class="tricolor-stripe stripe-yellow"></span>
-                <span class="tricolor-stripe stripe-orange"></span>
-                <span class="tricolor-stripe stripe-red"></span>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-2" aria-expanded="false" aria-controls="faq-content-2">
+                <span>Quem pode participar da Missão em SJC?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-2" role="region" aria-labelledby="faq-header-2">
+                <p><strong>Jovens, adultos e famílias inteiras!</strong> A missão é aberta a todos que desejam vivenciar o amor de Cristo, servir aos lares e viver dias inesquecíveis de fé e fraternidade — seja participando individualmente, com amigos ou com toda a sua família. <strong>Não é necessária experiência prévia</strong> — haverá acolhimento, preparação e formação para todos.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-3" aria-expanded="false" aria-controls="faq-content-3">
+                <span>O que é o Regnum Christi, a Juventude Missionária e quais apostolados temos no Vale do Paraíba?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-3" role="region" aria-labelledby="faq-header-3">
+                <div class="accordion-inner">
+                  <!-- REGNUM CHRISTI -->
+                  <div class="faq-movement-block">
+                    <span class="faq-section-pill">MOVIMENTO & CARISMA</span>
+                    <h5 class="faq-movement-heading">O que é o Regnum Christi?</h5>
+                    <p>O <strong>Regnum Christi</strong> é uma federação católica de fiéis leigos, consagrados(as) e sacerdotes Legionários de Cristo, erigida canonicamente pela Santa Sé. Nosso carisma é <strong>fazer presente o Reino de Cristo no coração das pessoas e na sociedade</strong>, em filial comunhão e fidelidade ao Papa e ao Magistério da Igreja Católica.</p>
+                  </div>
+
+                  <!-- JUVENTUDE MISSIONÁRIA -->
+                  <div class="faq-movement-block" style="margin-top: 1rem;">
+                    <span class="faq-section-pill">APOSTOLADO JOVEM INTERNACIONAL</span>
+                    <h5 class="faq-movement-heading">O que fazemos na Juventude Missionária (JFM)?</h5>
+                    <p>Fundada em 1986, a <strong>Juventude Missionária</strong> mobiliza milhares de jovens católicos para viver o Evangelho na prática através de:</p>
+                    <ul class="faq-jfm-sublist">
+                      <li>
+                        <strong>Visitas de Porta em Porta:</strong> Entrar nos lares para escutar as famílias da comunidade, rezar juntos e levar uma mensagem de fé e esperança.
+                      </li>
+                      <li>
+                        <strong>Ações Paroquiais & Litúrgicas:</strong> Auxílio ao pároco local, Adoração ao Santíssimo Sacramento e terço comunitário.
+                      </li>
+                      <li>
+                        <strong>Atividades e Evangelização Infantil:</strong> Gincanas, catequese lúdica e alegria para as crianças do bairro.
+                      </li>
+                      <li>
+                        <strong>Fraternidade & Vida de Oração:</strong> Experiência profunda de amizade cristã, Santa Missa diária e formação humana.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- APOSTOLADOS DO VALE DO PARAÍBA -->
+                  <div class="faq-movement-block" style="margin-top: 1.15rem;">
+                    <span class="faq-section-pill">PRESENÇA & IMPACTO LOCAL</span>
+                    <h5 class="faq-movement-heading">Apostolados do Regnum Christi no Vale do Paraíba:</h5>
+                    <p style="margin-bottom: 0.75rem;">Além da Juventude Missionária, o Regnum Christi atua com iniciativas de impacto social, formativo e evangelizador na nossa região:</p>
+                    
+                    <div class="apostolates-grid">
+                      <!-- ECYD -->
+                      <div class="apostolate-pill-card">
+                        <div class="apostolate-header-row">
+                          <span class="apostolate-icon-wrap" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+                            </svg>
+                          </span>
+                          <strong>ECYD</strong>
+                        </div>
+                        <span>Organização de adolescentes para desenvolvimento de amizade com Cristo, liderança e virtudes.</span>
+                      </div>
+
+                      <!-- CRISTO NA RUA -->
+                      <div class="apostolate-pill-card">
+                        <div class="apostolate-header-row">
+                          <span class="apostolate-icon-wrap" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M12 2v9m-3-6h6"/>
+                              <path d="M5 22l4-8h6l4 8"/>
+                              <path d="M12 16v3" stroke-dasharray="1 1.5"/>
+                              <path d="M2 22h20"/>
+                            </svg>
+                          </span>
+                          <strong>Cristo na Rua</strong>
+                        </div>
+                        <span>Evangelização e apoio fraterno a pessoas em situação de vulnerabilidade e rua.</span>
+                      </div>
+
+                      <!-- TEOLOGIA NO BAR -->
+                      <div class="apostolate-pill-card">
+                        <div class="apostolate-header-row">
+                          <span class="apostolate-icon-wrap" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                          </span>
+                          <strong>Teologia no Bar</strong>
+                        </div>
+                        <span>Diálogo sobre fé e temas atuais em ambientes universitários, bares e ambientes informais.</span>
+                      </div>
+
+                      <!-- SONHAR ACORDADO -->
+                      <div class="apostolate-pill-card">
+                        <div class="apostolate-header-row">
+                          <span class="apostolate-icon-wrap" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                          </span>
+                          <strong>Sonhar Acordado</strong>
+                        </div>
+                        <span>Apoio e momentos inesquecíveis para crianças em situação de vulnerabilidade social.</span>
+                      </div>
+
+                      <!-- SUPERAÇÃO -->
+                      <div class="apostolate-pill-card">
+                        <div class="apostolate-header-row">
+                          <span class="apostolate-icon-wrap" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M12 2v4m-2-2h4M4 22h16M5 22V10l7-4 7 4v12M10 22v-4a2 2 0 0 1 4 0v4"/>
+                            </svg>
+                          </span>
+                          <strong>Superação</strong>
+                        </div>
+                        <span>Reforma e construção de capelas, restaurando locais sagrados para as comunidades.</span>
+                      </div>
+
+                      <!-- MEDCAL -->
+                      <div class="apostolate-pill-card">
+                        <div class="apostolate-header-row">
+                          <span class="apostolate-icon-wrap" aria-hidden="true">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M4.5 3v5a5.5 5.5 0 0 0 11 0V3"/>
+                              <path d="M10 13.5v3.5a3.5 3.5 0 0 0 7 0v-2"/>
+                              <circle cx="17" cy="14" r="1.5" fill="currentColor"/>
+                              <path d="M3 3h3M14 3h3"/>
+                            </svg>
+                          </span>
+                          <strong>MedCal</strong>
+                        </div>
+                        <span>«Médicos do corpo e da alma»: atuação de profissionais e acadêmicos da saúde em missões humanitárias.</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- LINKS DE CONTATO INSTITUCIONAL -->
+                  <div class="faq-movement-footer">
+                    <a href="https://regnumchristi.com.br/" target="_blank" rel="noopener noreferrer" class="faq-inst-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                      </svg>
+                      <span>Portal Oficial Regnum Christi</span>
+                    </a>
+                    <a href="https://www.instagram.com/jm.valedoparaiba/" target="_blank" rel="noopener noreferrer" class="faq-inst-btn">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                      </svg>
+                      <span>Instagram @jm.valedoparaiba</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-4" aria-expanded="false" aria-controls="faq-content-4">
+                <span>O que fazemos durante a Missão?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-4" role="region" aria-labelledby="faq-header-4">
+                <p>Colocamos em prática o nosso <strong>trabalho e vocação de apóstolos de Cristo</strong>! Nossos dias são dinâmicos e cheios de propósito: vamos <strong>de porta em porta na evangelização</strong> (visitando lares e rezando com as famílias), realizamos <strong>ações de caridade com o apoio de outros apostolados (como o MedCal e iniciativas parceiras)</strong>, vivemos a <strong>Santa Missa diária e Adoração ao Santíssimo</strong>, realizamos <strong>atividades com crianças e jovens</strong> e partilhamos momentos inesquecíveis de <strong>fraternidade</strong>.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-5" aria-expanded="false" aria-controls="faq-content-5">
+                <span>Como funciona a acomodação e onde vamos dormir?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-5" role="region" aria-labelledby="faq-header-5">
+                <div class="accordion-inner">
+                  <p><strong>• Para os Jovens:</strong> O alojamento oficial será na nossa paróquia-base, a <strong>Paróquia São José Operário (R. Almenara, 146 - Vila Paiva, Zona Norte — SJC/SP)</strong>. Recomendamos e queremos que todos os jovens durmam nos alojamentos paroquiais para viverem juntos a experiência completa de fraternidade, convivência e oração comunitária.</p>
+                  <p style="margin-top: 0.6rem;"><strong>• Para as Famílias:</strong> As famílias que preferirem voltar para casa à noite para dormir em suas próprias residências <strong>estarão totalmente liberadas</strong> para retornar no dia seguinte. Além disso, teremos <strong>casas solidárias disponibilizadas por famílias locais</strong> para acolher as famílias que preferirem pernoitar na comunidade.</p>
+                  <p style="margin-top: 0.6rem;"><strong>• O que levar para o alojamento:</strong> Colchonete, isolante térmico ou colchão inflável, travesseiro, lençol/cobertor e itens de higiene pessoal. O checklist completo e as orientações finais serão enviados no Grupo Oficial do WhatsApp.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-6" aria-expanded="false" aria-controls="faq-content-6">
+                <span>Como funciona o Grupo de Informações no WhatsApp?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-6" role="region" aria-labelledby="faq-header-6">
+                <p>No grupo você recebe em primeira mão os <strong>valores da taxa de inscrição</strong>, fichas de cadastro, orientações do que levar, programação detalhada em São José dos Campos e conversa diretamente com a coordenação.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-7" aria-expanded="false" aria-controls="faq-content-7">
+                <span>A Missão tem algum custo ou taxa de inscrição?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-7" role="region" aria-labelledby="faq-header-7">
+                <p><strong>Sim. A Missão não é um evento gratuito.</strong> Existe uma taxa de contribuição destinada a cobrir a <strong>alimentação completa durante os 3 dias, hospedagem e logística</strong>. O <strong>uniforme (camisa oficial e o lenço como símbolo de identificação) é adquirido com valor à parte</strong>. Todos os valores e opções de pagamento são compartilhados com transparência no Grupo Oficial do WhatsApp.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header" id="faq-header-8" aria-expanded="false" aria-controls="faq-content-8">
+                <span>Menores de idade podem participar da Missão?</span>
+                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div class="accordion-content" id="faq-content-8" role="region" aria-labelledby="faq-header-8">
+                <p><strong>Sim, mediante autorização oficial.</strong> O menor de idade que não apresentar o documento oficial de autorização assinado pelos pais ou responsável legal, ou que estiver desacompanhado quando exigido, <strong>NÃO poderá participar das atividades missionárias</strong>. O modelo desse documento, as orientações de preenchimento e as regras completas sobre a participação de menores serão disponibilizados em breve no Grupo Oficial do WhatsApp junto com as inscrições definitivas.</p>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- 4. CARD UNIFICADO: PROPÓSITO & FICHA DE INTERESSE DA MISSÃO -->
-        <div class="unified-mission-card" id="ficha-interesse">
-          <span class="unified-card-badge">MISSÃO OUTUBRO 2026</span>
-          
-          <h2 class="unified-card-title">Você sente que a sua juventude tem um propósito?</h2>
-          
-          <p class="unified-card-lead">
-            Venha viver uma experiência inesquecível de fé, serviço e verdadeira fraternidade. Em cada visita e em cada
-            oração, <span class="highlight-deus-resposta">você será a resposta de Deus para muitas <em
-                class="font-serif-familias">famílias</em></span>.
-          </p>
-
-          <div class="interest-stepper-container" aria-label="Passos para participar">
-            <div class="interest-step-node step-node-1 active">
-              <span class="step-node-badge">1</span>
-              <div class="step-node-text-group">
-                <span class="step-node-tag">PASSO 1</span>
-                <strong class="step-node-action">Preencha a Ficha</strong>
-              </div>
+          <!-- CANAL DE DÚVIDAS DIRETO COM A COORDENAÇÃO -->
+          <div class="faq-support-box">
+            <div class="faq-support-info">
+              <span class="faq-support-badge">ATENDIMENTO DIRETO</span>
+              <h4 class="faq-support-title">Ainda ficou com alguma dúvida?</h4>
+              <p class="faq-support-text">Converse diretamente com a equipe de coordenação pelo WhatsApp.</p>
             </div>
-            <div class="interest-stepper-connector" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="9 18 15 12 9 6"></polyline>
+            <a href="https://wa.me/5512991882850?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20a%20Miss%C3%A3o%20em%20SJC." target="_blank" rel="noopener noreferrer" class="btn btn-coordinator-wa" id="btnFaqSupport">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
               </svg>
-            </div>
-            <div class="interest-step-node step-node-2">
-              <span class="step-node-badge">2</span>
-              <div class="step-node-text-group">
-                <span class="step-node-tag">PASSO 2</span>
-                <strong class="step-node-action">Entre no Grupo</strong>
-              </div>
-            </div>
+              <span>Clique aqui e tire sua dúvida</span>
+            </a>
           </div>
 
-          <p class="unified-card-desc">Preencha nossa ficha de interesse em 1 minuto! O seu pré-cadastro ajuda nossa
-            equipe a dimensionar a estrutura da missão, organizar as vagas e enviar o Guia do Missionário diretamente no
-            seu contato.</p>
-
-          <div class="prayer-commitment-note">
-            <span>Nossa equipe colocará a intenção de cada inscrito em nossas orações e Adoração ao Santíssimo.</span>
+          <!-- ATALHO DIRETO PARA FICHA DE INTERESSE -->
+          <div class="faq-form-callout" style="margin-top: 1rem; padding: 0.85rem 1.1rem; background: #FFFDF9; border: 1.5px dashed var(--color-orange); border-radius: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
+            <div style="font-size: 0.88rem; color: var(--color-dark); font-weight: 600; display: flex; align-items: center; gap: 6px;">
+              <span>📝 Já tirou todas as suas dúvidas?</span>
+            </div>
+            <a href="https://forms.gle/7ZzeopLgGRqusiUk7" target="_blank" rel="noopener noreferrer" style="color: var(--color-orange); font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; text-decoration: underline;">
+              <span>Preencher Ficha de Interesse</span>
+            </a>
           </div>
-
-          <a href="https://forms.gle/7ZzeopLgGRqusiUk7" target="_blank" rel="noopener noreferrer" class="btn btn-jfm-brand btn-md btn-interest-card" id="btnInterestCardOpen">
-            <span>Preencher Ficha de Interesse</span>
-          </a>
         </div>
 
-        <!-- 5. GALERIA DE EXPERIÊNCIAS & MEMÓRIAS DE MISSÕES ANTERIORES -->
-        <div class="mission-experience-block" id="experiencia">
+        <!-- 4. GALERIA DE EXPERIÊNCIAS & MEMÓRIAS DE MISSÕES ANTERIORES -->
+        <div class="mission-experience-block" id="experiencia" style="margin-top: 2.25rem;">
           <div class="experience-header-lockup">
             <div class="experience-badge-tag">
               <div class="brand-tricolor-accent" aria-hidden="true">
@@ -364,128 +593,219 @@
           </div>
         </div>
 
-        <!-- 6. DÚVIDAS FREQUENTES -->
-        <div class="faq-container-inline" id="duvidas">
-          <div class="section-title-wrapper-minimal">
-            <h3 class="section-title-sm">Dúvidas Frequentes</h3>
-          </div>
-
-          <div class="accordion">
-            <div class="accordion-item">
-              <button class="accordion-header" id="faq-header-1" aria-expanded="false" aria-controls="faq-content-1">
-                <span>Onde e quando acontece a Missão?</span>
-                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-              <div class="accordion-content" id="faq-content-1" role="region" aria-labelledby="faq-header-1">
-                <p>A Missão acontecerá em bairros da <strong>Zona Norte de São José dos Campos - SP</strong>, durante o feriado de
-                  <strong>Nossa Senhora Aparecida (10 a 12 de outubro de 2026)</strong>. Todos os detalhes sobre
-                  valores, paróquia-base, ruas e locais atendidos, hospedagem e transporte serão informados
-                  antecipadamente no grupo do WhatsApp e, posteriormente, no Instagram.
-                </p>
-              </div>
-            </div>
-
-            <div class="accordion-item active">
-              <button class="accordion-header" id="faq-header-2" aria-expanded="true" aria-controls="faq-content-2">
-                <span>Quem pode participar da Missão em SJC?</span>
-                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-              <div class="accordion-content" id="faq-content-2" role="region" aria-labelledby="faq-header-2">
-                <p><strong>Jovens, adultos e famílias inteiras!</strong> A missão é aberta a todos que desejam vivenciar o amor de Cristo, servir aos lares e viver dias inesquecíveis de fé e fraternidade — seja participando individualmente, com amigos ou com toda a sua família. <strong>Não é necessária experiência prévia</strong> — haverá acolhimento, preparação e formação para todos.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-header" id="faq-header-3" aria-expanded="false" aria-controls="faq-content-3">
-                <span>O que fazemos durante a Missão?</span>
-                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-              <div class="accordion-content" id="faq-content-3" role="region" aria-labelledby="faq-header-3">
-                <p>Colocamos em prática o nosso <strong>trabalho e vocação de apóstolos de Cristo</strong>! Nossos dias são dinâmicos e cheios de propósito: vamos <strong>de porta em porta na evangelização</strong> (visitando lares e rezando com as famílias), realizamos <strong>ações de caridade com o apoio de outros apostolados (como o MedCal e iniciativas parceiras)</strong>, vivemos a <strong>Santa Missa diária e Adoração ao Santíssimo</strong>, realizamos <strong>atividades com crianças e jovens</strong> e partilhamos momentos inesquecíveis de <strong>fraternidade</strong>.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-header" id="faq-header-4" aria-expanded="false" aria-controls="faq-content-4">
-                <span>Como funciona a acomodação e o que preciso levar para dormir?</span>
-                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-              <div class="accordion-content" id="faq-content-4" role="region" aria-labelledby="faq-header-4">
-                <p>A hospedagem dos missionários será em <strong>instalações da paróquia ou em casas de famílias paroquianas acolhedoras</strong>. Como é uma vivência fraterna e missionária, cada participante deve levar: <strong>colchonete, isolante térmico ou colchão inflável, travesseiro, lençol/cobertor e itens de higiene pessoal</strong>. O checklist completo e as orientações finais serão enviados com antecedência no Grupo Oficial do WhatsApp.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-header" id="faq-header-5" aria-expanded="false" aria-controls="faq-content-5">
-                <span>Como funciona o Grupo de Informações no WhatsApp?</span>
-                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-              <div class="accordion-content" id="faq-content-5" role="region" aria-labelledby="faq-header-5">
-                <p>No grupo você recebe em primeira mão os <strong>valores da taxa de inscrição</strong>, fichas de cadastro, orientações do que levar, programação detalhada em São José dos Campos e conversa diretamente com a coordenação.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-header" id="faq-header-6" aria-expanded="false" aria-controls="faq-content-6">
-                <span>A Missão tem algum custo ou taxa de inscrição?</span>
-                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-              <div class="accordion-content" id="faq-content-6" role="region" aria-labelledby="faq-header-6">
-                <p><strong>Sim. A Missão não é um evento gratuito.</strong> Existe uma taxa de contribuição destinada a cobrir a <strong>alimentação completa durante os 3 dias, hospedagem e logística</strong>. O <strong>uniforme (camisa oficial e o lenço como símbolo de identificação) é adquirido com valor à parte</strong>. Todos os valores e opções de pagamento são compartilhados com transparência no Grupo Oficial do WhatsApp.</p>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <button class="accordion-header" id="faq-header-7" aria-expanded="false" aria-controls="faq-content-7">
-                <span>Menores de idade podem participar da Missão?</span>
-                <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </button>
-              <div class="accordion-content" id="faq-content-7" role="region" aria-labelledby="faq-header-7">
-                <p><strong>Sim, mediante autorização oficial.</strong> O menor de idade que não apresentar o documento oficial de autorização assinado pelos pais ou responsável legal, ou que estiver desacompanhado quando exigido, <strong>NÃO poderá participar das atividades missionárias</strong>. O modelo desse documento, as orientações de preenchimento e as regras completas sobre a participação de menores serão disponibilizados em breve no Grupo Oficial do WhatsApp junto com as inscrições definitivas.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- CANAL DE DÚVIDAS DIRETO COM A COORDENAÇÃO -->
-          <div class="faq-support-box">
-            <div class="faq-support-info">
-              <span class="faq-support-badge">ATENDIMENTO DIRETO</span>
-              <h4 class="faq-support-title">Ainda ficou com alguma dúvida?</h4>
-              <p class="faq-support-text">Converse diretamente com a equipe de coordenação pelo WhatsApp.</p>
-            </div>
-            <a href="https://wa.me/5512991882850?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20a%20Miss%C3%A3o%20em%20SJC." target="_blank" rel="noopener noreferrer" class="btn btn-coordinator-wa" id="btnFaqSupport">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        <!-- 4. CONTADOR REGRESSIVO DA MISSÃO (URGÊNCIA & DATAS) -->
+        <div class="countdown-card" id="contador" style="margin-top: 2.25rem;">
+          <svg class="countdown-nsa-watermark" viewBox="0 0 100 135" fill="currentColor" aria-hidden="true">
+            <circle cx="50" cy="38" r="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.75"/>
+            <circle cx="50" cy="38" r="26" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+            <path d="M42 22 L40 14 L45 17 L50 9 L55 17 L60 14 L58 22 Z" fill="currentColor"/>
+            <circle cx="50" cy="7" r="1.5" fill="currentColor"/>
+            <rect x="42" y="21" width="16" height="2.5" rx="1" fill="currentColor"/>
+            <ellipse cx="50" cy="28" rx="4.5" ry="5.5" fill="currentColor"/>
+            <path d="M46 25 Q32 45 22 92 Q20 99 26 100 Q40 102 50 102 Q60 102 74 100 Q80 99 78 92 Q68 45 54 25 Z" fill="currentColor"/>
+            <path d="M47 34 Q50 36 53 34 L56 78 Q50 82 44 78 Z" fill="#FFFDF8" opacity="0.95"/>
+            <path d="M47 52 Q50 48 53 52 L52 62 Q50 64 48 62 Z" fill="currentColor"/>
+            <path d="M28 95 Q50 98 72 95" fill="none" stroke="#FFFDF8" stroke-width="1.5" opacity="0.8"/>
+            <path d="M35 70 Q50 72 65 70" fill="none" stroke="#FFFDF8" stroke-width="1" opacity="0.5"/>
+            <path d="M28 102 Q38 108 50 108 Q62 108 72 102 Q76 106 70 110 Q50 115 30 110 Q24 106 28 102 Z" fill="currentColor" opacity="0.7"/>
+          </svg>
+          <div class="countdown-header-minimal">
+            <span class="countdown-eyebrow">PARÓQUIA SÃO JOSÉ OPERÁRIO • VILA PAIVA (ZONA NORTE SJC)</span>
+            <h2 class="countdown-event-title" id="countdownEventName">Missão Nossa Senhora Aparecida</h2>
+            <p class="countdown-event-dates">10 a 12 de Outubro de 2026 (Feriado)</p>
+            <a href="https://maps.app.goo.gl/XwG1zwyFaN1AvdTt7" target="_blank" rel="noopener noreferrer" class="countdown-location-chip" title="Ver no Google Maps">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              <span>Clique aqui e tire sua dúvida</span>
+              <span>R. Almenara, 146 • Google Maps</span>
             </a>
+          </div>
+
+          <div class="timer-flex">
+            <div class="timer-unit">
+              <span class="timer-value" id="days">00</span>
+              <span class="timer-tag">Dias</span>
+            </div>
+            <div class="timer-divider">:</div>
+            <div class="timer-unit">
+              <span class="timer-value" id="hours">00</span>
+              <span class="timer-tag">Horas</span>
+            </div>
+            <div class="timer-divider">:</div>
+            <div class="timer-unit">
+              <span class="timer-value" id="minutes">00</span>
+              <span class="timer-tag">Minutos</span>
+            </div>
+            <div class="timer-divider">:</div>
+            <div class="timer-unit">
+              <span class="timer-value" id="seconds">00</span>
+              <span class="timer-tag">Segundos</span>
+            </div>
+          </div>
+
+          <div class="countdown-actions">
+            <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
+              class="btn btn-whatsapp btn-lg" id="btnWhatsappMain">
+              <span>Garantir Minha Vaga no WhatsApp</span>
+            </a>
+            <a href="https://forms.gle/7ZzeopLgGRqusiUk7" target="_blank" rel="noopener noreferrer" class="btn btn-form-action btn-md" id="btnOpenForm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>Preencher Ficha de Interesse</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6. DINÂMICA DOS 3 DIAS DA MISSÃO (PROGRAMAÇÃO RESUMIDA) -->
+    <section class="mission-dynamics-section" id="programacao">
+      <div class="container container-narrow">
+        <div class="mission-dynamics-card">
+          <div class="timeline-heading-group">
+            <span class="timeline-badge-tag">PROGRAMAÇÃO RESUMIDA</span>
+            <h2 class="dynamics-section-title">A Dinâmica dos 3 Dias de Missão</h2>
+            <p class="movement-paragraph-sm">
+              Um feriado inesquecível de oração, ação e verdadeira amizade. Veja a jornada planejada para cada dia:
+            </p>
+          </div>
+
+          <!-- STEPPER PROGRESS BAR VISUAL -->
+          <div class="journey-stepper-track" aria-hidden="true">
+            <div class="stepper-line"></div>
+            <div class="stepper-node node-1">
+              <span class="node-num">1</span>
+              <span class="node-label">10/Out • Sábado</span>
+            </div>
+            <div class="stepper-node node-2 highlight">
+              <span class="node-num">2</span>
+              <span class="node-label">11/Out • Domingo</span>
+            </div>
+            <div class="stepper-node node-3">
+              <span class="node-num">3</span>
+              <span class="node-label">12/Out • Segunda</span>
+            </div>
+          </div>
+
+          <div class="timeline-steps-grid">
+            <!-- DIA 1 -->
+            <div class="timeline-step-card step-card-1">
+              <div class="step-card-header">
+                <div class="step-icon-badge icon-badge-1">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  </svg>
+                </div>
+                <div class="step-card-meta">
+                  <span class="step-day-pill">SÁBADO • 10/10</span>
+                  <span class="step-phase-label">Chegada & Envio</span>
+                </div>
+              </div>
+              <h4 class="step-title">Acolhida & Missa de Envio</h4>
+              <ul class="step-highlights-list">
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Chegada dos jovens em SJC e acomodação</span>
+                </li>
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Formação prática e dinâmicas de entrosamento</span>
+                </li>
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Santa Missa de Envio e primeiras visitas</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- DIA 2 (DESTAQUE) -->
+            <div class="timeline-step-card step-card-2 highlight">
+              <div class="step-featured-badge">DIA PRINCIPAL</div>
+              <div class="step-card-header">
+                <div class="step-icon-badge icon-badge-2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                </div>
+                <div class="step-card-meta">
+                  <span class="step-day-pill highlight">DOMINGO • 11/10</span>
+                  <span class="step-phase-label highlight">Imersão Missionária</span>
+                </div>
+              </div>
+              <h4 class="step-title">Dia Missionário & Vigília</h4>
+              <ul class="step-highlights-list">
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Visitas de porta em porta e oração nos lares</span>
+                </li>
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Gincanas e evangelização com as crianças</span>
+                </li>
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Adoração ao Santíssimo e Noite Fraterna</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- DIA 3 -->
+            <div class="timeline-step-card step-card-3">
+              <div class="step-card-header">
+                <div class="step-icon-badge icon-badge-3" title="Nossa Senhora Aparecida">
+                  <svg width="20" height="20" viewBox="0 0 100 135" fill="currentColor">
+                    <circle cx="50" cy="38" r="24" fill="none" stroke="currentColor" stroke-width="4" opacity="0.35"/>
+                    <path d="M42 22 L39 12 L45 16 L50 7 L55 16 L61 12 L58 22 Z" fill="currentColor"/>
+                    <circle cx="50" cy="5" r="2" fill="currentColor"/>
+                    <ellipse cx="50" cy="28" rx="5" ry="6" fill="currentColor"/>
+                    <path d="M46 25 Q30 46 20 94 Q18 101 25 102 Q40 104 50 104 Q60 104 75 102 Q82 101 80 94 Q70 46 54 25 Z" fill="currentColor"/>
+                    <path d="M46 52 Q50 48 54 52 L53 64 Q50 66 47 64 Z" fill="#FFFDF8"/>
+                  </svg>
+                </div>
+                <div class="step-card-meta">
+                  <span class="step-day-pill">SEGUNDA • 12/10</span>
+                  <span class="step-phase-label">Feriado da Padroeira</span>
+                </div>
+              </div>
+              <h4 class="step-title">Festa de N. Sra. & Retorno</h4>
+              <ul class="step-highlights-list">
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Missa Solene com a comunidade paroquial</span>
+                </li>
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Partilha de testemunhos e almoço festivo</span>
+                </li>
+                <li>
+                  <span class="highlight-bullet"></span>
+                  <span>Confraternização e retorno para casa renovados</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- LOGO REGNUM CHRISTI -->
+          <div class="regnum-christi-logo-box">
+            <picture>
+              <source srcset="assets/logo-regnumchristi.webp" type="image/webp">
+              <img src="assets/logo-regnumchristi.png" alt="Regnum Christi Escudo Oficial"
+                class="regnum-christi-official-logo" width="1024" height="224" loading="lazy" decoding="async">
+            </picture>
           </div>
         </div>
       </div>
     </section>
 
-  <!-- SEÇÃO DETALHADA SOBRE A MISSÃO E O REGNUM CHRISTI (LOGO REGNUM CHRISTI 1/2) -->
+    <!-- 7. SEÇÃO INSTITUCIONAL: SOBRE O MOVIMENTO, JFM & APOSTOLADOS -->
     <section class="about-movement-section">
       <div class="container container-narrow">
         <div class="movement-details-card">
@@ -611,149 +931,15 @@
             </div>
           </div>
 
-          <!-- DINÂMICA DOS 3 DIAS DA MISSÃO (TIMELINE / JORNADA DO MISSIONÁRIO) -->
-          <div class="mission-timeline-block">
-            <div class="timeline-heading-group">
-              <span class="timeline-badge-tag">PROGRAMAÇÃO RESUMIDA</span>
-              <h3 class="apostolates-block-title">A Dinâmica dos 3 Dias de Missão</h3>
-              <p class="movement-paragraph-sm">
-                Um feriado inesquecível de oração, ação e verdadeira amizade. Veja a jornada planejada para cada dia:
-              </p>
-            </div>
-
-            <!-- STEPPER PROGRESS BAR VISUAL -->
-            <div class="journey-stepper-track" aria-hidden="true">
-              <div class="stepper-line"></div>
-              <div class="stepper-node node-1">
-                <span class="node-num">1</span>
-                <span class="node-label">10/Out • Sábado</span>
-              </div>
-              <div class="stepper-node node-2 highlight">
-                <span class="node-num">2</span>
-                <span class="node-label">11/Out • Domingo</span>
-              </div>
-              <div class="stepper-node node-3">
-                <span class="node-num">3</span>
-                <span class="node-label">12/Out • Segunda</span>
-              </div>
-            </div>
-
-            <div class="timeline-steps-grid">
-              <!-- DIA 1 -->
-              <div class="timeline-step-card step-card-1">
-                <div class="step-card-header">
-                  <div class="step-icon-badge icon-badge-1">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                      <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                    </svg>
-                  </div>
-                  <div class="step-card-meta">
-                    <span class="step-day-pill">SÁBADO • 10/10</span>
-                    <span class="step-phase-label">Chegada & Envio</span>
-                  </div>
-                </div>
-                <h4 class="step-title">Acolhida & Missa de Envio</h4>
-                <ul class="step-highlights-list">
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Chegada dos jovens em SJC e acomodação</span>
-                  </li>
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Formação prática e dinâmicas de entrosamento</span>
-                  </li>
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Santa Missa de Envio e primeiras visitas</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DIA 2 (DESTAQUE) -->
-              <div class="timeline-step-card step-card-2 highlight">
-                <div class="step-featured-badge">DIA PRINCIPAL</div>
-                <div class="step-card-header">
-                  <div class="step-icon-badge icon-badge-2">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                    </svg>
-                  </div>
-                  <div class="step-card-meta">
-                    <span class="step-day-pill highlight">DOMINGO • 11/10</span>
-                    <span class="step-phase-label highlight">Imersão Missionária</span>
-                  </div>
-                </div>
-                <h4 class="step-title">Dia Missionário & Vigília</h4>
-                <ul class="step-highlights-list">
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Visitas de porta em porta e oração nos lares</span>
-                  </li>
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Gincanas e evangelização com as crianças</span>
-                  </li>
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Adoração ao Santíssimo e Noite Fraterna</span>
-                  </li>
-                </ul>
-              </div>
-
-              <!-- DIA 3 -->
-              <div class="timeline-step-card step-card-3">
-                <div class="step-card-header">
-                  <div class="step-icon-badge icon-badge-3" title="Nossa Senhora Aparecida">
-                    <svg width="20" height="20" viewBox="0 0 100 135" fill="currentColor">
-                      <circle cx="50" cy="38" r="24" fill="none" stroke="currentColor" stroke-width="4" opacity="0.35"/>
-                      <path d="M42 22 L39 12 L45 16 L50 7 L55 16 L61 12 L58 22 Z" fill="currentColor"/>
-                      <circle cx="50" cy="5" r="2" fill="currentColor"/>
-                      <ellipse cx="50" cy="28" rx="5" ry="6" fill="currentColor"/>
-                      <path d="M46 25 Q30 46 20 94 Q18 101 25 102 Q40 104 50 104 Q60 104 75 102 Q82 101 80 94 Q70 46 54 25 Z" fill="currentColor"/>
-                      <path d="M46 52 Q50 48 54 52 L53 64 Q50 66 47 64 Z" fill="#FFFDF8"/>
-                    </svg>
-                  </div>
-                  <div class="step-card-meta">
-                    <span class="step-day-pill">SEGUNDA • 12/10</span>
-                    <span class="step-phase-label">Feriado da Padroeira</span>
-                  </div>
-                </div>
-                <h4 class="step-title">Festa de N. Sra. & Retorno</h4>
-                <ul class="step-highlights-list">
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Missa Solene com a comunidade paroquial</span>
-                  </li>
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Partilha de testemunhos e almoço festivo</span>
-                  </li>
-                  <li>
-                    <span class="highlight-bullet"></span>
-                    <span>Confraternização e retorno para casa renovados</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- LOGO REGNUM CHRISTI 1/2 -->
-          <div class="regnum-christi-logo-box">
-            <picture>
-              <source srcset="assets/logo-regnumchristi.webp" type="image/webp">
-              <img src="assets/logo-regnumchristi.png" alt="Regnum Christi Escudo Oficial"
-                class="regnum-christi-official-logo" width="1024" height="224" loading="lazy" decoding="async">
-            </picture>
-          </div>
-
-          <div class="movement-motto">
+          <div class="movement-motto" style="margin-top: 1.5rem;">
             <span>LEMA: <strong>«Christus Rex noster, adveniat Regnum Tuum!»</strong> • <strong>«Cristo Rei nosso, venha a nós o Vosso Reino!»</strong></span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- SEÇÕES DUPLICADAS/SECUNDÁRIAS OCULTAS -->
+    <div style="display: none;" aria-hidden="true">
     <!-- CONTADOR REGRESSIVO DA MISSÃO -->
     <section class="countdown-section-standalone">
       <div class="container container-narrow">
@@ -942,16 +1128,30 @@
         </div>
       </div>
     </section>
+    </div>
 
     <!-- BANNER FINAL CLEAN E ELEGANTE (LOGO JUVENTUDE MISSIONÁRIA 2/2) -->
     <section class="final-cta-section">
       <div class="container">
         <div class="cta-elegant-card">
-          <div class="cta-logo-wrapper">
+          <div class="cta-garotinha-subtle-wrap">
             <picture>
-              <source srcset="assets/logo-isotipo.webp" type="image/webp">
-              <img src="assets/logo-isotipo.png" alt="Juventude Missionária Isotipo" class="cta-jfm-logo" width="300" height="300" loading="lazy" decoding="async">
+              <source srcset="assets/garotinha-missoes.webp" type="image/webp">
+              <img src="assets/garotinha-missoes.jpg" alt="Garotinha Missionária com Cristo" class="cta-garotinha-subtle-img" width="140" height="169" loading="eager" decoding="async">
             </picture>
+            <div class="cta-garotinha-tag">
+              <div class="brand-tricolor-accent" aria-hidden="true">
+                <span class="tricolor-stripe stripe-yellow"></span>
+                <span class="tricolor-stripe stripe-orange"></span>
+                <span class="tricolor-stripe stripe-red"></span>
+              </div>
+              <span>Juventude Missionária • Vale do Paraíba</span>
+              <div class="brand-tricolor-accent" aria-hidden="true">
+                <span class="tricolor-stripe stripe-yellow"></span>
+                <span class="tricolor-stripe stripe-orange"></span>
+                <span class="tricolor-stripe stripe-red"></span>
+              </div>
+            </div>
           </div>
           <h2 class="cta-title">Vem ser resposta de amor para o mundo.</h2>
           <p class="cta-subtitle">Garanta sua vaga na Missão Nossa Senhora Aparecida em São José dos Campos (SJC) de 10
@@ -969,15 +1169,6 @@
     </section>
   </main>
 
-  <!-- BOTÃO FLUTUANTE DE ROLAGEM VIBRANTE (CIRCULAR COM RADAR HALO WAVE) -->
-  <button class="scroll-indicator-btn" id="scrollIndicatorBtn" aria-label="Rolar para conhecer a missão"
-    title="Rolar para conhecer a missão">
-    <svg class="scroll-arrow-icon" id="scrollArrowIcon" width="20" height="20" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="12" y1="4" x2="12" y2="20"></line>
-      <polyline points="19 13 12 20 5 13"></polyline>
-    </svg>
-  </button>
 
   <!-- POP-UP SLIDE-IN QUE APARECE AO CHEGAR NO FINAL DA PÁGINA -->
   <div class="bottom-popup-card" id="bottomPopupCard" aria-hidden="true">
@@ -1010,6 +1201,7 @@
             Este site é uma <strong>iniciativa própria e temporária</strong>, criada por jovens participantes e auxiliada por membros e Legionários do Regnum Christi para a divulgação e o planejamento da <strong>Missão Nossa Senhora Aparecida (10 a 12 de outubro de 2026)</strong>.
           </p>
           <p class="footer-disclaimer-subtext">
+            Base da Missão: <strong>Paróquia São José Operário</strong> — R. Almenara, 146 - Vila Paiva, São José dos Campos/SP (<a href="https://maps.app.goo.gl/XwG1zwyFaN1AvdTt7" target="_blank" rel="noopener noreferrer" style="color: var(--color-orange); text-decoration: underline; font-weight: 700;">Google Maps</a>).<br>
             Para maior clareza e certeza de todas as informações a respeito do <strong>Regnum Christi</strong>, consulte diretamente o seu portal oficial.
           </p>
           <div class="footer-actions-group">
