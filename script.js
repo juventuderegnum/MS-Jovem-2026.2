@@ -13,11 +13,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. CONFIGURATION & STATE (HARDENED: no localStorage override) ---
-  const OFFICIAL_WHATSAPP_URL = "https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya";
+  const OFFICIAL_WHATSAPP_URL = "https://wa.me/5512991882850?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20a%20coordena%C3%A7%C3%A3o%20sobre%20a%20Miss%C3%A3o%20em%20SJC.";
   const OFFICIAL_INSCRICAO_URL = "https://rcvale.link/missoes-aparecida";
   const targetEventDate = new Date('2026-10-10T08:00:00');
   const eventName = "Missão Nossa Senhora Aparecida";
-  const whatsappGroupUrl = OFFICIAL_WHATSAPP_URL;
+  const coordinatorWhatsappUrl = OFFICIAL_WHATSAPP_URL;
   const inscricaoUrl = OFFICIAL_INSCRICAO_URL;
 
   // Security: purge any poisoned localStorage keys from previous versions (one-time cleanup, no read-back)
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const elCurrentYear = document.getElementById('currentYear');
 
   // Registration Buttons
-  const btnAnnouncementCta = document.getElementById('btnAnnouncementCta');
   const btnHeaderCta = document.getElementById('btnHeaderCta');
   const btnInscricaoTop = document.getElementById('btnInscricaoTop');
   const btnFaqInscricao = document.getElementById('btnFaqInscricao');
@@ -97,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Set official registration links
     const enrollButtons = [
-      btnAnnouncementCta,
       btnHeaderCta,
       btnInscricaoTop,
       btnFaqInscricao,
@@ -110,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btn) btn.href = inscricaoUrl;
     });
 
-    // Set official WhatsApp links
+    // Set official WhatsApp links (Coordenação)
     const whatsappButtons = [
       btnHeaderWa,
       btnWhatsappTop,
@@ -119,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnPopupWhatsapp
     ];
     whatsappButtons.forEach(btn => {
-      if (btn) btn.href = whatsappGroupUrl;
+      if (btn) btn.href = coordinatorWhatsappUrl;
     });
   }
 
