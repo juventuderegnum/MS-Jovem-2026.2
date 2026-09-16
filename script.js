@@ -200,11 +200,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           // Nos cliques seguintes, avança suavemente para a próxima seção
           const sections = [
-            document.getElementById('ficha-interesse'),
-            document.getElementById('carouselContainer'),
             document.getElementById('duvidas'),
-            document.getElementById('pilares'),
-            document.getElementById('btnWhatsappBottom')
+            document.getElementById('experiencia'),
+            document.getElementById('contador'),
+            document.getElementById('programacao'),
+            document.getElementById('btnInscricaoBottom')
           ].filter(Boolean);
 
           let nextSection = null;
