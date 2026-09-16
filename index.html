@@ -76,6 +76,21 @@
     </svg>
   </div>
 
+  <!-- Top Live Notification Bar: Inscrições Abertas -->
+  <aside class="announcement-bar" role="region" aria-label="Aviso de inscrições abertas">
+    <div class="container announcement-container">
+      <div class="announcement-content">
+        <span class="live-pulse-dot" aria-hidden="true"></span>
+        <span class="announcement-tag">INSCRIÇÕES OFICIAIS ABERTAS</span>
+        <span class="announcement-sep" aria-hidden="true">•</span>
+        <span class="announcement-text">Garanta sua vaga na Missão em SJC (10 a 12 de Outubro)</span>
+      </div>
+      <a href="https://rcvale.link/missoes-aparecida" target="_blank" rel="noopener noreferrer" class="announcement-cta" id="btnAnnouncementCta">
+        <span>Fazer Inscrição</span>
+      </a>
+    </div>
+  </aside>
+
   <!-- Header / Navigation (LOGO JUVENTUDE MISSIONÁRIA 1/2) -->
   <header class="site-header">
     <div class="container header-container">
@@ -103,8 +118,16 @@
       </div>
       <div class="header-actions">
         <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
-          class="btn btn-whatsapp-header btn-sm" id="btnHeaderCta">
-          <span>Entrar no Grupo</span>
+          class="btn btn-header-wa-ghost btn-sm" id="btnHeaderWa" title="Acessar grupo de avisos da missão">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+          </svg>
+          <span class="header-wa-label">WhatsApp</span>
+        </a>
+        <a href="https://rcvale.link/missoes-aparecida" target="_blank" rel="noopener noreferrer"
+          class="btn btn-inscricao-header btn-sm" id="btnHeaderCta">
+          <span class="live-pulse-dot-sm" aria-hidden="true"></span>
+          <span>Fazer Inscrição</span>
         </a>
       </div>
     </div>
@@ -115,22 +138,46 @@
     <section class="hero-section" id="inicio">
       <div class="container hero-container">
 
-        <!-- 1. CARD DO LINK DO WHATSAPP COM LOCALIZAÇÃO E FERIADO -->
+        <!-- 1. CARD DE INSCRIÇÕES OFICIAIS ABERTAS -->
         <div class="hero-top-cta-wrapper">
-          <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer" class="hero-whatsapp-banner"
-            id="btnWhatsappTop" aria-label="Abrir o grupo oficial de avisos da Missão para acompanhar informações da Juventude Missionária">
-            <div class="whatsapp-badge-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-              </svg>
+          <div class="hero-enrollment-card">
+            <div class="enrollment-badge-row">
+              <span class="enrollment-status-pill">
+                <span class="live-pulse-dot" aria-hidden="true"></span>
+                INSCRIÇÕES ABERTAS
+              </span>
+              <span class="enrollment-dates-tag">10 A 12 DE OUTUBRO • SJC</span>
             </div>
-            <div class="banner-text-group">
-              <span class="banner-highlight">Paróquia São José Operário • Vila Paiva (SJC)</span>
-              <span class="banner-title">Missão N. Sra. Aparecida • 10 a 12 de Outubro</span>
-              <span class="banner-date">Entre no grupo oficial de avisos da missão</span>
+            <div class="enrollment-main-body">
+              <div class="enrollment-icon-wrap" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <div class="enrollment-text-group">
+                <span class="enrollment-location">Paróquia São José Operário • Vila Paiva (SJC)</span>
+                <h2 class="enrollment-title">Missão Nossa Senhora Aparecida</h2>
+                <p class="enrollment-desc">Garanta sua vaga oficial na missão! Alojamento, refeições, formações e evangelização.</p>
+              </div>
             </div>
-          </a>
+            <div class="enrollment-cta-group">
+              <a href="https://rcvale.link/missoes-aparecida" target="_blank" rel="noopener noreferrer"
+                class="btn btn-jfm-brand btn-md btn-enroll-hero" id="btnInscricaoTop">
+                <span>Fazer Minha Inscrição Agora</span>
+              </a>
+              <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
+                class="btn btn-whatsapp-secondary btn-md" id="btnWhatsappTop">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+                <span>Grupo de Avisos</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         <!-- 2. DÚVIDAS FREQUENTES (LOGO ABAIXO DO CARD OFICIAL) -->
@@ -447,13 +494,14 @@
             </a>
           </div>
 
-          <!-- ATALHO DIRETO PARA FICHA DE INTERESSE -->
-          <div class="faq-form-callout" style="margin-top: 1rem; padding: 0.85rem 1.1rem; background: #FFFDF9; border: 1.5px dashed var(--color-orange); border-radius: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;">
-            <div style="font-size: 0.88rem; color: var(--color-dark); font-weight: 600; display: flex; align-items: center; gap: 6px;">
-              <span>📝 Já tirou todas as suas dúvidas?</span>
+          <!-- ATALHO DIRETO PARA INSCRIÇÃO OFICIAL -->
+          <div class="faq-form-callout">
+            <div class="faq-form-callout-text">
+              <span class="live-pulse-dot-sm" aria-hidden="true"></span>
+              <span>Já tirou suas dúvidas? <strong>Inscrições abertas!</strong></span>
             </div>
-            <a href="https://forms.gle/7ZzeopLgGRqusiUk7" target="_blank" rel="noopener noreferrer" style="color: var(--color-orange); font-weight: 700; font-size: 0.88rem; display: inline-flex; align-items: center; text-decoration: underline;">
-              <span>Preencher Ficha de Interesse</span>
+            <a href="https://rcvale.link/missoes-aparecida" target="_blank" rel="noopener noreferrer" class="btn btn-jfm-brand btn-sm" id="btnFaqInscricao">
+              <span>Fazer Minha Inscrição</span>
             </a>
           </div>
         </div>
@@ -615,6 +663,10 @@
           </svg>
           <div class="countdown-header-minimal">
             <span class="countdown-eyebrow">PARÓQUIA SÃO JOSÉ OPERÁRIO • VILA PAIVA (ZONA NORTE SJC)</span>
+            <div class="countdown-live-badge">
+              <span class="live-pulse-dot" aria-hidden="true"></span>
+              <span>INSCRIÇÕES OFICIALMENTE ABERTAS</span>
+            </div>
             <h2 class="countdown-event-title" id="countdownEventName">Missão Nossa Senhora Aparecida</h2>
             <p class="countdown-event-dates">10 a 12 de Outubro de 2026 (Feriado)</p>
             <a href="https://maps.app.goo.gl/XwG1zwyFaN1AvdTt7" target="_blank" rel="noopener noreferrer" class="countdown-location-chip" title="Ver no Google Maps">
@@ -649,19 +701,23 @@
           </div>
 
           <div class="countdown-actions">
-            <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
-              class="btn btn-whatsapp btn-lg" id="btnWhatsappMain">
-              <span>Garantir Minha Vaga no WhatsApp</span>
-            </a>
-            <a href="https://forms.gle/7ZzeopLgGRqusiUk7" target="_blank" rel="noopener noreferrer" class="btn btn-form-action btn-md" id="btnOpenForm">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <a href="https://rcvale.link/missoes-aparecida" target="_blank" rel="noopener noreferrer"
+              class="btn btn-jfm-brand btn-lg btn-enroll-primary" id="btnOpenForm">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
                 <line x1="16" y1="17" x2="8" y2="17"></line>
                 <polyline points="10 9 9 9 8 9"></polyline>
               </svg>
-              <span>Preencher Ficha de Interesse</span>
+              <span>Fazer Minha Inscrição Agora</span>
+            </a>
+            <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
+              class="btn btn-whatsapp-secondary btn-md" id="btnWhatsappMain">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+              <span>Grupo de Avisos no WhatsApp</span>
             </a>
           </div>
         </div>
@@ -1023,8 +1079,8 @@
               class="btn btn-whatsapp btn-lg" id="btnWhatsappMain">
               <span>Garantir Minha Vaga no WhatsApp</span>
             </a>
-            <a href="https://forms.gle/7ZzeopLgGRqusiUk7" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-md" id="btnOpenForm">
-              <span>Preencher Ficha de Interesse</span>
+            <a href="https://rcvale.link/missoes-aparecida" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-md" id="btnOpenFormBackup">
+              <span>Fazer Minha Inscrição</span>
             </a>
             <a href="https://api.whatsapp.com/send?text=Oi!%20Bora%20participar%20da%20Miss%C3%A3o%20em%20S%C3%A3o%20Jos%C3%A9%20dos%20Campos%20no%20feriado%20de%20Outubro%3F%20D%C3%A1%20uma%20olhada%20no%20site%3A%20https%3A%2F%2Fmissoes-regnum.vercel.app" target="_blank" rel="noopener noreferrer" class="btn btn-share-friend btn-md" id="btnShareFriend">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -1159,34 +1215,53 @@
           </div>
           <h2 class="cta-title">Vem ser resposta de amor para o mundo.</h2>
           <p class="cta-subtitle">Garanta sua vaga na Missão Nossa Senhora Aparecida em São José dos Campos (SJC) de 10
-            a 12 de Outubro de 2026. Te esperamos!</p>
-          <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
-            class="btn btn-whatsapp btn-lg btn-shadow-hover" id="btnWhatsappBottom">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-            </svg>
-            <span>Entrar no Grupo Oficial de Informações</span>
-          </a>
+          <div class="final-cta-actions-group">
+            <a href="https://rcvale.link/missoes-aparecida" target="_blank" rel="noopener noreferrer"
+              class="btn btn-jfm-brand btn-lg btn-shadow-hover btn-final-enroll" id="btnInscricaoBottom">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>Fazer Minha Inscrição Agora</span>
+            </a>
+            <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
+              class="btn btn-whatsapp-secondary btn-md btn-final-wa" id="btnWhatsappBottom">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+              <span>Grupo de Avisos no WhatsApp</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-
-  <!-- POP-UP SLIDE-IN QUE APARECE AO CHEGAR NO FINAL DA PÁGINA -->
+  <!-- POP-UP SLIDE-IN QUE APARECE AO ROLAR 50% DA PÁGINA -->
   <div class="bottom-popup-card" id="bottomPopupCard" aria-hidden="true">
     <button class="popup-close-btn" id="btnClosePopup" title="Fechar">&times;</button>
     <div class="popup-content">
       <div class="popup-header-group">
-        <span class="popup-badge">SÃO JOSÉ DOS CAMPOS (SJC)</span>
+        <span class="popup-badge">
+          <span class="live-pulse-dot-sm" aria-hidden="true"></span>
+          INSCRIÇÕES ABERTAS • SJC
+        </span>
         <h4 class="popup-title">Missão Nossa Senhora Aparecida</h4>
-        <p class="popup-desc">De 10 a 12 de Outubro de 2026. Entre no Grupo Oficial do WhatsApp e garanta sua vaga!</p>
+        <p class="popup-desc">10 a 12 de Outubro em SJC. Garanta sua vaga oficial na missão antes que encerrem!</p>
       </div>
-      <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
-        class="btn btn-whatsapp btn-md btn-block" id="btnPopupWhatsapp">
-        <span>Entrar no Grupo Agora</span>
-      </a>
+      <div class="popup-actions-vertical">
+        <a href="https://rcvale.link/missoes-aparecida" target="_blank" rel="noopener noreferrer"
+          class="btn btn-jfm-brand btn-md btn-block" id="btnPopupInscricao">
+          <span>Fazer Minha Inscrição</span>
+        </a>
+        <a href="https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya" target="_blank" rel="noopener noreferrer"
+          class="popup-wa-secondary-link" id="btnPopupWhatsapp">
+          <span>Dúvidas ou avisos no WhatsApp</span>
+        </a>
+      </div>
     </div>
   </div>
 

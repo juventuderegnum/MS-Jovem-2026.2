@@ -141,6 +141,116 @@ body {
   max-width: 720px;
 }
 
+/* --- LIVE PULSE DOT (STATUS ABERTO / VAGAS ATIVAS) --- */
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: livePulseAnim 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.live-pulse-dot-sm {
+  width: 7px;
+  height: 7px;
+  background-color: #25D366;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: livePulseAnim 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes livePulseAnim {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* --- TOP ANNOUNCEMENT BAR (INSCRIÇÕES ABERTAS) --- */
+.announcement-bar {
+  background: #1C1917;
+  color: #FFFFFF;
+  padding: 0.52rem 0;
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 101;
+}
+
+.announcement-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.announcement-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.announcement-tag {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--color-yellow);
+  white-space: nowrap;
+}
+
+.announcement-sep {
+  opacity: 0.4;
+  font-size: 0.7rem;
+}
+
+.announcement-text {
+  font-weight: 500;
+  color: #F0EAE1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.78rem;
+}
+
+.announcement-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--color-orange);
+  color: #FFFFFF;
+  padding: 0.32rem 0.85rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition-normal);
+  box-shadow: 0 2px 8px rgba(243, 138, 0, 0.3);
+}
+
+.announcement-cta:hover {
+  background: #FF9B1A;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(243, 138, 0, 0.45);
+}
+
 /* --- HEADER --- */
 .site-header {
   position: sticky;
@@ -329,6 +439,34 @@ body {
   background: var(--color-whatsapp-hover);
 }
 
+.btn-inscricao-header {
+  background: linear-gradient(135deg, #FF6500 0%, #FF7A00 100%);
+  color: #FFFFFF;
+  box-shadow: 0 3px 12px rgba(255, 101, 0, 0.28);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.btn-inscricao-header:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 101, 0, 0.38);
+  color: #FFFFFF;
+}
+
+.btn-header-wa-ghost {
+  background: transparent;
+  border: 1.5px solid rgba(37, 211, 102, 0.5);
+  color: #128C7E;
+  font-weight: 700;
+}
+
+.btn-header-wa-ghost:hover {
+  background: rgba(37, 211, 102, 0.08);
+  border-color: var(--color-whatsapp);
+  color: #0E7266;
+  transform: translateY(-1px);
+}
+
 .btn-whatsapp {
   background: var(--color-whatsapp);
   color: #FFFFFF;
@@ -339,6 +477,30 @@ body {
   background: var(--color-whatsapp-hover);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-whatsapp);
+  color: #128C7E;
+  padding: 0.85rem 1.45rem;
+  border-radius: 99px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+.btn-whatsapp-secondary:hover {
+  background: rgba(37, 211, 102, 0.08);
+  border-color: #1EBE5D;
+  color: #0E7266;
+  transform: translateY(-2px);
 }
 
 .btn-outline-dark {
@@ -440,6 +602,115 @@ body {
   width: 100%;
   max-width: 680px;
   margin-bottom: 1.25rem;
+}
+
+.hero-enrollment-card {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1.5px solid var(--color-orange);
+  border-radius: 20px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 10px 30px rgba(243, 138, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.enrollment-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.enrollment-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(37, 211, 102, 0.12);
+  color: #0F7835;
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-family: var(--font-display);
+}
+
+.enrollment-dates-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  letter-spacing: 0.04em;
+  font-family: var(--font-display);
+}
+
+.enrollment-main-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.enrollment-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 101, 0, 0.12) 0%, rgba(243, 138, 0, 0.06) 100%);
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(243, 138, 0, 0.2);
+}
+
+.enrollment-text-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.enrollment-location {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+.enrollment-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-top: 0.15rem;
+  line-height: 1.25;
+}
+
+.enrollment-desc {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+  line-height: 1.4;
+}
+
+.enrollment-cta-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.btn-enroll-hero {
+  flex: 1 1 230px;
+  font-weight: 800;
 }
 
 .hero-whatsapp-banner {
@@ -1007,6 +1278,22 @@ body {
   letter-spacing: 0.08em;
 }
 
+.countdown-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #0F7835;
+  padding: 0.35rem 0.85rem;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin: 0.45rem 0 0.25rem 0;
+  font-family: var(--font-display);
+}
+
 .countdown-event-title {
   font-family: var(--font-display);
   font-size: 1.3rem;
@@ -1066,6 +1353,18 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+}
+
+.btn-enroll-primary {
+  padding: 0.95rem 2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  box-shadow: 0 6px 20px rgba(255, 101, 0, 0.32);
+}
+
+.btn-enroll-primary:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 28px rgba(255, 101, 0, 0.42);
 }
 
 /* 8. DÚVIDAS FREQUENTES LOGO EMBAIXO DO TIMER */
@@ -1466,6 +1765,30 @@ body {
   background: #20BA5A;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+
+/* ATALHO PARA INSCRIÇÕES OFICIAIS NO FAQ */
+.faq-form-callout {
+  margin-top: 1rem;
+  padding: 0.95rem 1.15rem;
+  background: #FFFDF9;
+  border: 1.5px solid var(--color-orange);
+  border-radius: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-shadow: 0 4px 14px rgba(243, 138, 0, 0.06);
+}
+
+.faq-form-callout-text {
+  font-size: 0.88rem;
+  color: var(--color-dark);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* --- SEÇÃO DETALHADA SOBRE O MOVIMENTO --- */
@@ -2515,6 +2838,32 @@ body {
   line-height: 1.6;
 }
 
+.final-cta-actions-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.btn-final-enroll {
+  padding: 0.95rem 2.1rem;
+  font-size: 1rem;
+  font-weight: 800;
+  box-shadow: 0 6px 20px rgba(255, 101, 0, 0.32);
+}
+
+.btn-final-enroll:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 28px rgba(255, 101, 0, 0.42);
+}
+
+.btn-final-wa {
+  padding: 0.85rem 1.45rem;
+  font-size: 0.9rem;
+}
+
 /* --- BOTÃO FLUTUANTE DE ROLAGEM VIBRANTE (CIRCULAR COM RADAR HALO WAVE) --- */
 .scroll-indicator-btn {
   position: fixed;
@@ -2674,6 +3023,28 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   margin-top: 0.2rem;
 }
 
+.popup-actions-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: stretch;
+}
+
+.popup-wa-secondary-link {
+  font-size: 0.78rem;
+  color: #128C7E;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  padding: 0.2rem 0;
+}
+
+.popup-wa-secondary-link:hover {
+  color: #0B5C52;
+}
+
 /* --- FOOTER INSTITUCIONAL --- */
 .site-footer {
   background: #FFFFFF;
@@ -2800,24 +3171,45 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     padding: 0 1rem;
   }
 
+  .announcement-bar {
+    padding: 0.45rem 0;
+  }
+
+  .announcement-container {
+    gap: 0.5rem;
+  }
+
+  .announcement-tag {
+    font-size: 0.68rem;
+  }
+
+  .announcement-text {
+    font-size: 0.72rem;
+  }
+
+  .announcement-cta {
+    padding: 0.28rem 0.65rem;
+    font-size: 0.7rem;
+  }
+
   .site-header {
     padding: 0.65rem 0;
   }
 
   .header-container {
-    gap: 0.85rem;
+    gap: 0.65rem;
   }
 
   .brand {
-    gap: 0.6rem;
+    gap: 0.55rem;
   }
 
   .brand-logo {
-    height: 40px;
+    height: 38px;
   }
 
   .brand-title {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     white-space: nowrap;
   }
 
@@ -2831,12 +3223,27 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   }
 
   .brand-subtitle {
-    font-size: 0.55rem;
+    font-size: 0.52rem;
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
 
   .brand-subtitle-lockup .brand-tricolor-accent:last-child {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  .btn-inscricao-header {
+    padding: 0.42rem 0.75rem;
+    font-size: 0.76rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .btn-header-wa-ghost {
     display: none;
   }
 
@@ -2926,6 +3333,44 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     word-break: break-word;
   }
 
+  .hero-enrollment-card {
+    padding: 1.05rem 1rem;
+    border-radius: 16px;
+    gap: 0.75rem;
+  }
+
+  .enrollment-main-body {
+    gap: 0.65rem;
+  }
+
+  .enrollment-icon-wrap {
+    width: 38px;
+    height: 38px;
+  }
+
+  .enrollment-title {
+    font-size: 1rem;
+  }
+
+  .enrollment-desc {
+    font-size: 0.78rem;
+  }
+
+  .enrollment-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.55rem;
+  }
+
+  .btn-enroll-hero,
+  .btn-whatsapp-secondary {
+    flex: none;
+    width: 100%;
+    font-size: 0.86rem;
+    padding: 0.78rem 1rem;
+    box-sizing: border-box;
+  }
+
   .unified-mission-card {
     padding: 1.6rem 1.15rem;
     border-radius: 18px;
@@ -2970,6 +3415,19 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     font-size: 1.2rem;
   }
 
+  .countdown-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .btn-enroll-primary {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+  }
+
   .faq-container-inline {
     padding: 0.85rem 0.8rem;
     border-radius: 18px;
@@ -2983,6 +3441,18 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   .movement-details-card {
     padding: 1.5rem 1.15rem;
     border-radius: 18px;
+  }
+
+  .final-cta-actions-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .btn-final-enroll,
+  .btn-final-wa {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .footer-disclaimer-card {

@@ -14,9 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. CONFIGURATION & STATE (HARDENED: no localStorage override) ---
   const OFFICIAL_WHATSAPP_URL = "https://chat.whatsapp.com/DfE3dr3tBDCEJdUlRHkjya";
+  const OFFICIAL_INSCRICAO_URL = "https://rcvale.link/missoes-aparecida";
   const targetEventDate = new Date('2026-10-10T08:00:00');
   const eventName = "Missão Nossa Senhora Aparecida";
   const whatsappGroupUrl = OFFICIAL_WHATSAPP_URL;
+  const inscricaoUrl = OFFICIAL_INSCRICAO_URL;
 
   // Security: purge any poisoned localStorage keys from previous versions (one-time cleanup, no read-back)
   try {
@@ -33,11 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const elCountdownEventName = document.getElementById('countdownEventName');
   const elCurrentYear = document.getElementById('currentYear');
 
+  // Registration Buttons
+  const btnAnnouncementCta = document.getElementById('btnAnnouncementCta');
+  const btnHeaderCta = document.getElementById('btnHeaderCta');
+  const btnInscricaoTop = document.getElementById('btnInscricaoTop');
+  const btnFaqInscricao = document.getElementById('btnFaqInscricao');
+  const btnOpenForm = document.getElementById('btnOpenForm');
+  const btnOpenFormBackup = document.getElementById('btnOpenFormBackup');
+  const btnInscricaoBottom = document.getElementById('btnInscricaoBottom');
+  const btnPopupInscricao = document.getElementById('btnPopupInscricao');
+
   // WhatsApp Buttons
+  const btnHeaderWa = document.getElementById('btnHeaderWa');
   const btnWhatsappTop = document.getElementById('btnWhatsappTop');
   const btnWhatsappMain = document.getElementById('btnWhatsappMain');
   const btnWhatsappBottom = document.getElementById('btnWhatsappBottom');
-  const btnHeaderCta = document.getElementById('btnHeaderCta');
   const btnPopupWhatsapp = document.getElementById('btnPopupWhatsapp');
 
   // Scroll Indicator & Bottom Popup
@@ -82,7 +94,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateEventDetailsUI() {
     if (elCountdownEventName) elCountdownEventName.textContent = eventName;
-    const whatsappButtons = [btnWhatsappTop, btnWhatsappMain, btnWhatsappBottom, btnHeaderCta, btnPopupWhatsapp];
+
+    // Set official registration links
+    const enrollButtons = [
+      btnAnnouncementCta,
+      btnHeaderCta,
+      btnInscricaoTop,
+      btnFaqInscricao,
+      btnOpenForm,
+      btnOpenFormBackup,
+      btnInscricaoBottom,
+      btnPopupInscricao
+    ];
+    enrollButtons.forEach(btn => {
+      if (btn) btn.href = inscricaoUrl;
+    });
+
+    // Set official WhatsApp links
+    const whatsappButtons = [
+      btnHeaderWa,
+      btnWhatsappTop,
+      btnWhatsappMain,
+      btnWhatsappBottom,
+      btnPopupWhatsapp
+    ];
     whatsappButtons.forEach(btn => {
       if (btn) btn.href = whatsappGroupUrl;
     });
