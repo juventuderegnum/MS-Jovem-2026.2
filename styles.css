@@ -1357,12 +1357,18 @@ body {
   color: var(--color-text-muted);
   font-size: 0.85rem;
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .accordion-content > p,
 .accordion-content > .accordion-inner {
   min-height: 0;
+  min-width: 0;
+  max-width: 100%;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .accordion-content > p {
@@ -1704,6 +1710,583 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* --- FAQ 1: CRONOGRAMA DE HORÁRIOS --- */
+.faq-schedule-card {
+  margin-top: 0.75rem;
+  background: #FFFFFF;
+  border: 1px solid #ECE7DE;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.faq-schedule-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.6rem;
+}
+
+.faq-schedule-header svg {
+  color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+.faq-schedule-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.faq-schedule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.faq-schedule-tag {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+  border-radius: 6px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.faq-schedule-tag.tag-start {
+  background: rgba(243, 138, 0, 0.12);
+  color: var(--color-orange);
+  border: 1px solid rgba(243, 138, 0, 0.3);
+}
+
+.faq-schedule-tag.tag-end {
+  background: rgba(37, 211, 102, 0.12);
+  color: #128C7E;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.faq-schedule-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.faq-schedule-content strong {
+  font-size: 0.83rem;
+  color: var(--color-dark);
+}
+
+.faq-schedule-content span {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+/* --- FAQ 7: CARDS DE VALORES DE INSCRIÇÃO --- */
+.faq-pricing-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+@media (max-width: 640px) {
+  .faq-pricing-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
+
+.faq-pricing-card {
+  background: #FFFFFF;
+  border: 1.5px solid #EFEAE3;
+  border-radius: 14px;
+  padding: 0.95rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.faq-pricing-card:hover {
+  border-color: rgba(243, 138, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.faq-pricing-card.highlight {
+  background: #FFFBF5;
+  border-color: var(--color-orange);
+  box-shadow: 0 4px 16px rgba(243, 138, 0, 0.08);
+}
+
+.faq-pricing-badge {
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7A7265;
+  margin-bottom: 0.35rem;
+  display: inline-block;
+}
+
+.faq-pricing-badge.badge-family {
+  color: #D35400;
+  background: rgba(243, 138, 0, 0.12);
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+  align-self: flex-start;
+  margin-bottom: 0.4rem;
+}
+
+.faq-pricing-amount {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  color: var(--color-dark);
+  margin-bottom: 0.3rem;
+}
+
+.faq-pricing-amount .currency {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+.faq-pricing-amount .val {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--color-dark);
+}
+
+.faq-pricing-amount .cents {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.faq-pricing-name {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 0.25rem;
+}
+
+.faq-pricing-desc {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* --- FAQ 7: NOTA DE REFEIÇÕES E RESTRIÇÕES ALIMENTARES --- */
+.faq-meals-box {
+  background: #FFFDF9;
+  border: 1px solid #F3E3D0;
+  border-left: 3.5px solid var(--color-orange);
+  border-radius: 12px;
+  padding: 0.75rem 0.95rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  margin-bottom: 0.95rem;
+}
+
+.faq-meals-icon {
+  color: var(--color-orange);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.faq-meals-details {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #3C3630;
+}
+
+.faq-meals-details strong {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--color-dark);
+  margin-bottom: 0.2rem;
+}
+
+.faq-meals-details p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* --- FAQ 7: UNIFORMES E ACESSÓRIOS --- */
+.faq-uniforms-wrapper {
+  margin-top: 0.75rem;
+  background: #FAFAFA;
+  border: 1px solid #ECE7DE;
+  border-radius: 14px;
+  padding: 0.9rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.faq-uniforms-header {
+  margin-bottom: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.faq-uniforms-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-top: 0.25rem;
+  margin-bottom: 0.3rem;
+}
+
+.faq-uniforms-sub {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* --- NOTAS INFORMATIVAS DO UNIFORME --- */
+.faq-uniform-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.faq-uniform-info-card {
+  background: #FFFFFF;
+  border: 1px solid #EFEAE3;
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.faq-uniform-info-card .uic-icon {
+  font-size: 1rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+.faq-uniform-info-card .uic-text {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #4A443D;
+  min-width: 0;
+  flex: 1 1 auto;
+  word-break: break-word;
+}
+
+.faq-uniform-info-card .uic-text .uic-title,
+.faq-uniform-info-card .uic-text strong.uic-title {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-dark);
+  margin-bottom: 0.1rem;
+}
+
+.faq-uniform-info-card .uic-text strong:not(.uic-title) {
+  display: inline;
+  font-weight: 700;
+  color: inherit;
+}
+
+.faq-inline-link {
+  color: var(--color-orange);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.faq-inline-link:hover {
+  color: #D35400;
+}
+
+/* --- LISTA DE ITENS DE UNIFORME --- */
+.faq-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.faq-item-card {
+  background: #FFFFFF;
+  border: 1px solid #EAE5DE;
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.faq-item-card.combo-featured {
+  border: 1.5px solid #FFBE76;
+  background: #FFFDF8;
+  box-shadow: 0 2px 8px rgba(243, 138, 0, 0.05);
+}
+
+.faq-item-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.faq-item-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.faq-item-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.faq-chip-economy {
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #B25300;
+  background: rgba(243, 138, 0, 0.15);
+  border: 1px solid rgba(243, 138, 0, 0.3);
+  padding: 0.12rem 0.45rem;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.faq-item-desc {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.faq-item-price-tag {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1.5px;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  background: rgba(243, 138, 0, 0.08);
+  border: 1px solid rgba(243, 138, 0, 0.25);
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.faq-item-price-tag .item-currency {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+.faq-item-price-tag .item-val {
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-dark);
+}
+
+.faq-item-price-tag .item-cents {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.faq-scarf-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.35rem;
+  width: 100%;
+}
+
+.scarf-chip {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: #F4F1EA;
+  color: #3C3630;
+}
+
+.scarf-chip.color-orange {
+  background: #FFF3E6;
+  border-color: #F8C291;
+  color: #B25300;
+}
+
+.scarf-chip.color-yellow {
+  background: #FFFDE6;
+  border-color: #F6E58D;
+  color: #8C7B00;
+}
+
+.scarf-chip.color-red {
+  background: #FFEBEB;
+  border-color: #FFBEBE;
+  color: #B31E2A;
+}
+
+.scarf-chip.color-blue {
+  background: #EBF4FF;
+  border-color: #BCD8FF;
+  color: #0A58CA;
+}
+
+/* --- FAQ 7: GUIA DE TAMANHOS --- */
+.faq-measurements-box {
+  background: #FFFFFF;
+  border: 1px solid #ECE7DE;
+  border-radius: 10px;
+  padding: 0.75rem 0.85rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.faq-measurements-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 0.55rem;
+}
+
+.faq-measurements-title svg {
+  color: var(--color-orange);
+  flex-shrink: 0;
+}
+
+.faq-sizes-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.4rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.faq-size-chip {
+  background: #F8F6F2;
+  border: 1px solid #E6E1D8;
+  border-radius: 8px;
+  padding: 0.35rem 0.15rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.faq-size-chip .size-label {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.82rem;
+  color: var(--color-dark);
+  line-height: 1.1;
+}
+
+.faq-size-chip .size-dim {
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+.faq-size-chip.chip-kids {
+  background: #FFFDF7;
+  border-color: #F8C291;
+}
+
+.faq-size-chip.chip-kids .size-label {
+  color: #B25300;
+}
+
+.faq-cta-row {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.btn-faq-register {
+  width: 100%;
+  max-width: 340px;
+  display: inline-flex;
+  font-size: 0.88rem;
+  padding: 0.7rem 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .faq-uniforms-wrapper {
+    padding: 0.75rem 0.55rem;
+  }
+
+  .faq-item-card {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .faq-item-title {
+    font-size: 0.82rem;
+  }
+
+  .faq-item-desc {
+    font-size: 0.74rem;
+  }
+
+  .faq-sizes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+
+  .faq-size-chip {
+    padding: 0.35rem 0.12rem;
+  }
 }
 
 /* --- SEÇÃO DETALHADA SOBRE O MOVIMENTO --- */
