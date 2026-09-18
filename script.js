@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // WhatsApp Buttons
   const btnHeaderWa = document.getElementById('btnHeaderWa');
   const btnWhatsappTop = document.getElementById('btnWhatsappTop');
+  const btnFaqSupport = document.getElementById('btnFaqSupport');
   const btnWhatsappMain = document.getElementById('btnWhatsappMain');
   const btnWhatsappBottom = document.getElementById('btnWhatsappBottom');
   const btnPopupWhatsapp = document.getElementById('btnPopupWhatsapp');
@@ -135,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const whatsappButtons = [
       btnHeaderWa,
       btnWhatsappTop,
+      btnFaqSupport,
       btnWhatsappMain,
       btnWhatsappBottom,
       btnPopupWhatsapp
