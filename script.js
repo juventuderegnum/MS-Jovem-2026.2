@@ -32,6 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const elHours = document.getElementById('hours');
   const elMinutes = document.getElementById('minutes');
   const elSeconds = document.getElementById('seconds');
+
+  // Hero Compact Countdown Elements
+  const elHeroDays = document.getElementById('heroDays');
+  const elHeroHours = document.getElementById('heroHours');
+  const elHeroMinutes = document.getElementById('heroMinutes');
+  const elHeroSeconds = document.getElementById('heroSeconds');
+
   const elCountdownEventName = document.getElementById('countdownEventName');
   const elCurrentYear = document.getElementById('currentYear');
 
@@ -73,6 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (elHours) elHours.textContent = '00';
       if (elMinutes) elMinutes.textContent = '00';
       if (elSeconds) elSeconds.textContent = '00';
+
+      if (elHeroDays) elHeroDays.textContent = '00';
+      if (elHeroHours) elHeroHours.textContent = '00';
+      if (elHeroMinutes) elHeroMinutes.textContent = '00';
+      if (elHeroSeconds) elHeroSeconds.textContent = '00';
+
       if (countdownInterval) clearInterval(countdownInterval);
       return;
     }
@@ -82,10 +95,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    if (elDays) elDays.textContent = String(days).padStart(2, '0');
-    if (elHours) elHours.textContent = String(hours).padStart(2, '0');
-    if (elMinutes) elMinutes.textContent = String(minutes).padStart(2, '0');
-    if (elSeconds) elSeconds.textContent = String(seconds).padStart(2, '0');
+    const dStr = String(days).padStart(2, '0');
+    const hStr = String(hours).padStart(2, '0');
+    const mStr = String(minutes).padStart(2, '0');
+    const sStr = String(seconds).padStart(2, '0');
+
+    if (elDays) elDays.textContent = dStr;
+    if (elHours) elHours.textContent = hStr;
+    if (elMinutes) elMinutes.textContent = mStr;
+    if (elSeconds) elSeconds.textContent = sStr;
+
+    if (elHeroDays) elHeroDays.textContent = dStr;
+    if (elHeroHours) elHeroHours.textContent = hStr;
+    if (elHeroMinutes) elHeroMinutes.textContent = mStr;
+    if (elHeroSeconds) elHeroSeconds.textContent = sStr;
   }
 
   updateCountdown();
