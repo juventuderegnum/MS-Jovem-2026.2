@@ -223,9 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const sections = [
             document.getElementById('duvidas'),
             document.getElementById('experiencia'),
-            document.getElementById('contador'),
-            document.getElementById('programacao'),
-            document.getElementById('btnInscricaoBottom')
+            document.getElementById('btnFaqInscricao')
           ].filter(Boolean);
 
           let nextSection = null;

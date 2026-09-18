@@ -1749,16 +1749,37 @@ body {
 }
 
 .carousel-cta-wrapper {
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
   width: 100%;
-  max-width: 620px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
 }
 
-.carousel-callout {
-  margin-top: 0;
+.btn-carousel-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2.25rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--color-orange) 0%, #e06d00 100%);
+  color: #ffffff !important;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(243, 138, 0, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.btn-carousel-pill:hover,
+.btn-carousel-pill:active {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(243, 138, 0, 0.45);
+  color: #ffffff !important;
 }
 
 /* ATALHO PARA INSCRIÇÕES OFICIAIS NO FAQ */
