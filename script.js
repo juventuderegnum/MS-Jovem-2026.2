@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- 1. CONFIGURATION & STATE (HARDENED: no localStorage override) ---
   const OFFICIAL_INSTAGRAM_URL = "https://www.instagram.com/jm.valedoparaiba/";
   const OFFICIAL_ALBUM_URL = "https://photos.app.goo.gl/wxo2LKXqNnrjvqy59";
-  const targetEventDate = new Date('2027-03-25T08:00:00'); // Missão de Páscoa 2027
+  const targetEventDate = new Date('2027-03-26T08:00:00-03:00'); // Sexta-Feira Santa 2027 (1º dia da Missão)
   const eventName = "Juventude Missionária • Regnum Christi";
 
   // Security: purge any poisoned localStorage keys from previous versions (one-time cleanup, no read-back)

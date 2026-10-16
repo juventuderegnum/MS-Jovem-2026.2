@@ -4441,48 +4441,98 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   padding: 0 0.5rem;
 }
 
-/* 2. FRASE BÍBLICA PRINCIPAL (O AMOR DE CRISTO NOS IMPELE — 2 COR 5, 14) */
-.hero-biblical-heading {
+/* 2. TIMER COMPACTO: PRÓXIMA MISSÃO • SEXTA-FEIRA SANTA 2027 */
+.hero-mini-countdown {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin: 0 auto 1.25rem auto;
+  padding: 0.7rem 1.25rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #E8DFD1;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(46, 41, 37, 0.04);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.mini-countdown-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #7A4F18;
+  margin: 0;
+}
+
+.mini-countdown-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  box-shadow: 0 0 6px rgba(243, 138, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.mini-countdown-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.mini-cd-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 0 1.35rem 0;
+  justify-content: center;
+  min-width: 44px;
+  padding: 0.3rem 0.45rem;
+  background: #FAF6F0;
+  border: 1px solid #EDE4D7;
+  border-radius: 10px;
 }
 
-.hero-headline-apostolic {
-  font-family: var(--font-bible);
-  font-size: clamp(2.1rem, 6.5vw, 3.6rem);
-  font-style: italic;
-  font-weight: 600;
-  line-height: 1.08;
-  color: #2D2721;
-  margin: 0;
-  text-align: center;
-  letter-spacing: -0.015em;
-}
-
-.hero-headline-apostolic .headline-light {
-  display: block;
-  font-weight: 400;
-  color: #5C4E40;
-}
-
-.hero-headline-apostolic .headline-bold {
-  display: block;
-  font-weight: 700;
+.mini-cd-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.1;
   color: var(--color-orange);
-  text-shadow: 0 2px 14px rgba(243, 138, 0, 0.14);
+  font-variant-numeric: tabular-nums;
 }
 
-.hero-biblical-ref {
-  display: inline-block;
-  margin-top: 0.45rem;
-  font-family: var(--font-roman);
-  font-size: 0.7rem;
+.mini-cd-label {
+  font-family: var(--font-display);
+  font-size: 0.56rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #8C7355;
+  letter-spacing: 0.05em;
+  color: #7C6B59;
+  margin-top: 0.1rem;
+}
+
+.mini-cd-sep {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #C7B9A8;
+  line-height: 1;
+  margin-top: -0.35rem;
+}
+
+.mini-countdown-sub {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #8C7B6B;
+  letter-spacing: 0.02em;
 }
 
 /* 3. BLOCO DE CARDS MINIMALISTAS */
