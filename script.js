@@ -731,5 +731,178 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- 12. ANIMAÇÃO COMEMORATIVA MINIMALISTA: CENTELHAS DOURADAS & TRICOLORES JM ---
+  function launchMissionSparkles(originElement) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.zIndex = '9999';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    ctx.scale(dpr, dpr);
+
+    // Determina a região do card "Missão Concluída" para emitir as centelhas ao redor dele
+    const cardEl = originElement || document.querySelector('.hero-post-mission-card');
+    const rect = cardEl
+      ? cardEl.getBoundingClientRect()
+      : { left: width * 0.15, top: height * 0.28, width: width * 0.7, height: 160 };
+
+    // Paleta: Ouro Sacro + Tricolor Juventude Missionária (Amarelo, Laranja, Vermelho)
+    const palette = [
+      '#F59E0B', // Ouro vivo
+      '#FBBF24', // Ouro claro
+      '#D97706', // Âmbar dourado
+      '#FFDB00', // Amarelo JM
+      '#F38A00', // Laranja JM
+      '#EB0028'  // Vermelho JM (toque sutil)
+    ];
+
+    const isMobile = width < 600;
+    const count = isMobile ? 34 : 46;
+    const particles = [];
+
+    for (let i = 0; i < count; i++) {
+      // Distribui as centelhas na borda superior e centro do card da missão
+      const spawnX = rect.left + Math.random() * rect.width;
+      const spawnY = rect.top + Math.random() * Math.min(rect.height * 0.75, 130);
+      const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.35; // sobe suavemente em leque
+      const speed = 0.7 + Math.random() * 2.1;
+
+      // Maior proporção de dourado/laranja e toques pontuais de vermelho
+      const colorIndex = Math.random() < 0.72
+        ? Math.floor(Math.random() * 5)
+        : 5;
+
+      particles.push({
+        x: spawnX,
+        y: spawnY,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - (0.4 + Math.random() * 0.8),
+        gravity: 0.018 + Math.random() * 0.015,
+        drag: 0.988,
+        size: (isMobile ? 4.2 : 5.2) + Math.random() * 5.5,
+        isStar: Math.random() < 0.62, // 62% estrelas de 4 pontas (✦), 38% centelhas circulares
+        color: palette[colorIndex],
+        rotation: Math.random() * Math.PI,
+        rotationSpeed: (Math.random() - 0.5) * 0.04,
+        twinkleSpeed: 0.06 + Math.random() * 0.07,
+        twinklePhase: Math.random() * Math.PI * 2,
+        delay: Math.random() * 260, // entrada escalonada suave (ms)
+        life: 0,
+        maxLife: 1700 + Math.random() * 1100
+      });
+    }
+
+    function drawFourPointStar(cx, cy, radius, rot) {
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(rot);
+      ctx.beginPath();
+      const inner = radius * 0.22;
+      for (let i = 0; i < 4; i++) {
+        const a = (i * Math.PI) / 2;
+        const nextA = ((i + 1) * Math.PI) / 2;
+        const midA = a + Math.PI / 4;
+        if (i === 0) ctx.moveTo(Math.cos(a) * radius, Math.sin(a) * radius);
+        ctx.quadraticCurveTo(
+          Math.cos(midA) * inner,
+          Math.sin(midA) * inner,
+          Math.cos(nextA) * radius,
+          Math.sin(nextA) * radius
+        );
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    let startTime = null;
+
+    function renderFrame(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+
+      ctx.clearRect(0, 0, width, height);
+      let activeParticles = 0;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        if (elapsed < p.delay) {
+          activeParticles++;
+          continue;
+        }
+
+        const localElapsed = elapsed - p.delay;
+        if (localElapsed >= p.maxLife) continue;
+        activeParticles++;
+
+        const progress = localElapsed / p.maxLife;
+        p.vx *= p.drag;
+        p.vy = p.vy * p.drag + p.gravity;
+        p.x += p.vx + Math.sin(localElapsed * 0.004 + p.twinklePhase) * 0.22;
+        p.y += p.vy;
+        p.rotation += p.rotationSpeed;
+
+        // Curva suave de entrada, cintilação (twinkle) e saída
+        const fadeIn = Math.min(1, progress * 5);
+        const fadeOut = 1 - Math.pow(progress, 2.1);
+        const twinkle = 0.68 + 0.32 * Math.sin(localElapsed * 0.012 * p.twinkleSpeed * 15 + p.twinklePhase);
+        const alpha = Math.max(0, fadeIn * fadeOut * twinkle);
+
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = p.color;
+        ctx.shadowColor = p.color;
+        ctx.shadowBlur = p.isStar ? 8 : 5;
+
+        if (p.isStar) {
+          drawFourPointStar(p.x, p.y, p.size * (0.75 + 0.25 * twinkle), p.rotation);
+        } else {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * 0.34, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+
+      if (activeParticles > 0) {
+        requestAnimationFrame(renderFrame);
+      } else {
+        canvas.remove();
+      }
+    }
+
+    requestAnimationFrame(renderFrame);
+  }
+
+  // Dispara suavemente ao carregar a página e permite repetir ao tocar no selo "MISSÃO CONCLUÍDA"
+  setTimeout(() => {
+    launchMissionSparkles();
+  }, 320);
+
+  const postMissionPill = document.querySelector('.post-mission-pill');
+  if (postMissionPill) {
+    postMissionPill.style.cursor = 'pointer';
+    postMissionPill.setAttribute('title', 'Celebrar frutos da missão');
+    postMissionPill.addEventListener('click', () => {
+      launchMissionSparkles(postMissionPill);
+    });
+  }
+
 });
 

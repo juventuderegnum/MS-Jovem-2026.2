@@ -4545,6 +4545,26 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   gap: 0.95rem;
 }
 
+@keyframes missionCardCelebrationGlow {
+  0% {
+    box-shadow: 0 4px 20px rgba(46, 41, 37, 0.04);
+    border-color: #E8DFD1;
+  }
+  40% {
+    box-shadow: 0 8px 32px rgba(243, 138, 0, 0.16), 0 0 0 1px rgba(245, 158, 11, 0.25);
+    border-color: rgba(243, 138, 0, 0.55);
+  }
+  100% {
+    box-shadow: 0 4px 20px rgba(46, 41, 37, 0.04);
+    border-color: #E8DFD1;
+  }
+}
+
+@keyframes sparklePulseSubtle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.18) rotate(10deg); }
+}
+
 /* CARD 1: MISSÃO CONCLUÍDA (COMPACTO) */
 .hero-post-mission-card {
   width: 100%;
@@ -4558,6 +4578,7 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   gap: 0.75rem;
   text-align: left;
   box-sizing: border-box;
+  animation: missionCardCelebrationGlow 2.8s ease-out 0.2s 1;
 }
 
 .post-mission-badge-row {
@@ -4581,6 +4602,17 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   letter-spacing: 0.04em;
   font-family: var(--font-display);
   white-space: nowrap;
+  user-select: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.post-mission-pill:active {
+  transform: scale(0.96);
+}
+
+.post-mission-pill .sparkle-icon {
+  display: inline-block;
+  animation: sparklePulseSubtle 2.4s ease-in-out infinite;
 }
 
 .pm-compact-chips {
