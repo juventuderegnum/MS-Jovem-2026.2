@@ -574,7 +574,10 @@ body {
 .hero-top-cta-wrapper {
   width: 100%;
   max-width: 680px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .hero-enrollment-card-compact {
@@ -4714,110 +4717,209 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   background: rgba(225, 48, 108, 0.04);
 }
 
-.btn-waitlist-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  padding: 0.75rem 1.15rem;
-  background: #25D366;
-  color: #FFFFFF;
-  border-radius: 10px;
-  font-family: var(--font-display);
-  font-size: 0.88rem;
-  font-weight: 800;
-  text-decoration: none;
-  border: none;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.22);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-
-.btn-waitlist-cta:hover {
-  background: #1EBE5D;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.32);
-  color: #FFFFFF;
-}
-
-/* 6. CARD NOBRE: PRÓXIMA MISSÃO PÁSCOA 2027 */
-.next-mission-featured-card {
+.post-mission-single-action {
   width: 100%;
-  max-width: 620px;
-  margin: 1.75rem 0 0.5rem 0;
-  background: linear-gradient(135deg, #FFFDF8 0%, #FFF8EC 100%);
-  border: 1.5px solid rgba(243, 138, 0, 0.4);
-  border-radius: 18px;
-  padding: 1.35rem 1.5rem;
-  box-shadow: 0 6px 22px rgba(243, 138, 0, 0.08);
-  box-sizing: border-box;
-  text-align: left;
 }
 
-.nm-badge-pill {
+.post-mission-single-action .btn-album-cta {
+  width: 100%;
+  justify-content: center;
+}
+
+.post-mission-memory-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #7A5722;
+  background: rgba(212, 136, 6, 0.08);
+  border: 1px solid rgba(212, 136, 6, 0.2);
+  padding: 0.32rem 0.85rem;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+  font-family: var(--font-display);
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  background: rgba(243, 138, 0, 0.12);
-  color: var(--color-orange);
-  padding: 0.24rem 0.7rem;
-  border-radius: 99px;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  font-family: var(--font-display);
-  margin-bottom: 0.65rem;
+  gap: 0.4rem;
 }
 
-.nm-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  font-weight: 800;
-  color: #2D2721;
-  margin: 0 0 0.45rem 0;
-  letter-spacing: -0.01em;
+/* 6. CARD OFICIAL: SALVE ESSA DATA • MISSÃO DE PÁSCOA 2027 */
+.save-the-date-card {
+  width: 100%;
+  background: linear-gradient(135deg, #FFFDF8 0%, #FFF8EC 100%);
+  border: 1.5px solid rgba(243, 138, 0, 0.35);
+  border-radius: 20px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 8px 30px rgba(243, 138, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  text-align: left;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.nm-desc {
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  color: #5C4F42;
-  line-height: 1.6;
-  margin: 0 0 1rem 0;
+.save-the-date-card:hover {
+  border-color: rgba(243, 138, 0, 0.5);
+  box-shadow: 0 12px 36px rgba(243, 138, 0, 0.12);
 }
 
-.nm-actions {
+.std-badge-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.65rem;
   flex-wrap: wrap;
 }
 
-.btn-nm-join {
+.std-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.15rem;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, rgba(243, 138, 0, 0.16) 0%, rgba(217, 119, 6, 0.12) 100%);
+  color: #B45309;
+  padding: 0.32rem 0.85rem;
+  border-radius: 99px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-family: var(--font-display);
+  white-space: nowrap;
+}
+
+.std-easter-tag {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #78350F;
+  background: rgba(120, 53, 15, 0.06);
+  border: 1px solid rgba(120, 53, 15, 0.12);
+  padding: 0.32rem 0.85rem;
+  border-radius: 99px;
+  letter-spacing: 0.02em;
+  font-family: var(--font-display);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.std-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.std-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 3.2vw, 1.65rem);
+  font-weight: 800;
+  color: #2D2721;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.std-subtitle {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.std-desc {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  color: #5C4F42;
+  line-height: 1.6;
+  margin: 0.25rem 0 0 0;
+}
+
+.std-highlights-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: #FFFFFF;
+  border: 1px solid #EFE6D8;
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+}
+
+.std-hl-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.std-hl-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(243, 138, 0, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.std-hl-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.std-hl-info strong {
+  font-family: var(--font-display);
   font-size: 0.88rem;
   font-weight: 800;
-  border-radius: 10px;
-  background: #25D366;
-  color: #FFFFFF;
-  box-shadow: 0 3px 12px rgba(37, 211, 102, 0.25);
+  color: #2D2721;
 }
 
-.btn-nm-join:hover {
-  background: #1EBE5D;
-  color: #FFFFFF;
+.std-hl-info span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #8C7B6B;
 }
 
-.btn-nm-insta {
+.std-hl-sep {
+  width: 1px;
+  height: 30px;
+  background: #E5DDD1;
+  flex-shrink: 0;
+}
+
+.std-action-row {
+  width: 100%;
+}
+
+.btn-std-insta {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.65rem 1rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  border-radius: 10px;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.85rem 1.35rem;
+  font-size: 0.92rem;
+  font-weight: 800;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1.5px solid #E5DCD0;
+  color: #2D2721;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.btn-std-insta:hover {
+  border-color: #E1306C;
+  color: #C13584;
+  background: rgba(225, 48, 108, 0.04);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(225, 48, 108, 0.12);
 }
 
 /* 7. CALLOUT BANNER DO GOOGLE PHOTOS NA GALERIA */
@@ -4959,23 +5061,24 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     padding: 0.55rem 1rem;
   }
 
-  .google-photos-callout-card {
+  .save-the-date-card {
+    padding: 1.15rem 1.05rem;
+    border-radius: 16px;
+  }
+
+  .std-highlights-strip {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 0.75rem 0.85rem;
   }
-  
-  .btn-gpc-action {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .nm-actions {
-    flex-direction: column;
+
+  .std-hl-item {
     width: 100%;
   }
-  
-  .btn-nm-join, .btn-nm-insta {
-    width: 100%;
-    justify-content: center;
+
+  .std-hl-sep {
+    display: none;
   }
 }
