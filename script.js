@@ -687,7 +687,7 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach((item, idx) => {
       item.addEventListener('click', () => {
         if (dragDistance > 6 || touchDistance > 6) return;
-        const photoIndex = idx % 17;
+        const photoIndex = idx % photoList.length;
         openLightbox(photoIndex);
       });
     });

@@ -4191,19 +4191,6 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     gap: 0.9rem;
   }
 
-  .faq-support-box {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.42rem 0.65rem;
-    gap: 0.4rem;
-  }
-
-  .faq-support-title {
-    font-size: 0.76rem;
-    white-space: nowrap;
-  }
-
   .btn-coordinator-wa {
     width: auto;
     max-width: none;
@@ -4363,120 +4350,113 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
 }
 
 /* ==========================================================================
-   POST-MISSION, SACRED MOTTO & EASTER 2027 REFINEMENT STYLES
+   MINIMALIST MOBILE-FIRST REDESIGN: HEADER, SACRED MOTTO, CARDS & CENTRO MISSÃO
    ========================================================================== */
 
-/* 1. LEMA SACRO REGNUM CHRISTI / JUVENTUDE MISSIONÁRIA */
-.motto-sacred-lockup {
-  display: inline-flex;
+/* 0. HEADER FIX (ZERO OVERLAP ON MOBILE) */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.brand-text {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.brand-title {
+  font-size: clamp(0.86rem, 3.6vw, 1.04rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brand-subtitle {
+  font-size: clamp(0.47rem, 1.9vw, 0.58rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+/* 1. LEMA SACRO MINIMALISTA (CRISTO REI NOSSO) */
+.motto-minimal-sacred {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.3rem;
-  margin: 0 auto 1.15rem auto;
-  padding: 0.55rem 1.45rem;
-  background: linear-gradient(135deg, rgba(255, 253, 248, 0.96) 0%, rgba(255, 248, 237, 0.92) 100%);
-  border: 1px solid rgba(212, 136, 6, 0.32);
-  border-radius: 99px;
-  box-shadow: 0 4px 16px rgba(243, 138, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  gap: 0.35rem;
+  margin: 0 auto 0.9rem auto;
+  padding: 0;
+  max-width: 100%;
 }
 
-.motto-sacred-lockup:hover {
-  transform: translateY(-1px);
-  border-color: rgba(212, 136, 6, 0.48);
-  box-shadow: 0 6px 20px rgba(243, 138, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
-}
-
-.motto-inner-row {
+.motto-ornament-row {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.motto-hairline {
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 136, 6, 0.45), transparent);
+  display: block;
 }
 
 .motto-cross-symbol {
   color: var(--color-orange);
-  font-size: 1rem;
+  font-size: 0.85rem;
   line-height: 1;
-  text-shadow: 0 1px 3px rgba(243, 138, 0, 0.25);
+  opacity: 0.9;
 }
 
 .motto-sacred-text {
   font-family: var(--font-roman);
-  font-size: clamp(0.85rem, 2.2vw, 1.08rem);
+  font-size: clamp(0.7rem, 2.4vw, 0.88rem);
   font-weight: 700;
-  letter-spacing: 0.07em;
-  color: #6E4613;
+  letter-spacing: 0.08em;
+  color: #7A4F18;
   margin: 0;
   text-transform: uppercase;
   text-align: center;
+  line-height: 1.4;
+  padding: 0 0.5rem;
 }
 
-.motto-caption {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #9E7D52;
-}
-
-/* CALLOUT DO LEMA SACRO NO FAQ */
-.faq-sacred-motto-callout {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  background: linear-gradient(135deg, #FFFDF8 0%, #FFF8EE 100%);
-  border: 1px solid rgba(212, 136, 6, 0.28);
-  border-radius: 14px;
-  padding: 0.8rem 1.15rem;
-  margin: 0.95rem 0;
-  box-shadow: 0 2px 10px rgba(243, 138, 0, 0.05);
-}
-
-.faq-sacred-motto-callout .fsm-cross {
-  color: var(--color-orange);
-  font-size: 1.15rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.faq-sacred-motto-callout .fsm-content {
+/* 2. FRASE BÍBLICA PRINCIPAL (O AMOR DE CRISTO NOS IMPELE — 2 COR 5, 14) */
+.hero-biblical-heading {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  flex: 1;
+  align-items: center;
+  margin: 0 0 1.35rem 0;
 }
 
-.faq-sacred-motto-callout .fsm-label {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #9C7A4A;
-}
-
-.faq-sacred-motto-callout .fsm-quote {
-  font-family: var(--font-roman);
-  font-size: clamp(0.88rem, 2.4vw, 1.05rem);
-  font-weight: 700;
-  color: #6E4613;
-  letter-spacing: 0.04em;
-  margin: 0;
-}
-
-/* 2. TÍTULO HERÓICO APOSTÓLICO */
 .hero-headline-apostolic {
   font-family: var(--font-bible);
-  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  font-size: clamp(2.1rem, 6.5vw, 3.6rem);
   font-style: italic;
   font-weight: 600;
-  line-height: 1.12;
+  line-height: 1.08;
   color: #2D2721;
-  margin: 0 0 1.35rem 0;
+  margin: 0;
   text-align: center;
   letter-spacing: -0.015em;
 }
@@ -4491,150 +4471,106 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   display: block;
   font-weight: 700;
   color: var(--color-orange);
-  text-shadow: 0 3px 18px rgba(243, 138, 0, 0.18);
+  text-shadow: 0 2px 14px rgba(243, 138, 0, 0.14);
 }
 
-/* 3. CARD POST-MISSÃO CELEBRATIVO */
-.hero-post-mission-card {
+.hero-biblical-ref {
+  display: inline-block;
+  margin-top: 0.45rem;
+  font-family: var(--font-roman);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8C7355;
+}
+
+/* 3. BLOCO DE CARDS MINIMALISTAS */
+.hero-top-cta-wrapper {
   width: 100%;
-  background: linear-gradient(180deg, #FFFFFF 0%, #FDFCF9 100%);
-  border: 1px solid rgba(226, 217, 204, 0.9);
-  border-radius: 20px;
-  padding: 1.5rem 1.6rem;
-  box-shadow: 0 8px 30px rgba(46, 41, 37, 0.05);
+  max-width: 620px;
+  margin-bottom: 1.75rem;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
-  text-align: left;
-  box-sizing: border-box;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  gap: 0.95rem;
 }
 
-.hero-post-mission-card:hover {
-  border-color: rgba(243, 138, 0, 0.4);
-  box-shadow: 0 14px 38px rgba(243, 138, 0, 0.1);
+/* CARD 1: MISSÃO CONCLUÍDA (COMPACTO) */
+.hero-post-mission-card {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E8DFD1;
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(46, 41, 37, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+  box-sizing: border-box;
 }
 
 .post-mission-badge-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.65rem;
+  gap: 0.45rem;
   flex-wrap: wrap;
 }
 
 .post-mission-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   background: rgba(37, 211, 102, 0.12);
   color: #0B6B2E;
-  padding: 0.32rem 0.85rem;
+  padding: 0.25rem 0.7rem;
   border-radius: 99px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   font-family: var(--font-display);
   white-space: nowrap;
 }
 
-.post-mission-next-tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-orange);
-  background: rgba(243, 138, 0, 0.08);
-  border: 1px solid rgba(243, 138, 0, 0.2);
-  padding: 0.32rem 0.85rem;
-  border-radius: 99px;
-  letter-spacing: 0.02em;
-  font-family: var(--font-display);
+.pm-compact-chips {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.pm-chip {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #6E5C49;
+  background: #FAF6F0;
+  border: 1px solid #EDE4D7;
+  padding: 0.22rem 0.58rem;
+  border-radius: 99px;
+  white-space: nowrap;
 }
 
 .post-mission-title {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 3.2vw, 1.7rem);
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
   font-weight: 800;
   color: #2D2721;
   line-height: 1.25;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.3rem 0;
   letter-spacing: -0.01em;
 }
 
 .post-mission-desc {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: #5C4F42;
-  line-height: 1.6;
+  line-height: 1.5;
   margin: 0;
 }
 
-/* 4. MÉTRICAS DE FRUTOS DA MISSÃO */
-.post-mission-metrics-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  background: #FDFBF7;
-  border: 1px solid #EFE6D8;
-  border-radius: 14px;
-  padding: 0.75rem 1rem;
-  box-sizing: border-box;
-}
-
-.pm-metric-item {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  flex: 1;
-}
-
-.pm-metric-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: rgba(243, 138, 0, 0.09);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.pm-metric-info {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.25;
-}
-
-.pm-metric-info strong {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: #2D2721;
-}
-
-.pm-metric-info span {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #8C7B6B;
-}
-
-.pm-metric-sep {
-  width: 1px;
-  height: 30px;
-  background: #E5DDD1;
-  flex-shrink: 0;
-}
-
-/* 5. BOTÕES DE AÇÃO HERO */
-.post-mission-actions-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 0.75rem;
+.post-mission-single-action {
   width: 100%;
 }
 
@@ -4642,254 +4578,95 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
-  padding: 0.85rem 1.25rem;
-  font-size: 0.92rem;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.78rem 1rem;
+  font-size: 0.88rem;
   font-weight: 800;
   background: linear-gradient(135deg, #F38A00 0%, #D97706 100%);
   color: #FFFFFF;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(243, 138, 0, 0.32);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 4px 14px rgba(243, 138, 0, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .btn-album-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(243, 138, 0, 0.42);
-  filter: brightness(1.03);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(243, 138, 0, 0.36);
 }
 
-.btn-album-cta:active {
-  transform: translateY(0);
-}
-
-.btn-album-cta .btn-enroll-arrow {
-  transition: transform 0.2s ease;
-}
-
-.btn-album-cta:hover .btn-enroll-arrow {
-  transform: translateX(3px);
-}
-
-#btnInstaHero {
-  font-size: 0.88rem;
-  padding: 0.85rem 1.25rem;
-  border-radius: 12px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: #FFFFFF;
-  border: 1.5px solid #E5DCD0;
-  color: #2D2721;
-  text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-#btnInstaHero:hover {
-  border-color: #E1306C;
-  color: #C13584;
-  background: rgba(225, 48, 108, 0.04);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(225, 48, 108, 0.12);
-}
-
-#btnFaqSupport {
-  font-size: 0.8rem;
-  padding: 0.45rem 0.95rem;
-  border-radius: 99px;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-weight: 700;
-  border: 1px solid #E2D9CE;
-  background: #FFFFFF;
-  color: #2D2721;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-#btnFaqSupport:hover {
-  border-color: #E1306C;
-  color: #C13584;
-  background: rgba(225, 48, 108, 0.04);
-}
-
-.post-mission-single-action {
-  width: 100%;
-}
-
-.post-mission-single-action .btn-album-cta {
-  width: 100%;
-  justify-content: center;
-}
-
-.post-mission-memory-tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #7A5722;
-  background: rgba(212, 136, 6, 0.08);
-  border: 1px solid rgba(212, 136, 6, 0.2);
-  padding: 0.32rem 0.85rem;
-  border-radius: 99px;
-  letter-spacing: 0.02em;
-  font-family: var(--font-display);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-/* 6. CARD OFICIAL: SALVE ESSA DATA • MISSÃO DE PÁSCOA 2027 */
+/* CARD 2: SALVE ESSA DATA • PÁSCOA 2027 (COMPACTO) */
 .save-the-date-card {
   width: 100%;
-  background: linear-gradient(135deg, #FFFDF8 0%, #FFF8EC 100%);
-  border: 1.5px solid rgba(243, 138, 0, 0.35);
-  border-radius: 20px;
-  padding: 1.4rem 1.6rem;
-  box-shadow: 0 8px 30px rgba(243, 138, 0, 0.07);
+  background: linear-gradient(135deg, #FFFDF9 0%, #FFF9F0 100%);
+  border: 1px solid rgba(243, 138, 0, 0.32);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(243, 138, 0, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.75rem;
   text-align: left;
   box-sizing: border-box;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.save-the-date-card:hover {
-  border-color: rgba(243, 138, 0, 0.5);
-  box-shadow: 0 12px 36px rgba(243, 138, 0, 0.12);
 }
 
 .std-badge-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.65rem;
+  gap: 0.45rem;
   flex-wrap: wrap;
 }
 
 .std-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  background: linear-gradient(135deg, rgba(243, 138, 0, 0.16) 0%, rgba(217, 119, 6, 0.12) 100%);
+  gap: 0.35rem;
+  background: rgba(243, 138, 0, 0.14);
   color: #B45309;
-  padding: 0.32rem 0.85rem;
+  padding: 0.25rem 0.7rem;
   border-radius: 99px;
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   font-family: var(--font-display);
   white-space: nowrap;
 }
 
 .std-easter-tag {
-  font-size: 0.76rem;
+  font-size: 0.7rem;
   font-weight: 700;
   color: #78350F;
   background: rgba(120, 53, 15, 0.06);
-  border: 1px solid rgba(120, 53, 15, 0.12);
-  padding: 0.32rem 0.85rem;
+  padding: 0.22rem 0.65rem;
   border-radius: 99px;
-  letter-spacing: 0.02em;
   font-family: var(--font-display);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+  white-space: nowrap;
 }
 
 .std-content {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.25rem;
 }
 
 .std-title {
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 3.2vw, 1.65rem);
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
   font-weight: 800;
   color: #2D2721;
   line-height: 1.25;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-.std-subtitle {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--color-orange);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin: 0;
 }
 
 .std-desc {
   font-family: var(--font-body);
-  font-size: 0.94rem;
-  color: #5C4F42;
-  line-height: 1.6;
-  margin: 0.25rem 0 0 0;
-}
-
-.std-highlights-strip {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  background: #FFFFFF;
-  border: 1px solid #EFE6D8;
-  border-radius: 14px;
-  padding: 0.75rem 1rem;
-  box-sizing: border-box;
-}
-
-.std-hl-item {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex: 1;
-}
-
-.std-hl-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: rgba(243, 138, 0, 0.09);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.std-hl-info {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.25;
-}
-
-.std-hl-info strong {
-  font-family: var(--font-display);
   font-size: 0.88rem;
-  font-weight: 800;
-  color: #2D2721;
-}
-
-.std-hl-info span {
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #8C7B6B;
-}
-
-.std-hl-sep {
-  width: 1px;
-  height: 30px;
-  background: #E5DDD1;
-  flex-shrink: 0;
+  color: #5C4F42;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .std-action-row {
@@ -4900,185 +4677,396 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
+  gap: 0.45rem;
   width: 100%;
-  padding: 0.85rem 1.35rem;
-  font-size: 0.92rem;
-  font-weight: 800;
+  padding: 0.75rem 1rem;
+  font-size: 0.86rem;
+  font-weight: 700;
   border-radius: 12px;
   background: #FFFFFF;
-  border: 1.5px solid #E5DCD0;
+  border: 1px solid #DFD5C7;
   color: #2D2721;
   text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
   box-sizing: border-box;
 }
 
 .btn-std-insta:hover {
-  border-color: #E1306C;
-  color: #C13584;
-  background: rgba(225, 48, 108, 0.04);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(225, 48, 108, 0.12);
+  border-color: var(--color-orange);
+  color: var(--color-orange);
 }
 
-/* 7. CALLOUT BANNER DO GOOGLE PHOTOS NA GALERIA */
-.google-photos-callout-card {
+/* CARD 3: NOS VISITE NO CENTRO MISSÃO */
+.centro-missao-card {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E8DFD1;
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(46, 41, 37, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.cm-badge-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  background: #FFFFFF;
-  border: 1.5px solid rgba(243, 138, 0, 0.35);
-  border-radius: 14px;
-  padding: 0.85rem 1.15rem;
-  margin: 1.15rem 0 1.35rem 0;
-  box-shadow: 0 4px 16px rgba(243, 138, 0, 0.08);
-  box-sizing: border-box;
-  text-align: left;
+  gap: 0.45rem;
+  flex-wrap: wrap;
 }
 
-.gpc-icon-wrap {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(243, 138, 0, 0.12);
-  color: var(--color-orange);
-  display: flex;
+.cm-pill {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  gap: 0.35rem;
+  background: rgba(212, 136, 6, 0.12);
+  color: #7A4F18;
+  padding: 0.25rem 0.7rem;
+  border-radius: 99px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  font-family: var(--font-display);
+  white-space: nowrap;
 }
 
-.gpc-text-wrap {
+.cm-region-tag {
+  font-family: var(--font-roman);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #8C7355;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cm-header-block {
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
-  flex: 1;
+  gap: 0.2rem;
 }
 
-.gpc-text-wrap strong {
+.cm-title {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
   font-weight: 800;
   color: #2D2721;
-}
-
-.gpc-text-wrap span {
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  color: #6E5C49;
-}
-
-.btn-gpc-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--color-orange);
-  color: #FFFFFF;
-  padding: 0.55rem 0.95rem;
-  border-radius: 8px;
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-decoration: none;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.btn-gpc-action:hover {
-  background: #D97706;
-  color: #FFFFFF;
-  transform: translateY(-1px);
-}
-
-/* 8. LEMA NO RODAPÉ */
-.footer-motto-box {
-  margin: 1.1rem auto 1.35rem auto;
-  padding: 0.65rem 1.45rem;
-  background: linear-gradient(135deg, #FFFDF8 0%, #FFF8EE 100%);
-  border: 1px solid rgba(212, 136, 6, 0.28);
-  border-radius: 99px;
-  text-align: center;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.65rem;
-  box-shadow: 0 3px 12px rgba(243, 138, 0, 0.05);
-}
-
-.footer-motto-cross {
-  color: var(--color-orange);
-  font-size: 0.95rem;
-  line-height: 1;
-}
-
-.footer-motto-quote {
-  font-family: var(--font-roman);
-  font-size: clamp(0.85rem, 2.4vw, 1.08rem);
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: #6E4613;
-  text-transform: uppercase;
+  line-height: 1.25;
   margin: 0;
 }
 
-/* RESPONSIVO */
-@media (max-width: 640px) {
-  .hero-post-mission-card {
-    padding: 1.15rem 1.05rem;
-    border-radius: 16px;
+.cm-desc {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: #5C4F42;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.cm-schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.cm-schedule-item {
+  background: #FDFBF7;
+  border: 1px solid #EFE6D8;
+  border-radius: 12px;
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cm-day-badge {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cm-event-name {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #2D2721;
+  line-height: 1.3;
+}
+
+.cm-address-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  background: #FAF7F2;
+  border: 1px solid #EBE1D2;
+  border-radius: 12px;
+  padding: 0.65rem 0.8rem;
+  flex-wrap: wrap;
+}
+
+.cm-address-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 180px;
+}
+
+.cm-pin-icon {
+  color: var(--color-orange);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.cm-address-text strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #2D2721;
+  line-height: 1.25;
+}
+
+.cm-address-text span {
+  display: block;
+  font-size: 0.76rem;
+  color: #6E5C49;
+  margin-top: 0.1rem;
+}
+
+.cm-address-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cm-btn-mini {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.38rem 0.68rem;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: #FFFFFF;
+  border: 1px solid #DFD5C7;
+  color: #2D2721;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cm-btn-mini:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.cm-insta-row {
+  width: 100%;
+}
+
+.btn-cm-insta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.72rem 1rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid #DFD5C7;
+  color: #2D2721;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.btn-cm-insta:hover {
+  border-color: #E1306C;
+  color: #C13584;
+}
+
+/* 4. BOTÃO DO ÁLBUM NO CARROSSEL (CONSERTADO PARA NÃO QUEBRAR NO MOBILE) */
+.carousel-cta-wrapper {
+  margin-top: 1.1rem;
+  margin-bottom: 0.25rem;
+  width: 100%;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.btn-carousel-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 340px;
+  padding: 0.82rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  border-radius: 99px;
+  background: linear-gradient(135deg, var(--color-orange) 0%, #D97706 100%);
+  color: #FFFFFF !important;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(243, 138, 0, 0.3);
+  white-space: normal;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 5. CAIXA "AINDA TEM DÚVIDAS?" (CONSERTADA PARA NÃO QUEBRAR NO MOBILE) */
+.faq-support-box {
+  margin-top: 1rem;
+  padding: 0.95rem 1rem;
+  background: #FDFBF7;
+  border: 1px solid #E6DDD0;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.faq-support-title {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #2D2721;
+  margin: 0;
+  white-space: normal;
+}
+
+.faq-support-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.btn-faq-insta-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 99px;
+  background: #FFFFFF;
+  border: 1px solid #DFD5C7;
+  color: #2D2721;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-faq-insta-pill:hover {
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+/* 6. RODAPÉ MINIMALISTA */
+.footer-motto-minimal {
+  font-family: var(--font-roman);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #7A4F18;
+  text-transform: uppercase;
+  margin: 0.5rem 0 1rem 0;
+  text-align: center;
+}
+
+/* 7. AJUSTES MOBILE-FIRST (TELAS DE CELULAR) */
+@media (max-width: 600px) {
+  .site-header {
+    padding: 0.55rem 0;
   }
 
-  .post-mission-actions-grid {
+  .header-container {
+    padding: 0 0.85rem;
+    gap: 0.4rem;
+  }
+
+  .brand-logo {
+    height: 34px;
+  }
+
+  .header-btn-text-desktop {
+    display: none;
+  }
+
+  #btnHeaderInstagram {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+
+  #btnHeaderCta {
+    padding: 0.38rem 0.75rem;
+    font-size: 0.74rem;
+  }
+
+  .hero-section {
+    padding: 1.5rem 0 2.75rem 0;
+  }
+
+  .hero-post-mission-card,
+  .save-the-date-card,
+  .centro-missao-card {
+    padding: 1.05rem 1rem;
+    border-radius: 15px;
+  }
+
+  .cm-schedule-grid {
     grid-template-columns: 1fr;
-    gap: 0.65rem;
+    gap: 0.45rem;
   }
-  
-  .post-mission-metrics-strip {
-    display: flex;
+
+  .cm-schedule-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .cm-address-box {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.65rem;
-    padding: 0.75rem 0.85rem;
   }
 
-  .pm-metric-item {
+  .cm-address-actions {
     width: 100%;
-  }
-  
-  .pm-metric-sep {
-    display: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .motto-sacred-lockup {
-    padding: 0.45rem 1rem;
-  }
-
-  .footer-motto-box {
-    padding: 0.55rem 1rem;
-  }
-
-  .save-the-date-card {
-    padding: 1.15rem 1.05rem;
-    border-radius: 16px;
-  }
-
-  .std-highlights-strip {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.65rem;
-    padding: 0.75rem 0.85rem;
-  }
-
-  .std-hl-item {
+  .btn-faq-insta-pill {
     width: 100%;
-  }
-
-  .std-hl-sep {
-    display: none;
   }
 }
+
