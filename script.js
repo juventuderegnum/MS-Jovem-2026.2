@@ -110,7 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elHeroDays) elHeroDays.textContent = dStr;
     if (elHeroHours) elHeroHours.textContent = hStr;
     if (elHeroMinutes) elHeroMinutes.textContent = mStr;
-    if (elHeroSeconds) elHeroSeconds.textContent = sStr;
+    if (elHeroSeconds) {
+      if (elHeroSeconds.textContent !== sStr) {
+        elHeroSeconds.textContent = sStr;
+        const unit = elHeroSeconds.parentElement;
+        if (unit) {
+          unit.classList.remove('cd-sec-pulse');
+          void unit.offsetWidth;
+          unit.classList.add('cd-sec-pulse');
+        }
+      }
+    }
   }
 
   if (elDays || elHeroDays) {
@@ -902,6 +912,88 @@ document.addEventListener('DOMContentLoaded', () => {
     postMissionPill.addEventListener('click', () => {
       launchMissionSparkles(postMissionPill);
     });
+  }
+
+  // --- 13. CONTADOR ANIMADO (+100 LARES) ---
+  const laresCounterEl = document.getElementById('laresCounter');
+  if (laresCounterEl) {
+    const duration = 1250;
+    const targetVal = 100;
+    let startTs = null;
+
+    function stepCounter(ts) {
+      if (!startTs) startTs = ts;
+      const progress = Math.min((ts - startTs) / duration, 1);
+      // Curva easeOutQuart suave
+      const eased = 1 - Math.pow(1 - progress, 4);
+      const current = Math.round(eased * targetVal);
+      laresCounterEl.textContent = `+${current}`;
+      if (progress < 1) {
+        requestAnimationFrame(stepCounter);
+      } else {
+        laresCounterEl.textContent = '+100';
+      }
+    }
+    setTimeout(() => requestAnimationFrame(stepCounter), 250);
+  }
+
+  // --- 14. DESTAQUE INTELIGENTE DA "PRÓXIMA MISSA" NO CENTRO MISSÃO ---
+  const scheduleSunday = document.getElementById('scheduleSunday');
+  const scheduleThursday = document.getElementById('scheduleThursday');
+  if (scheduleSunday && scheduleThursday) {
+    const now = new Date();
+    const day = now.getDay(); // 0 = Domingo, 4 = Quinta
+    const hourDecimal = now.getHours() + now.getMinutes() / 60;
+
+    let targetEl = null;
+    let badgeLabel = 'Próxima';
+
+    if (day === 0 && hourDecimal < 12.25) {
+      targetEl = scheduleSunday;
+      badgeLabel = 'Hoje • 11h';
+    } else if (day === 4 && hourDecimal < 21.0) {
+      targetEl = scheduleThursday;
+      badgeLabel = 'Hoje • 19h30';
+    } else if ((day === 0 && hourDecimal >= 12.25) || day === 1 || day === 2 || day === 3) {
+      targetEl = scheduleThursday;
+      badgeLabel = 'Próxima';
+    } else {
+      targetEl = scheduleSunday;
+      badgeLabel = 'Próxima';
+    }
+
+    if (targetEl) {
+      targetEl.classList.add('is-next-mass');
+      const headerRow = targetEl.querySelector('.cm-day-header');
+      if (headerRow) {
+        const indicator = document.createElement('span');
+        indicator.className = 'cm-next-pill';
+        indicator.innerHTML = `<span class="cm-next-dot" aria-hidden="true"></span>${badgeLabel}`;
+        headerRow.appendChild(indicator);
+      }
+    }
+  }
+
+  // --- 15. ENTRADA SUAVE EM CASCATA AO ROLAR A TELA (SCROLL REVEAL) ---
+  const revealElements = document.querySelectorAll(
+    '.hero-post-mission-card, .save-the-date-card, .centro-missao-card, .mission-experience-block, .faq-container-inline'
+  );
+  if ('IntersectionObserver' in window && revealElements.length > 0) {
+    revealElements.forEach((el, idx) => {
+      el.classList.add('reveal-on-scroll');
+      el.style.transitionDelay = `${Math.min(idx * 70, 210)}ms`;
+    });
+
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+    revealElements.forEach((el) => revealObserver.observe(el));
   }
 
 });

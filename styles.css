@@ -5130,10 +5130,10 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
   }
 
   .cm-schedule-item {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.55rem 0.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 0.6rem 0.8rem;
   }
 
   .cm-address-box {
@@ -5151,4 +5151,165 @@ body:has(.bottom-popup-card.active) .scroll-indicator-btn {
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   8. MICRO-ANIMAÇÕES MINIMALISTAS (5 DETALHES DE VIDA E ELEGÂNCIA)
+   ========================================================================== */
+
+/* (1) HALO DE LUZ SACRO NA CRUZ & EXPANSÃO DAS LINHAS DOURADAS */
+@keyframes hairlineExpand {
+  0% { width: 0; opacity: 0; }
+  100% { width: 38px; opacity: 1; }
+}
+
+@keyframes sacredCrossGlow {
+  0%, 100% {
+    transform: scale(1);
+    text-shadow: 0 0 4px rgba(243, 138, 0, 0.25);
+  }
+  50% {
+    transform: scale(1.14);
+    text-shadow: 0 0 12px rgba(245, 158, 11, 0.75), 0 0 22px rgba(243, 138, 0, 0.4);
+  }
+}
+
+.motto-hairline {
+  animation: hairlineExpand 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.motto-cross-symbol {
+  display: inline-block;
+  animation: sacredCrossGlow 3.2s ease-in-out infinite;
+}
+
+/* (2) PULSO NO PONTO LUMINOSO E NOS SEGUNDOS DO TIMER */
+@keyframes liveTimerDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(243, 138, 0, 0.55);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 5px rgba(243, 138, 0, 0);
+  }
+}
+
+@keyframes cdSecondTick {
+  0% { transform: scale(1); border-color: #EDE4D7; }
+  35% { transform: scale(1.05); border-color: rgba(243, 138, 0, 0.45); background: #FFFDF9; }
+  100% { transform: scale(1); border-color: #EDE4D7; }
+}
+
+.mini-countdown-dot {
+  animation: liveTimerDotPulse 2s ease-in-out infinite;
+}
+
+.mini-cd-unit.cd-sec-pulse {
+  animation: cdSecondTick 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* (3) CONTADOR (+100 LARES) & FEIXE DE LUZ SUTIL (SHIMMER) NO BOTÃO DO ÁLBUM */
+.lares-counter-num {
+  color: var(--color-orange);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes subtleButtonShimmer {
+  0% { transform: translateX(-120%) skewX(-20deg); }
+  28%, 100% { transform: translateX(220%) skewX(-20deg); }
+}
+
+.btn-album-cta,
+.btn-carousel-pill {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-album-cta::after,
+.btn-carousel-pill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-120%) skewX(-20deg);
+  animation: subtleButtonShimmer 4.8s ease-in-out 1.4s infinite;
+  pointer-events: none;
+}
+
+/* (4) DESTAQUE INTELIGENTE DA "PRÓXIMA MISSA" NO CENTRO MISSÃO */
+.cm-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.cm-schedule-item.is-next-mass {
+  background: linear-gradient(135deg, #FFFDF9 0%, #FFF7EB 100%);
+  border-color: rgba(243, 138, 0, 0.42);
+  box-shadow: 0 3px 12px rgba(243, 138, 0, 0.08);
+}
+
+.cm-next-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.14rem 0.5rem;
+  border-radius: 99px;
+  background: rgba(37, 211, 102, 0.14);
+  color: #0B6B2E;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cm-next-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 5px rgba(22, 163, 74, 0.7);
+  animation: liveTimerDotPulse 1.8s ease-in-out infinite;
+}
+
+/* (5) ENTRADA SUAVE EM CASCATA (SCROLL REVEAL) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .btn-album-cta::after,
+  .btn-carousel-pill::after,
+  .motto-cross-symbol,
+  .mini-countdown-dot,
+  .mini-cd-unit.cd-sec-pulse {
+    animation: none !important;
+  }
+}
+
 

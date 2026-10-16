@@ -181,7 +181,7 @@
             <div class="post-mission-content">
               <h2 class="post-mission-title">Deus fez maravilhas em nossa missão!</h2>
               <p class="post-mission-desc">
-                Dias de oração, +100 lares visitados e fraternidade na <strong>Paróquia São José Operário</strong> (Zona Norte de SJC - SP). Reviva tudo no álbum oficial.
+                Dias de oração, <strong id="laresCounter" class="lares-counter-num">+100</strong> lares visitados e fraternidade na <strong>Paróquia São José Operário</strong> (Zona Norte de SJC - SP). Reviva tudo no álbum oficial.
               </p>
             </div>
 
@@ -251,12 +251,16 @@
 
             <!-- HORÁRIOS DE MISSA E ADORAÇÃO -->
             <div class="cm-schedule-grid">
-              <div class="cm-schedule-item">
-                <span class="cm-day-badge">Domingos • 11h</span>
+              <div class="cm-schedule-item" id="scheduleSunday">
+                <div class="cm-day-header">
+                  <span class="cm-day-badge">Domingos • 11h</span>
+                </div>
                 <strong class="cm-event-name">Santa Missa</strong>
               </div>
-              <div class="cm-schedule-item">
-                <span class="cm-day-badge">Quintas • 19h30</span>
+              <div class="cm-schedule-item" id="scheduleThursday">
+                <div class="cm-day-header">
+                  <span class="cm-day-badge">Quintas • 19h30</span>
+                </div>
                 <strong class="cm-event-name">Santa Missa + Adoração pós-Missa</strong>
               </div>
             </div>
