@@ -13,12 +13,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- 1. CONFIGURATION & STATE (HARDENED: no localStorage override) ---
-  const OFFICIAL_WHATSAPP_URL = "https://wa.me/5512991882850?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20a%20coordena%C3%A7%C3%A3o%20sobre%20a%20Miss%C3%A3o%20em%20SJC.";
-  const OFFICIAL_INSCRICAO_URL = "https://rcvale.link/missoes-aparecida";
-  const targetEventDate = new Date('2026-10-10T08:00:00');
-  const eventName = "Missão Nossa Senhora Aparecida";
-  const coordinatorWhatsappUrl = OFFICIAL_WHATSAPP_URL;
-  const inscricaoUrl = OFFICIAL_INSCRICAO_URL;
+  const OFFICIAL_INSTAGRAM_URL = "https://www.instagram.com/jm.valedoparaiba/";
+  const OFFICIAL_ALBUM_URL = "https://photos.app.goo.gl/wxo2LKXqNnrjvqy59";
+  const targetEventDate = new Date('2027-03-25T08:00:00'); // Missão de Páscoa 2027
+  const eventName = "Juventude Missionária • Regnum Christi";
 
   // Security: purge any poisoned localStorage keys from previous versions (one-time cleanup, no read-back)
   try {
@@ -42,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const elCountdownEventName = document.getElementById('countdownEventName');
   const elCurrentYear = document.getElementById('currentYear');
 
-  // Registration Buttons
+  // Action Buttons (Álbum & Inscrição)
   const btnHeaderCta = document.getElementById('btnHeaderCta');
   const btnInscricaoTop = document.getElementById('btnInscricaoTop');
   const btnFaqInscricao = document.getElementById('btnFaqInscricao');
@@ -51,10 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnInscricaoBottom = document.getElementById('btnInscricaoBottom');
   const btnPopupInscricao = document.getElementById('btnPopupInscricao');
 
-  // WhatsApp Buttons
+  // Social & Support Buttons
+  const btnHeaderInstagram = document.getElementById('btnHeaderInstagram');
+  const btnInstaHero = document.getElementById('btnInstaHero');
+  const btnFaqSupport = document.getElementById('btnFaqSupport');
   const btnHeaderWa = document.getElementById('btnHeaderWa');
   const btnWhatsappTop = document.getElementById('btnWhatsappTop');
-  const btnFaqSupport = document.getElementById('btnFaqSupport');
   const btnWhatsappMain = document.getElementById('btnWhatsappMain');
   const btnWhatsappBottom = document.getElementById('btnWhatsappBottom');
   const btnPopupWhatsapp = document.getElementById('btnPopupWhatsapp');
@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let countdownInterval = null;
 
   function updateCountdown() {
+    if (!elDays && !elHeroDays) return;
     const now = new Date().getTime();
     const distance = targetEventDate.getTime() - now;
 
@@ -112,37 +113,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elHeroSeconds) elHeroSeconds.textContent = sStr;
   }
 
-  updateCountdown();
-  countdownInterval = setInterval(updateCountdown, 1000);
+  if (elDays || elHeroDays) {
+    updateCountdown();
+    countdownInterval = setInterval(updateCountdown, 1000);
+  }
 
   function updateEventDetailsUI() {
     if (elCountdownEventName) elCountdownEventName.textContent = eventName;
 
-    // Set official registration links
-    const enrollButtons = [
-      btnHeaderCta,
-      btnInscricaoTop,
-      btnFaqInscricao,
-      btnOpenForm,
-      btnOpenFormBackup,
-      btnInscricaoBottom,
-      btnPopupInscricao
-    ];
-    enrollButtons.forEach(btn => {
-      if (btn) btn.href = inscricaoUrl;
-    });
+    // Set official Google Photos album links
+    if (btnHeaderCta) btnHeaderCta.href = OFFICIAL_ALBUM_URL;
+    if (btnFaqInscricao) btnFaqInscricao.href = OFFICIAL_ALBUM_URL;
 
-    // Set official WhatsApp links (Coordenação)
-    const whatsappButtons = [
+    // Set official Instagram links
+    const socialButtons = [
+      btnHeaderInstagram,
+      btnInstaHero,
+      btnFaqSupport,
       btnHeaderWa,
       btnWhatsappTop,
-      btnFaqSupport,
       btnWhatsappMain,
       btnWhatsappBottom,
       btnPopupWhatsapp
     ];
-    whatsappButtons.forEach(btn => {
-      if (btn) btn.href = coordinatorWhatsappUrl;
+    socialButtons.forEach(btn => {
+      if (btn) btn.href = OFFICIAL_INSTAGRAM_URL;
     });
   }
 
@@ -698,11 +693,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- 11. COPIAR ENDEREÇO DA PARÓQUIA ---
+  // --- 11. COPIAR ENDEREÇO DA PARÓQUIA (SE PRESENTE) ---
   const btnCopyAddress = document.getElementById('btnCopyParishAddress');
   if (btnCopyAddress) {
     btnCopyAddress.addEventListener('click', () => {
-      const address = btnCopyAddress.getAttribute('data-address') || 'R. Almenara, 146 - Vila Paiva, São José dos Campos - SP, 12213-440';
+      const address = btnCopyAddress.getAttribute('data-address') || '';
+      if (!address) return;
       
       function showFeedback() {
         const copyTextEl = btnCopyAddress.querySelector('.copy-text');
